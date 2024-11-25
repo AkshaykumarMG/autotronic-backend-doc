@@ -1,0 +1,1004 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >RemoteServiceController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/remote-service/remote-service.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>remote-service</code>
+            </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForSelect" >findAllForSelect</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, createRemoteServiceDto: <a href="../classes/CreateRemoteServiceDto.html" target="_self">CreateRemoteServiceDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/modules/remote-service/remote-service.controller.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new remote service entry.</p>
+<p>This function handles the creation of a new remote service. It sets the
+&#39;createdBy&#39; field of the DTO to the current user&#39;s ID before passing it
+to the service layer for creation.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The current authenticated user.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createRemoteServiceDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateRemoteServiceDto.html" target="_self" >CreateRemoteServiceDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The DTO containing the data for creating a new remote service.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the created remote service entry.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/modules/remote-service/remote-service.controller.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all remote service entries with pagination.</p>
+<p>This endpoint fetches a paginated list of all remote service entries.
+It uses query parameters to determine the page number and the number
+of items per page.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                    The exact structure of the return object depends on the implementation of the service method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The page number of results to return. Used for pagination.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of items to return per page.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object containing the paginated list of remote service entries.
+The exact structure of the return object depends on the implementation of the service method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForSelect"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForSelect</b></span>
+                        <a href="#findAllForSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForSelect()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;select&#x27;)<br />@Roles(UserRole.Dealer, UserRole.Person)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/modules/remote-service/remote-service.controller.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a list of remote services for selection purposes.</p>
+<p>This endpoint is accessible to users with Dealer or Person roles. It fetches
+a list of remote services, likely in a simplified format suitable for
+populating selection dropdowns or similar UI elements.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                    The exact structure of the returned data depends on
+                    the implementation of the service method.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to a list of remote services.
+The exact structure of the returned data depends on
+the implementation of the service method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/modules/remote-service/remote-service.controller.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single remote service entry by its ID.</p>
+<p>This endpoint fetches the details of a specific remote service entry
+based on the provided ID. It&#39;s useful for getting comprehensive
+information about a particular remote service.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This should be a valid MongoDB ObjectId.
+                    The exact structure of the returned object depends on the
+                    implementation of the service method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the remote service to retrieve.
+This should be a valid MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the remote service entry matching the provided ID.
+The exact structure of the returned object depends on the
+implementation of the service method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:id&#x27;)<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">src/modules/remote-service/remote-service.controller.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a remote service entry by its ID.</p>
+<p>This function removes a specific remote service entry from the database
+based on the provided ID. It&#39;s a DELETE operation that doesn&#39;t return
+any data, but instead confirms the successful deletion by returning
+a JSON object with a &#39;success&#39; property set to true.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This should be a valid MongoDB ObjectId.
+                    This indicates that the remote service was successfully deleted.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the remote service to delete.
+This should be a valid MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to a JSON object with a &#39;success&#39; property set to true.
+This indicates that the remote service was successfully deleted.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: Types.ObjectId, updateRemoteServiceDto: <a href="../classes/UpdateRemoteServiceDto.html" target="_self">UpdateRemoteServiceDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id&#x27;)<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/modules/remote-service/remote-service.controller.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates an existing remote service entry.</p>
+<p>This endpoint allows for the modification of a specific remote service entry
+identified by its unique ID. It accepts partial updates, meaning only the
+fields provided in the DTO will be updated.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This should be a valid MongoDB ObjectId.
+                                                    Only the fields provided will be modified.
+                    The returned object represents the remote service after the update operation.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the remote service to update.
+This should be a valid MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateRemoteServiceDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateRemoteServiceDto.html" target="_self" >UpdateRemoteServiceDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The DTO containing the fields to be updated.
+ Only the fields provided will be modified.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the updated remote service entry.
+The returned object represents the remote service after the update operation.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } from &#x27;@nestjs/common&#x27;;
+import { RemoteServiceService } from &#x27;./remote-service.service&#x27;;
+import { CreateRemoteServiceDto } from &#x27;./dto/create-remote-service.dto&#x27;;
+import { UpdateRemoteServiceDto } from &#x27;./dto/update-remote-service.dto&#x27;;
+
+// mongoose
+import { Types } from &#x27;mongoose&#x27;;
+
+// verify user by credential and role
+import { AuthGuard } from &#x27;../../utilities/guard/auth/auth.guard&#x27;;
+import { Roles } from &#x27;../user/role/role.decorator&#x27;;
+import { UserRole } from &#x27;../user/schema/user.schema&#x27;;
+import { RoleGuard } from &#x27;../../utilities/guard/role/role.guard&#x27;;
+import { CurrentUser, ICurrentUser } from &#x27;../user/decorator/current-user.decorator&#x27;;
+
+// swagger cookie
+import { ApiCookieAuth, ApiParam } from &#x27;@nestjs/swagger&#x27;;
+
+@Controller(&#x27;remote-service&#x27;)
+@ApiCookieAuth()
+@UseGuards(AuthGuard, RoleGuard)
+@Roles(UserRole.SuperAdmin)
+export class RemoteServiceController {
+  constructor(private readonly remoteServiceService: RemoteServiceService) {}
+
+  /**
+   * Creates a new remote service entry.
+   * 
+   * This function handles the creation of a new remote service. It sets the
+   * &#x27;createdBy&#x27; field of the DTO to the current user&#x27;s ID before passing it
+   * to the service layer for creation.
+   *
+   * @param {ICurrentUser} user - The current authenticated user.
+   * @param {CreateRemoteServiceDto} createRemoteServiceDto - The DTO containing the data for creating a new remote service.
+   * @returns {Promise&lt;any&gt;} A promise that resolves to the created remote service entry.
+   */
+  @Post()
+  async create(@CurrentUser() user: ICurrentUser, @Body() createRemoteServiceDto: CreateRemoteServiceDto): Promise&lt;any&gt; {
+    createRemoteServiceDto.createdBy &#x3D; user._id;
+    return await this.remoteServiceService.create(createRemoteServiceDto);
+  }
+
+  /**
+   * Retrieves all remote service entries with pagination.
+   * 
+   * This endpoint fetches a paginated list of all remote service entries.
+   * It uses query parameters to determine the page number and the number
+   * of items per page.
+   *
+   * @param {number} page - The page number of results to return. Used for pagination.
+   * @param {number} limit - The maximum number of items to return per page.
+   * @returns {Promise&lt;any&gt;} A promise that resolves to an object containing the paginated list of remote service entries.
+   *                         The exact structure of the return object depends on the implementation of the service method.
+   */
+  @Get()
+  async findAll(@Query(&#x27;page&#x27;) page: number, @Query(&#x27;limit&#x27;) limit: number): Promise&lt;any&gt; {
+    return await this.remoteServiceService.findAll(page, limit);
+  }
+
+  /**
+   * Retrieves a list of remote services for selection purposes.
+   * 
+   * This endpoint is accessible to users with Dealer or Person roles. It fetches
+   * a list of remote services, likely in a simplified format suitable for
+   * populating selection dropdowns or similar UI elements.
+   *
+   * @returns {Promise&lt;any&gt;} A promise that resolves to a list of remote services.
+   *                         The exact structure of the returned data depends on
+   *                         the implementation of the service method.
+   */
+  @Get(&#x27;select&#x27;)
+  @Roles(UserRole.Dealer, UserRole.Person)
+  async findAllForSelect(): Promise&lt;any&gt; {
+    return await this.remoteServiceService.findAllForSelection();
+  }
+
+  /**
+   * Retrieves a single remote service entry by its ID.
+   * 
+   * This endpoint fetches the details of a specific remote service entry
+   * based on the provided ID. It&#x27;s useful for getting comprehensive
+   * information about a particular remote service.
+   *
+   * @param {Types.ObjectId} id - The unique identifier of the remote service to retrieve.
+   *                              This should be a valid MongoDB ObjectId.
+   * @returns {Promise&lt;any&gt;} A promise that resolves to the remote service entry matching the provided ID.
+   *                         The exact structure of the returned object depends on the
+   *                         implementation of the service method.
+   */
+  @Get(&#x27;:id&#x27;)
+  @ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  async findOne(@Param(&#x27;id&#x27;) id: Types.ObjectId): Promise&lt;any&gt; {
+    return await this.remoteServiceService.findOne(id);
+  }
+
+  /**
+   * Updates an existing remote service entry.
+   * 
+   * This endpoint allows for the modification of a specific remote service entry
+   * identified by its unique ID. It accepts partial updates, meaning only the
+   * fields provided in the DTO will be updated.
+   *
+   * @param {Types.ObjectId} id - The unique identifier of the remote service to update.
+   *                              This should be a valid MongoDB ObjectId.
+   * @param {UpdateRemoteServiceDto} updateRemoteServiceDto - The DTO containing the fields to be updated.
+   *                                                         Only the fields provided will be modified.
+   * @returns {Promise&lt;any&gt;} A promise that resolves to the updated remote service entry.
+   *                         The returned object represents the remote service after the update operation.
+   */
+  @Patch(&#x27;:id&#x27;)
+  @ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  async update(@Param(&#x27;id&#x27;) id: Types.ObjectId, @Body() updateRemoteServiceDto: UpdateRemoteServiceDto): Promise&lt;any&gt; {
+    return await this.remoteServiceService.update(id, updateRemoteServiceDto);
+  }
+
+  /**
+   * Deletes a remote service entry by its ID.
+   * 
+   * This function removes a specific remote service entry from the database
+   * based on the provided ID. It&#x27;s a DELETE operation that doesn&#x27;t return
+   * any data, but instead confirms the successful deletion by returning
+   * a JSON object with a &#x27;success&#x27; property set to true.
+   *
+   * @param {Types.ObjectId} id - The unique identifier of the remote service to delete.
+   *                              This should be a valid MongoDB ObjectId.
+   * @returns {Promise&lt;any&gt;} A promise that resolves to a JSON object with a &#x27;success&#x27; property set to true.
+   *                         This indicates that the remote service was successfully deleted.
+   */
+  @Delete(&#x27;:id&#x27;)
+  @ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  async remove(@Param(&#x27;id&#x27;) id: Types.ObjectId): Promise&lt;any&gt; {
+    await this.remoteServiceService.remove(id);
+    return { success: true };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'RemoteServiceController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

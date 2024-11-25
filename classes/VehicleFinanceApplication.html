@@ -1,0 +1,1404 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >VehicleFinanceApplication</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Represents a vehicle finance application.
+This class contains detailed information about the vehicle, applicant, and financing details.</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#_id" >_id</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#age" >age</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#annual_income" >annual_income</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#bankrupt" >bankrupt</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#car_loan_status" >car_loan_status</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#category" >category</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#down_payment" >down_payment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#estimated_credit_score" >estimated_credit_score</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#house_status" >house_status</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#make" >make</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#model" >model</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#monthly_payment" >monthly_payment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#price" >price</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#residency_status" >residency_status</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#result" >result</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#save_preferance" >save_preferance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#user" >user</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#work_type" >work_type</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#year" >year</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_id"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>_id</b></span>
+                        <a href="#_id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>mongoose.Types.ObjectId</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:133</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The unique identifier for the application.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="age"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>age</b></span>
+                        <a href="#age"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Number})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:173</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The age of the applicant. Optional.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="annual_income"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>annual_income</b></span>
+                        <a href="#annual_income"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Number, required: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:165</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The annual income of the applicant.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bankrupt"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>bankrupt</b></span>
+                        <a href="#bankrupt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Boolean})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="189" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:189</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates whether the applicant has been bankrupt. Optional.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="car_loan_status"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>car_loan_status</b></span>
+                        <a href="#car_loan_status"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Boolean})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="185" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:185</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates whether the applicant has an existing car loan. Optional.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="category"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>category</b></span>
+                        <a href="#category"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#VahicleCategory" target="_self" >VahicleCategory</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: String, required: true, index: true, enum: VahicleCategory})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:137</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The category of the vehicle. Must be one of the defined VahicleCategory enum values.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SubVehicleFinanceApplication[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: undefined})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="205" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:205</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>An array of sub-applications for this vehicle finance application. Optional.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="down_payment"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>down_payment</b></span>
+                        <a href="#down_payment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Number, default: 0})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:157</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The amount of down payment for the vehicle. Defaults to 0.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estimated_credit_score"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>estimated_credit_score</b></span>
+                        <a href="#estimated_credit_score"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Number, required: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:169</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The estimated credit score of the applicant.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="house_status"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>house_status</b></span>
+                        <a href="#house_status"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Boolean})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:177</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates whether the applicant owns a house. Optional.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="make"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>make</b></span>
+                        <a href="#make"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: String, required: true, index: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:141</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The make (manufacturer) of the vehicle.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="model"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>model</b></span>
+                        <a href="#model"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: String, required: true, index: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:145</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The model of the vehicle.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="monthly_payment"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>monthly_payment</b></span>
+                        <a href="#monthly_payment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Number, default: 0, min: 0})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:201</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The monthly payment amount the applicant is willing to make. Defaults to 0. Optional.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="price"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>price</b></span>
+                        <a href="#price"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Number, required: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:153</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The price of the vehicle.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="residency_status"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>residency_status</b></span>
+                        <a href="#residency_status"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#ResidencyStatus" target="_self" >ResidencyStatus</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: String, enum: ResidencyStatus})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="197" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:197</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The residency status of the applicant. Must be one of the defined ResidencyStatus enum values. Optional.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="result"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>result</b></span>
+                        <a href="#result"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ResultVehicleFinanceApplication[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: undefined})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="209" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:209</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>An array of financing results for this application. Optional.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save_preferance"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>save_preferance</b></span>
+                        <a href="#save_preferance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Boolean})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:181</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates whether to save the applicant&#39;s preferences.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/User.html" target="_self" >User | Types.ObjectId</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: undefined, ref: undefined})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:161</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The user associated with this application. Can be a User object or ObjectId.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="work_type"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>work_type</b></span>
+                        <a href="#work_type"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#WorkType" target="_self" >WorkType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: String, enum: WorkType})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="193" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:193</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The type of work the applicant is engaged in. Must be one of the defined WorkType enum values. Optional.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="year"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>year</b></span>
+                        <a href="#year"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: Number, required: true, index: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts:149</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The manufacturing year of the vehicle.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Prop, Schema, SchemaFactory } from &#x27;@nestjs/mongoose&#x27;;
+import mongoose, { HydratedDocument, SchemaTypes, Types } from &#x27;mongoose&#x27;;
+import { User } from &#x27;../../user/schema/user.schema&#x27;;
+
+export type VehicleFinanceApplicationDocument &#x3D; HydratedDocument&lt;VehicleFinanceApplication&gt;;
+
+export enum VahicleCategory {
+    car &#x3D; &#x27;car&#x27;,
+    truck &#x3D; &#x27;truck&#x27;,
+    bus &#x3D; &#x27;bus&#x27;,
+    &#x27;commercial_vehicals&#x27; &#x3D; &#x27;commercial_vehicals&#x27;
+}
+
+export enum WorkType {
+    contract &#x3D; &#x27;contract&#x27;,
+    full_time &#x3D; &#x27;full_time&#x27;,
+    part_time &#x3D; &#x27;part_time&#x27;,
+    retired &#x3D; &#x27;retired&#x27;,
+    student &#x3D; &#x27;student&#x27;
+}
+
+export enum ResidencyStatus {
+    canadian_citizen &#x3D; &#x27;canadian_citizen&#x27;,
+    permenent_resident &#x3D; &#x27;permenent_resident&#x27;,
+    other &#x3D; &#x27;other&#x27;
+}
+
+export enum ResultStatus {
+    Approved &#x3D; &#x27;Approved&#x27;,
+    &#x27;Not Approved&#x27; &#x3D; &#x27;Not Approved&#x27;
+}
+
+/**
+ * Represents the result of a vehicle finance application.
+ * This class contains details about the financing offer from a lender.
+ */
+@Schema({ timestamps: false, versionKey: false })
+export class ResultVehicleFinanceApplication {
+    /** The name of the lender providing the financing offer. */
+    @Prop({ type: String, required: true })
+    lender: string;
+
+    /** The score assigned to this financing offer. Higher scores typically indicate better offers. */
+    @Prop({ type: Number, required: true })
+    score: number;
+
+    /** The status of the application result, either &#x27;Approved&#x27; or &#x27;Not Approved&#x27;. */
+    @Prop({ type: String, required: true, enum: ResultStatus })
+    status: ResultStatus;
+
+    /** The term of the loan in months. */
+    @Prop({ type: Number, required: true })
+    term: number;
+
+    /** The total amount of the loan offered. */
+    @Prop({ type: Number, required: true })
+    amount: number;
+
+    /** The monthly payment amount for the loan. */
+    @Prop({ type: Number, required: true })
+    monthly_payment: number;
+    
+    /** The Annual Percentage Rate (APR) of the loan. */
+    @Prop({ type: Number, required: true })
+    apr: number;
+    
+    /** Additional notes or comments about the financing offer. */
+    @Prop({ type: [String], default: [] })
+    notes: string[];
+}
+export const ResultVehicleFinanceApplicationSchema &#x3D; SchemaFactory.createForClass(ResultVehicleFinanceApplication);
+
+
+/**
+ * Represents a sub-application for vehicle financing.
+ * This class contains detailed information about the applicant and their financial situation.
+ */
+@Schema({ timestamps: true, versionKey: false })
+export class SubVehicleFinanceApplication {
+    /** The age of the applicant in years. */
+    @Prop({ type: Number, required: true })
+    age: number;
+
+    /** The annual income of the applicant in the applicable currency. */
+    @Prop({ type: Number, required: true })
+    annual_income: number;
+
+    /** Indicates whether the applicant owns a house. Default is false. */
+    @Prop({ type: Boolean, default: false })
+    house_status: boolean;
+    
+    /** Indicates whether the applicant has an existing car loan. Default is false. */
+    @Prop({ type: Boolean, default: false })
+    car_loan_status: boolean;
+    
+    /** Indicates whether the applicant has been bankrupt. Default is false. */
+    @Prop({ type: Boolean, default: false })
+    bankrupt: boolean;
+    
+    /** The type of work the applicant is engaged in. Must be one of the defined WorkType enum values. */
+    @Prop({ type: String, required: true, enum: WorkType })
+    work_type: WorkType;
+    
+    /** The residency status of the applicant. Must be one of the defined ResidencyStatus enum values. */
+    @Prop({ type: String, required: true, enum: ResidencyStatus })
+    residency_status: ResidencyStatus;
+    
+    /** The amount of down payment the applicant is willing to make. Default is 0. */
+    @Prop({ type: Number, default: 0 })
+    down_payment: number;
+    
+    /** The estimated credit score of the applicant. Default is 0. */
+    @Prop({ type: Number, default: 0 })
+    estimated_credit_score: number;
+
+    /** The monthly payment amount the applicant is willing to make. Default is 0. */
+    @Prop({ type: Number, default: 0 })
+    monthly_payment: number;
+
+    /** An optional array of financing results for this sub-application. */
+    @Prop({ type: [ResultVehicleFinanceApplicationSchema] })
+    result?: ResultVehicleFinanceApplication[];
+}
+export const SubVehicleFinanceApplicationSchema &#x3D; SchemaFactory.createForClass(SubVehicleFinanceApplication);
+
+/**
+ * Represents a vehicle finance application.
+ * This class contains detailed information about the vehicle, applicant, and financing details.
+ */
+@Schema({ timestamps: true, versionKey: false })
+export class VehicleFinanceApplication {
+    /** The unique identifier for the application. */
+    _id?: mongoose.Types.ObjectId;
+
+    /** The category of the vehicle. Must be one of the defined VahicleCategory enum values. */
+    @Prop({ type: String, required: true, index: true, enum: VahicleCategory })
+    category: VahicleCategory;
+
+    /** The make (manufacturer) of the vehicle. */
+    @Prop({ type: String, required: true, index: true })
+    make: string;
+
+    /** The model of the vehicle. */
+    @Prop({ type: String, required: true, index: true })
+    model: string;
+
+    /** The manufacturing year of the vehicle. */
+    @Prop({ type: Number, required: true, index: true })
+    year: number;
+
+    /** The price of the vehicle. */
+    @Prop({ type: Number, required: true })
+    price: number;
+
+    /** The amount of down payment for the vehicle. Defaults to 0. */
+    @Prop({ type: Number, default: 0 })
+    down_payment: number;
+
+    /** The user associated with this application. Can be a User object or ObjectId. */
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: User.name })
+    user?: User | Types.ObjectId;
+
+    /** The annual income of the applicant. */
+    @Prop({ type: Number, required: true })
+    annual_income: number;
+
+    /** The estimated credit score of the applicant. */
+    @Prop({ type: Number, required: true })
+    estimated_credit_score: number;
+
+    /** The age of the applicant. Optional. */
+    @Prop({ type: Number })
+    age?: number;
+
+    /** Indicates whether the applicant owns a house. Optional. */
+    @Prop({ type: Boolean })
+    house_status?: boolean;
+
+    /** Indicates whether to save the applicant&#x27;s preferences. */
+    @Prop({ type: Boolean })
+    save_preferance: boolean;
+
+    /** Indicates whether the applicant has an existing car loan. Optional. */
+    @Prop({ type: Boolean })
+    car_loan_status?: boolean;
+
+    /** Indicates whether the applicant has been bankrupt. Optional. */
+    @Prop({ type: Boolean })
+    bankrupt?: boolean;
+
+    /** The type of work the applicant is engaged in. Must be one of the defined WorkType enum values. Optional. */
+    @Prop({ type: String, enum: WorkType })
+    work_type?: WorkType;
+
+    /** The residency status of the applicant. Must be one of the defined ResidencyStatus enum values. Optional. */
+    @Prop({ type: String, enum: ResidencyStatus })
+    residency_status?: ResidencyStatus;
+
+    /** The monthly payment amount the applicant is willing to make. Defaults to 0. Optional. */
+    @Prop({ type: Number, default: 0, min: 0 })
+    monthly_payment?: number;
+
+    /** An array of sub-applications for this vehicle finance application. Optional. */
+    @Prop({ type: [SubVehicleFinanceApplicationSchema] })
+    data?: SubVehicleFinanceApplication[];
+
+    /** An array of financing results for this application. Optional. */
+    @Prop({ type: [ResultVehicleFinanceApplicationSchema] })
+    result?: ResultVehicleFinanceApplication[];
+}
+export const VehicleFinanceApplicationSchema &#x3D; SchemaFactory.createForClass(VehicleFinanceApplication);</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'VehicleFinanceApplication.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

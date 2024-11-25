@@ -1,0 +1,3743 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >CarController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/car/car.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>car</code>
+            </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#carCount" >carCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#countCarByStore" >countCarByStore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#countCarByStoreID" >countCarByStoreID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#countCarByUserID" >countCarByUserID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createMediaUploadURL" >createMediaUploadURL</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllCarByAdminStore" >findAllCarByAdminStore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllScrap" >findAllScrap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findCarByDealerORUserID" >findCarByDealerORUserID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findCarByStore" >findCarByStore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findCarForClient" >findCarForClient</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findCarForClientByFilter" >findCarForClientByFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findCarForClientByStoreFilter" >findCarForClientByStoreFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneCarByID" >findOneCarByID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneCarForUpdateOrViewByID" >findOneCarForUpdateOrViewByID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#increaseCarViewCount" >increaseCarViewCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#manageCarMedia" >manageCarMedia</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateCar" >updateCar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateMediaPostion" >updateMediaPostion</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateStatus" >updateStatus</a>
+                            </li>
+                            <li>
+                                <a href="#validateID" >validateID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#verifyVinNumber" >verifyVinNumber</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carCount"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>carCount</b></span>
+                        <a href="#carCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>carCount()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;count&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the total count of cars from Redis cache.</p>
+<p>This endpoint fetches the current count of all cars stored in the system.
+The count is retrieved from a Redis cache for improved performance.
+Note: This endpoint is currently not protected by authentication or role-based access control,
+but commented-out decorators suggest it may be restricted to SuperAdmin role in the future.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The value is retrieved from Redis cache with the key &#39;all:car&#39;.
+     The type of the returned value depends on how it&#39;s stored in Redis,
+     typically a string or number representing the total car count.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the count of all cars.
+The value is retrieved from Redis cache with the key &#39;all:car&#39;.
+The type of the returned value depends on how it&#39;s stored in Redis,
+typically a string or number representing the total car count.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countCarByStore"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>countCarByStore</b></span>
+                        <a href="#countCarByStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>countCarByStore(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;count/store&#x27;)<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.Admin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="250"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:250</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the count of cars associated with the authenticated admin&#39;s store.</p>
+<p>This endpoint is protected and requires authentication and admin role authorization.
+It uses the current user&#39;s ID to fetch the car count for their associated store.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">          This object contains the user&#39;s ID and other relevant details.
+
+     The exact type of the returned value depends on the implementation of
+     the CarService&#39;s countCarByStore method, typically a number.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The current authenticated user&#39;s information, obtained from the</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the count of cars associated with the admin&#39;s store.
+The exact type of the returned value depends on the implementation of
+the CarService&#39;s countCarByStore method, typically a number.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countCarByStoreID"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>countCarByStoreID</b></span>
+                        <a href="#countCarByStoreID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>countCarByStoreID(storeId: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;count/store/:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.Dealer, UserRole.Person)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="272"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:272</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the count of cars associated with a specific store.</p>
+<p>This endpoint is protected and requires authentication and role-based authorization.
+It&#39;s accessible to users with Dealer or Person roles.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                              This is passed as a route parameter.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>storeId</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the store for which to count cars.
+This is passed as a route parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the number of cars associated with the specified store.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countCarByUserID"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>countCarByUserID</b></span>
+                        <a href="#countCarByUserID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>countCarByUserID(userId: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;count/user/:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.Dealer, UserRole.Person)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="295"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:295</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the count of cars associated with a specific user.</p>
+<p>This endpoint is protected and requires authentication and role-based authorization.
+It&#39;s accessible to users with Dealer or Person roles.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                             This is passed as a route parameter.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the user for which to count cars.
+This is passed as a route parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the number of cars associated with the specified user.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, createCar: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new car entry.</p>
+<p>This function is responsible for creating a new car entry in the system.
+It requires authentication and proper role authorization.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The current authenticated user&#39;s information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createCar</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data for creating a new car. This should contain all necessary information for a car entry.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing a success boolean and the ID of the newly created car entry.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createMediaUploadURL"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>createMediaUploadURL</b></span>
+                        <a href="#createMediaUploadURL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createMediaUploadURL(ext: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="../undefineds/MediaType.html" target="_self">MediaType</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;get-url/:ext/:type&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;ext&#x27;, required: true, type: &#x27;string&#x27;})<br />@ApiParam({name: &#x27;type&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="371"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:371</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Generates a pre-signed URL for media upload.</p>
+<p>This endpoint creates a pre-signed URL that allows for secure uploading of media files
+to a specified storage service. It&#39;s protected by authentication and role-based guards.</p>
+<ul>
+<li>success: A boolean indicating if the URL was successfully generated.</li>
+<li>data: The generated pre-signed URL and any additional metadata returned by the service.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ext</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The file extension of the media to be uploaded (e.g., &#39;jpg&#39;, &#39;mp4&#39;).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#MediaType" target="_self" >MediaType</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The type of media being uploaded, as defined by the MediaType enum.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object containing:</p>
+<ul>
+<li>success: A boolean indicating if the URL was successfully generated.</li>
+<li>data: The generated pre-signed URL and any additional metadata returned by the service.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.SuperAdmin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a paginated list of all cars.</p>
+<p>This endpoint is protected and only accessible to users with SuperAdmin role.
+It uses cookie-based authentication and requires both AuthGuard and RoleGuard.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The exact structure of the return value depends on the implementation
+     of the CarService&#39;s findAll method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination. Determines which set of results to return.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of items to return per page.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to a paginated list of car entries.
+The exact structure of the return value depends on the implementation
+of the CarService&#39;s findAll method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllCarByAdminStore"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllCarByAdminStore</b></span>
+                        <a href="#findAllCarByAdminStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllCarByAdminStore(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;admin/store&#x27;)<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.Admin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all cars associated with an admin&#39;s store.</p>
+<p>This endpoint is protected and requires authentication and admin role authorization.
+It returns a paginated list of cars for the store managed by the authenticated admin.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The exact structure of the return value depends on the implementation of
+     the CarService&#39;s findAllCarByAdminStore method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The current authenticated user&#39;s information, obtained from the</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination, specified as a query parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of items to return per page, specified as a query parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to a paginated list of cars associated with the admin&#39;s store.
+The exact structure of the return value depends on the implementation of
+the CarService&#39;s findAllCarByAdminStore method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllScrap"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllScrap</b></span>
+                        <a href="#findAllScrap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllScrap()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;scrap&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="166"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves and updates the count of all cars in the system.</p>
+<p>This endpoint is typically used for maintenance or administrative purposes.
+It triggers a process to update the count of all cars, which might involve
+recalculating or refreshing the total number of car entries in the database.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The exact return value depends on the implementation of
+     the CarService&#39;s updateAllCount method, but it&#39;s likely to be
+     a number representing the updated total count of cars or
+     an object containing the updated count and any additional metadata.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the result of the update operation.
+The exact return value depends on the implementation of
+the CarService&#39;s updateAllCount method, but it&#39;s likely to be
+a number representing the updated total count of cars or
+an object containing the updated count and any additional metadata.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findCarByDealerORUserID"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findCarByDealerORUserID</b></span>
+                        <a href="#findCarByDealerORUserID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findCarByDealerORUserID(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, dealerOrUserId: Types.ObjectId, status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;user/:id/:status&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@ApiParam({name: &#x27;status&#x27;, required: true, enum: undefined})<br />@UseGuards(AuthGuard, RoleGuard)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="349"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves cars associated with a specific dealer or user, filtered by status.</p>
+<p>This endpoint is protected and requires authentication. It fetches a paginated list of cars
+for a given dealer or user, based on their ID and the specified status of the cars.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                    The exact structure of the return value depends on the implementation of
+                    the CarService&#39;s findCarByDealerORUserID method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The current authenticated user&#39;s information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>dealerOrUserId</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ID of the dealer or user whose cars are being retrieved.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The status of cars to retrieve. Must be one of: &#39;live&#39;, &#39;removed&#39;, or &#39;sold&#39;.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of cars to return per page.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the paginated list of cars matching the criteria.
+The exact structure of the return value depends on the implementation of
+the CarService&#39;s findCarByDealerORUserID method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findCarByStore"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findCarByStore</b></span>
+                        <a href="#findCarByStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findCarByStore(storeId: Types.ObjectId, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;store/:id&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves cars associated with a specific store.</p>
+<p>This endpoint fetches a paginated list of cars that belong to the specified store.
+It validates the store ID before processing the request.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The exact structure of the return value depends on the implementation of
+     the CarService&#39;s findCarByStore method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>storeId</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the store for which to retrieve cars.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination. Determines which set of results to return.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of cars to return per page.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to a paginated list of cars associated with the specified store.
+The exact structure of the return value depends on the implementation of
+the CarService&#39;s findCarByStore method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findCarForClient"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findCarForClient</b></span>
+                        <a href="#findCarForClient"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findCarForClient(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;client&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="389"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:389</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a paginated list of cars for client-side display.</p>
+<p>This endpoint fetches cars that are suitable for client viewing, potentially
+applying filters or sorting to ensure only appropriate and active listings are returned.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The exact structure of the return value depends on the implementation of
+     the CarService&#39;s findCarForClient method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The page number of results to return. Used for pagination.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of car entries to return per page.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to a paginated list of car entries suitable for client viewing.
+The exact structure of the return value depends on the implementation of
+the CarService&#39;s findCarForClient method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findCarForClientByFilter"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findCarForClientByFilter</b></span>
+                        <a href="#findCarForClientByFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findCarForClientByFilter(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, list: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, createUserFilterDto: <a href="../classes/CreateUserFilterDto.html" target="_self">CreateUserFilterDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;client/filter&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Searches for cars based on client-specified filters.</p>
+<p>This endpoint allows clients to search for cars using custom filters. It paginates the results
+and can return either a full list or a subset based on the &#39;list&#39; parameter.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination. Should be a string that can be converted to a number.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>list</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>A string indicating whether to return a full or partial list of results.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createUserFilterDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateUserFilterDto.html" target="_self" >CreateUserFilterDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An object containing the filter criteria specified by the user.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the filtered list of cars. If no cars are found, it throws a Not Found exception.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findCarForClientByStoreFilter"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findCarForClientByStoreFilter</b></span>
+                        <a href="#findCarForClientByStoreFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findCarForClientByStoreFilter(findCarStoreDTO: <a href="../classes/FindCarStoreDTO.html" target="_self">FindCarStoreDTO</a>, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;client/storefilter&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Filters and retrieves cars for a client based on store-specific criteria.</p>
+<p>This endpoint allows clients to search for cars within a specific store or set of stores,
+applying custom filters. The results are paginated for better performance and user experience.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                     This includes store IDs and any other relevant filter parameters.
+
+     and potentially metadata about the results (e.g., total count, page info).</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>findCarStoreDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/FindCarStoreDTO.html" target="_self" >FindCarStoreDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data Transfer Object containing the store-specific filter criteria.
+This includes store IDs and any other relevant filter parameters.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination. Determines which set of results to return.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of results to return per page.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an object containing the filtered list of cars
+and potentially metadata about the results (e.g., total count, page info).</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneCarByID"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneCarByID</b></span>
+                        <a href="#findOneCarByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneCarByID(carId: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;client/:id&#x27;)<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="410"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:410</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single car by its ID for client-side display.</p>
+<p>This endpoint fetches detailed information about a specific car based on its unique identifier.
+It&#39;s designed for client-side use and may include additional processing or filtering of the data.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                            This is passed as a route parameter.
+
+                    The exact structure of the returned car object depends on the
+                    implementation of the CarService&#39;s findOneCarByID method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>carId</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the car to retrieve.
+This is passed as a route parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Car.html" target="_self" >Promise&lt;Car&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the car object if found.
+The exact structure of the returned car object depends on the
+implementation of the CarService&#39;s findOneCarByID method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneCarForUpdateOrViewByID"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneCarForUpdateOrViewByID</b></span>
+                        <a href="#findOneCarForUpdateOrViewByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneCarForUpdateOrViewByID(carId: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="438"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:438</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single car by its ID for updating or viewing purposes.</p>
+<p>This endpoint is protected and requires authentication and role-based authorization.
+It fetches detailed information about a specific car based on its unique identifier,
+which can be used for either updating the car&#39;s information or viewing its details.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                            This is passed as a route parameter.
+
+                    The exact structure of the returned car object depends on the
+                    implementation of the CarService&#39;s findOneCarForUpdateOrViewByID method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>carId</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the car to retrieve.
+This is passed as a route parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Car.html" target="_self" >Promise&lt;Car&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the car object if found.
+The exact structure of the returned car object depends on the
+implementation of the CarService&#39;s findOneCarForUpdateOrViewByID method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="increaseCarViewCount"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>increaseCarViewCount</b></span>
+                        <a href="#increaseCarViewCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>increaseCarViewCount(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;increase/:id&#x27;)<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Increases the view count for a specific car.</p>
+<p>This endpoint is used to increment the view count of a car when it is viewed by a user.
+It&#39;s typically called when a car&#39;s detail page is accessed.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">        This is passed as a route parameter.
+
+            the view count increase operation in the CarService.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the car whose view count should be increased.
+This is passed as a route parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void - This function doesn&#39;t return any value. It simply triggers
+       the view count increase operation in the CarService.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="manageCarMedia"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>manageCarMedia</b></span>
+                        <a href="#manageCarMedia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>manageCarMedia(carId: Types.ObjectId, createCarMediaDto: <a href="../classes/CreateCarMediaDto.html" target="_self">CreateCarMediaDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;media/:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="322"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:322</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Manages media associated with a specific car.</p>
+<p>This endpoint allows for the addition, modification, or removal of media (such as images or videos)
+for a given car. It requires authentication and is protected by role-based access control.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                            This is passed as a route parameter.
+                                           to be managed. This could include new media to add,
+                                           existing media to modify, or media to remove.
+
+                                     of the operation. Returns { success: true } if the media
+                                     was successfully managed.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>carId</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the car whose media is being managed.
+This is passed as a route parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createCarMediaDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateCarMediaDto.html" target="_self" >CreateCarMediaDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data Transfer Object containing the media information
+to be managed. This could include new media to add,
+existing media to modify, or media to remove.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object indicating the success
+of the operation. Returns { success: true } if the media
+was successfully managed.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.SuperAdmin, UserRole.SuperAdmin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="539"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:539</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes a car from the database.</p>
+<p>This endpoint is protected and requires authentication and role-based authorization.
+It&#39;s restricted to users with SuperAdmin role.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This is passed as a route parameter.
+
+                                     the success of the operation. Returns { success: true }
+                                     if the car was successfully removed.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the car to be removed.
+This is passed as a route parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object indicating
+the success of the operation. Returns { success: true }
+if the car was successfully removed.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateCar"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>updateCar</b></span>
+                        <a href="#updateCar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateCar(id: Types.ObjectId, updateCarDto: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="489"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:489</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates a car&#39;s information in the database.</p>
+<p>This endpoint is protected and requires authentication and role-based authorization.
+It updates the car details based on the provided ID and update data.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This is passed as a route parameter.
+                        The structure of this object depends on the car model and
+                        what fields are allowed to be updated.</code></pre></div><ul>
+<li>success: A boolean indicating if the update was successful (always true if the function completes).</li>
+<li>stock_number: The stock number of the updated car, as returned by the update operation.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the car to be updated.
+This is passed as a route parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateCarDto</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Data Transfer Object containing the updated car information.
+The structure of this object depends on the car model and
+what fields are allowed to be updated.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object containing:</p>
+<ul>
+<li>success: A boolean indicating if the update was successful (always true if the function completes).</li>
+<li>stock_number: The stock number of the updated car, as returned by the update operation.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateMediaPostion"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>updateMediaPostion</b></span>
+                        <a href="#updateMediaPostion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateMediaPostion(createMediaPositionDTO: <a href="../classes/CreateMediaPositionDTO.html" target="_self">CreateMediaPositionDTO</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;media&#x27;)<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="464"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:464</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the position of media associated with a car.</p>
+<p>This endpoint is protected and requires authentication and role-based authorization.
+It allows for updating the order or position of media items (such as images or videos)
+associated with a car listing.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">   the updated position information for car media. This typically includes
+   identifiers for the media items and their new positions.
+
+     indicating the success of the operation. Returns { success: true } if
+     the media positions were successfully updated.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createMediaPositionDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateMediaPositionDTO.html" target="_self" >CreateMediaPositionDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data Transfer Object containing
+the updated position information for car media. This typically includes
+identifiers for the media items and their new positions.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object
+indicating the success of the operation. Returns { success: true } if
+the media positions were successfully updated.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateStatus"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>updateStatus</b></span>
+                        <a href="#updateStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateStatus(id: Types.ObjectId, updateCarDto: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;status/:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="514"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:514</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the status of a car.</p>
+<p>This endpoint is protected and requires authentication and role-based authorization.
+It allows updating the status of a specific car identified by its ID.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This is passed as a route parameter.
+                        The structure of this object depends on what status-related fields
+                        are allowed to be updated in the car model.
+
+                                     the success of the operation. Returns { success: true }
+                                     if the status was successfully updated.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the car whose status is to be updated.
+This is passed as a route parameter.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateCarDto</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Data Transfer Object containing the updated status information.
+The structure of this object depends on what status-related fields
+are allowed to be updated in the car model.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object indicating
+the success of the operation. Returns { success: true }
+if the status was successfully updated.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateID"></a>
+                    <span class="name">
+                        <span ><b>validateID</b></span>
+                        <a href="#validateID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateID(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="556"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:556</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validates whether the provided ID is a valid MongoDB ObjectId.</p>
+<p>This function checks if the given ID is a valid MongoDB ObjectId.
+If the ID is invalid, it throws an HttpException with a &#39;Not Acceptable&#39; status.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId to be validated.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Returns true if the ID is valid.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifyVinNumber"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>verifyVinNumber</b></span>
+                        <a href="#verifyVinNumber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifyVinNumber(verifyVinDTO: <a href="../classes/VerifyVinDTO.html" target="_self">VerifyVinDTO</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;verify-vin&#x27;)<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/modules/car/car.controller.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifies the Vehicle Identification Number (VIN) of a car.</p>
+<p>This endpoint is protected and requires authentication and proper role authorization.
+It uses the CarService to perform the VIN verification process.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                  This should include the VIN and any other necessary details for verification.
+
+     The exact structure of the return value depends on the implementation of
+     the CarService&#39;s verifyVINNumber method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>verifyVinDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/VerifyVinDTO.html" target="_self" >VerifyVinDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data Transfer Object containing the VIN information to be verified.
+This should include the VIN and any other necessary details for verification.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the result of the VIN verification process.
+The exact structure of the return value depends on the implementation of
+the CarService&#39;s verifyVINNumber method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpStatus, UseGuards, Query, Inject } from &#x27;@nestjs/common&#x27;;
+import { CarService } from &#x27;./car.service&#x27;;
+import { Types } from &#x27;mongoose&#x27;;
+import { CreateCarMediaDto } from &#x27;./dto/media-car.dto&#x27;;
+import { MediaType } from &#x27;../../utilities/services/aws_s3/aws_s3.service&#x27;;
+import { CreateMediaPositionDTO } from &#x27;./dto/create-media-position.dto&#x27;;
+import { CreateUserFilterDto } from &#x27;./dto/create-user-filter.dto&#x27;;
+import { VerifyVinDTO } from &#x27;./dto/verify-vin.dto&#x27;;
+import { FindCarStoreDTO } from &#x27;./dto/store-car-find.dto&#x27;;
+
+// mongoose schema
+import { Car } from &#x27;./schema/car.schema&#x27;;
+
+// swagger cookie
+import { ApiCookieAuth, ApiParam } from &#x27;@nestjs/swagger&#x27;;
+
+// store new added car in priority
+import { RedisService } from &#x27;../../utilities/services/redis/redis.service&#x27;;
+
+// verify user by credential and role
+import { AuthGuard } from &#x27;../../utilities/guard/auth/auth.guard&#x27;;
+import { Roles } from &#x27;../user/role/role.decorator&#x27;;
+import { UserRole } from &#x27;../user/schema/user.schema&#x27;;
+import { RoleGuard } from &#x27;../../utilities/guard/role/role.guard&#x27;;
+import { CurrentUser, ICurrentUser } from &#x27;../user/decorator/current-user.decorator&#x27;;
+
+@Controller(&#x27;car&#x27;)
+export class CarController {
+  constructor(
+    private readonly carService: CarService,
+    private readonly redisService: RedisService,
+  ) { }
+
+  /**
+   * Creates a new car entry.
+   * 
+   * This function is responsible for creating a new car entry in the system.
+   * It requires authentication and proper role authorization.
+   * 
+   * @param user - The current authenticated user&#x27;s information.
+   * @param createCar - The data for creating a new car. This should contain all necessary information for a car entry.
+   * @returns An object containing a success boolean and the ID of the newly created car entry.
+   */
+  @Post()
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  async create(@CurrentUser() user: ICurrentUser, @Body() createCar: any) {
+    const id &#x3D; await this.carService.create(createCar, user);
+    return { success: true, id }
+  }
+
+  /**
+   * Verifies the Vehicle Identification Number (VIN) of a car.
+   * 
+   * This endpoint is protected and requires authentication and proper role authorization.
+   * It uses the CarService to perform the VIN verification process.
+   *
+   * @param verifyVinDTO - Data Transfer Object containing the VIN information to be verified.
+   *                       This should include the VIN and any other necessary details for verification.
+   * 
+   * @returns A Promise that resolves to the result of the VIN verification process.
+   *          The exact structure of the return value depends on the implementation of
+   *          the CarService&#x27;s verifyVINNumber method.
+   */
+  @Post(&#x27;verify-vin&#x27;)
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  async verifyVinNumber(@Body() verifyVinDTO: VerifyVinDTO) {
+    return await this.carService.verifyVINNumber(verifyVinDTO);
+  }
+
+  /**
+   * Increases the view count for a specific car.
+   * 
+   * This endpoint is used to increment the view count of a car when it is viewed by a user.
+   * It&#x27;s typically called when a car&#x27;s detail page is accessed.
+   *
+   * @param id - The ObjectId of the car whose view count should be increased.
+   *             This is passed as a route parameter.
+   * 
+   * @returns void - This function doesn&#x27;t return any value. It simply triggers
+   *                 the view count increase operation in the CarService.
+   */
+  @Post(&#x27;increase/:id&#x27;)
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  async increaseCarViewCount(@Param(&#x27;id&#x27;) id: Types.ObjectId) {
+    this.carService.increaseCarViewCount(id);
+  }
+
+  /**
+   * Searches for cars based on client-specified filters.
+   * 
+   * This endpoint allows clients to search for cars using custom filters. It paginates the results
+   * and can return either a full list or a subset based on the &#x27;list&#x27; parameter.
+   *
+   * @param page - The page number for pagination. Should be a string that can be converted to a number.
+   * @param list - A string indicating whether to return a full or partial list of results.
+   * @param createUserFilterDto - An object containing the filter criteria specified by the user.
+   * 
+   * @returns A Promise that resolves to the filtered list of cars. If no cars are found, it throws a Not Found exception.
+   * 
+   * @throws {HttpException} Throws a Not Found exception if no cars match the specified filters.
+   */
+  @Post(&#x27;client/filter&#x27;)
+  async findCarForClientByFilter(@Query(&#x27;page&#x27;) page: string, @Query(&#x27;list&#x27;) list: string, @Body() createUserFilterDto: CreateUserFilterDto) {
+    const result &#x3D; await this.carService.findCarForClientByFilter(createUserFilterDto, page, list);
+    if (!result) {
+      throw new HttpException(&#x27;No car found&#x27;, HttpStatus.NOT_FOUND);
+    }
+    return result;
+  }
+
+  /**
+   * Filters and retrieves cars for a client based on store-specific criteria.
+   * 
+   * This endpoint allows clients to search for cars within a specific store or set of stores,
+   * applying custom filters. The results are paginated for better performance and user experience.
+   *
+   * @param findCarStoreDTO - Data Transfer Object containing the store-specific filter criteria.
+   *                          This includes store IDs and any other relevant filter parameters.
+   * @param page - The page number for pagination. Determines which set of results to return.
+   * @param limit - The maximum number of results to return per page.
+   * 
+   * @returns A Promise that resolves to an object containing the filtered list of cars
+   *          and potentially metadata about the results (e.g., total count, page info).
+   */
+  @Post(&#x27;client/storefilter&#x27;)
+  async findCarForClientByStoreFilter(@Body() findCarStoreDTO: FindCarStoreDTO, @Query(&#x27;page&#x27;) page: number, @Query(&#x27;limit&#x27;) limit: number) {
+    return await this.carService.findCarForClientByStore(findCarStoreDTO, page, limit);
+  }
+
+  /**
+   * Retrieves a paginated list of all cars.
+   * 
+   * This endpoint is protected and only accessible to users with SuperAdmin role.
+   * It uses cookie-based authentication and requires both AuthGuard and RoleGuard.
+   *
+   * @param page - The page number for pagination. Determines which set of results to return.
+   * @param limit - The maximum number of items to return per page.
+   * @returns A Promise that resolves to a paginated list of car entries.
+   *          The exact structure of the return value depends on the implementation
+   *          of the CarService&#x27;s findAll method.
+   */
+  @Get()
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.SuperAdmin)
+  async findAll(@Query(&#x27;page&#x27;) page: number, @Query(&#x27;limit&#x27;) limit: number) {
+    return await this.carService.findAll(page, limit);
+  }
+
+  /**
+   * Retrieves and updates the count of all cars in the system.
+   * 
+   * This endpoint is typically used for maintenance or administrative purposes.
+   * It triggers a process to update the count of all cars, which might involve
+   * recalculating or refreshing the total number of car entries in the database.
+   * 
+   * @returns A Promise that resolves to the result of the update operation.
+   *          The exact return value depends on the implementation of
+   *          the CarService&#x27;s updateAllCount method, but it&#x27;s likely to be
+   *          a number representing the updated total count of cars or
+   *          an object containing the updated count and any additional metadata.
+   */
+  @Get(&#x27;scrap&#x27;)
+  async findAllScrap() {
+    return true;
+    return await this.carService.updateAllCount();
+  }
+
+  /**
+   * Retrieves all cars associated with an admin&#x27;s store.
+   * 
+   * This endpoint is protected and requires authentication and admin role authorization.
+   * It returns a paginated list of cars for the store managed by the authenticated admin.
+   *
+   * @param user - The current authenticated user&#x27;s information, obtained from the @CurrentUser() decorator.
+   * @param page - The page number for pagination, specified as a query parameter.
+   * @param limit - The maximum number of items to return per page, specified as a query parameter.
+   * @returns A Promise that resolves to a paginated list of cars associated with the admin&#x27;s store.
+   *          The exact structure of the return value depends on the implementation of
+   *          the CarService&#x27;s findAllCarByAdminStore method.
+   */
+  @Get(&#x27;admin/store&#x27;)
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.Admin)
+  async findAllCarByAdminStore(@CurrentUser() user: ICurrentUser, @Query(&#x27;page&#x27;) page: number, @Query(&#x27;limit&#x27;) limit: number) {
+    return await this.carService.findAllCarByAdminStore(user._id, page, limit);
+  }
+
+  /**
+   * Retrieves cars associated with a specific store.
+   * 
+   * This endpoint fetches a paginated list of cars that belong to the specified store.
+   * It validates the store ID before processing the request.
+   *
+   * @param storeId - The ObjectId of the store for which to retrieve cars.
+   * @param page - The page number for pagination. Determines which set of results to return.
+   * @param limit - The maximum number of cars to return per page.
+   * @returns A Promise that resolves to a paginated list of cars associated with the specified store.
+   *          The exact structure of the return value depends on the implementation of
+   *          the CarService&#x27;s findCarByStore method.
+   * @throws {HttpException} If the provided store ID is invalid.
+   */
+  @Get(&#x27;store/:id&#x27;)
+  async findCarByStore(@Param(&#x27;id&#x27;) storeId: Types.ObjectId, @Query(&#x27;page&#x27;) page: number, @Query(&#x27;limit&#x27;) limit: number) {
+    this.validateID(storeId);
+    return await this.carService.findCarByStore(storeId, page, limit);
+  }
+
+  /**
+   * Retrieves the total count of cars from Redis cache.
+   * 
+   * This endpoint fetches the current count of all cars stored in the system.
+   * The count is retrieved from a Redis cache for improved performance.
+   * Note: This endpoint is currently not protected by authentication or role-based access control,
+   * but commented-out decorators suggest it may be restricted to SuperAdmin role in the future.
+   *
+   * @returns A Promise that resolves to the count of all cars.
+   *          The value is retrieved from Redis cache with the key &#x27;all:car&#x27;.
+   *          The type of the returned value depends on how it&#x27;s stored in Redis,
+   *          typically a string or number representing the total car count.
+   */
+  @Get(&#x27;count&#x27;)
+  // @ApiCookieAuth()
+  // @UseGuards(AuthGuard, RoleGuard)
+  // @Roles(UserRole.SuperAdmin)
+  async carCount() {
+    return await this.redisService.get(&#x27;all:car&#x27;);
+  }
+
+  /**
+   * Retrieves the count of cars associated with the authenticated admin&#x27;s store.
+   *
+   * This endpoint is protected and requires authentication and admin role authorization.
+   * It uses the current user&#x27;s ID to fetch the car count for their associated store.
+   *
+   * @param user - The current authenticated user&#x27;s information, obtained from the @CurrentUser() decorator.
+   *               This object contains the user&#x27;s ID and other relevant details.
+   * 
+   * @returns A Promise that resolves to the count of cars associated with the admin&#x27;s store.
+   *          The exact type of the returned value depends on the implementation of
+   *          the CarService&#x27;s countCarByStore method, typically a number.
+   */
+  @Get(&#x27;count/store&#x27;)
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.Admin)
+  async countCarByStore(@CurrentUser() user: ICurrentUser) {
+    return await this.carService.countCarByStore(user._id);
+  }
+
+  /**
+   * Retrieves the count of cars associated with a specific store.
+   *
+   * This endpoint is protected and requires authentication and role-based authorization.
+   * It&#x27;s accessible to users with Dealer or Person roles.
+   *
+   * @param {Types.ObjectId} storeId - The unique identifier of the store for which to count cars.
+   *                                   This is passed as a route parameter.
+   * 
+   * @returns {Promise&lt;number&gt;} A promise that resolves to the number of cars associated with the specified store.
+   * 
+   * @throws {HttpException} If the provided store ID is invalid.
+   */
+  @Get(&#x27;count/store/:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.Dealer, UserRole.Person)
+  async countCarByStoreID(@Param(&#x27;id&#x27;) storeId: Types.ObjectId): Promise&lt;number&gt; {
+    this.validateID(storeId);
+    return await this.carService.countCarByStoreID(storeId);
+  }
+
+  /**
+   * Retrieves the count of cars associated with a specific user.
+   *
+   * This endpoint is protected and requires authentication and role-based authorization.
+   * It&#x27;s accessible to users with Dealer or Person roles.
+   *
+   * @param {Types.ObjectId} userId - The unique identifier of the user for which to count cars.
+   *                                  This is passed as a route parameter.
+   * 
+   * @returns {Promise&lt;number&gt;} A promise that resolves to the number of cars associated with the specified user.
+   * 
+   * @throws {HttpException} If the provided user ID is invalid.
+   */
+  @Get(&#x27;count/user/:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.Dealer, UserRole.Person)
+  async countCarByUserID(@Param(&#x27;id&#x27;) userId: Types.ObjectId): Promise&lt;number&gt; {
+    this.validateID(userId);
+    return await this.carService.countCarByUserID(userId);
+  }
+
+  /**
+   * Manages media associated with a specific car.
+   * 
+   * This endpoint allows for the addition, modification, or removal of media (such as images or videos)
+   * for a given car. It requires authentication and is protected by role-based access control.
+   *
+   * @param {Types.ObjectId} carId - The unique identifier of the car whose media is being managed.
+   *                                 This is passed as a route parameter.
+   * @param {CreateCarMediaDto} createCarMediaDto - Data Transfer Object containing the media information
+   *                                                to be managed. This could include new media to add,
+   *                                                existing media to modify, or media to remove.
+   * 
+   * @returns {Promise&lt;{ success: boolean }&gt;} A promise that resolves to an object indicating the success
+   *                                          of the operation. Returns { success: true } if the media
+   *                                          was successfully managed.
+   * 
+   * @throws {HttpException} If the provided car ID is invalid.
+   */
+  @Post(&#x27;media/:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  async manageCarMedia(@Param(&#x27;id&#x27;) carId: Types.ObjectId, @Body() createCarMediaDto: CreateCarMediaDto): Promise&lt;{ success: boolean; }&gt; {
+    this.validateID(carId);
+    await this.carService.manageCarMedia(carId, createCarMediaDto);
+    return { success: true };
+  }
+
+  /**
+   * Retrieves cars associated with a specific dealer or user, filtered by status.
+   * 
+   * This endpoint is protected and requires authentication. It fetches a paginated list of cars
+   * for a given dealer or user, based on their ID and the specified status of the cars.
+   *
+   * @param {ICurrentUser} user - The current authenticated user&#x27;s information.
+   * @param {Types.ObjectId} dealerOrUserId - The ID of the dealer or user whose cars are being retrieved.
+   * @param {string} status - The status of cars to retrieve. Must be one of: &#x27;live&#x27;, &#x27;removed&#x27;, or &#x27;sold&#x27;.
+   * @param {number} page - The page number for pagination.
+   * @param {number} limit - The maximum number of cars to return per page.
+   * 
+   * @returns {Promise&lt;any&gt;} A promise that resolves to the paginated list of cars matching the criteria.
+   *                         The exact structure of the return value depends on the implementation of
+   *                         the CarService&#x27;s findCarByDealerORUserID method.
+   */
+  @Get(&#x27;user/:id/:status&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @ApiParam({ name: &#x27;status&#x27;, required: true, enum: [&#x27;live&#x27;, &#x27;removed&#x27;, &#x27;sold&#x27;] })
+  @UseGuards(AuthGuard, RoleGuard)
+  async findCarByDealerORUserID(@CurrentUser() user: ICurrentUser, @Param(&#x27;id&#x27;) dealerOrUserId: Types.ObjectId, @Param(&#x27;status&#x27;) status: string, @Query(&#x27;page&#x27;) page: number, @Query(&#x27;limit&#x27;) limit: number): Promise&lt;any&gt; {
+    return await this.carService.findCarByDealerORUserID(user, dealerOrUserId, status, page, limit);
+  }
+
+  /**
+   * Generates a pre-signed URL for media upload.
+   * 
+   * This endpoint creates a pre-signed URL that allows for secure uploading of media files
+   * to a specified storage service. It&#x27;s protected by authentication and role-based guards.
+   *
+   * @param {string} ext - The file extension of the media to be uploaded (e.g., &#x27;jpg&#x27;, &#x27;mp4&#x27;).
+   * @param {MediaType} type - The type of media being uploaded, as defined by the MediaType enum.
+   * 
+   * @returns {Promise&lt;{ success: boolean, data: any }&gt;} A promise that resolves to an object containing:
+   *   - success: A boolean indicating if the URL was successfully generated.
+   *   - data: The generated pre-signed URL and any additional metadata returned by the service.
+   */
+  @Get(&#x27;get-url/:ext/:type&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({ name: &#x27;ext&#x27;, required: true, type: &#x27;string&#x27; })
+  @ApiParam({ name: &#x27;type&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  async createMediaUploadURL(@Param(&#x27;ext&#x27;) ext: string, @Param(&#x27;type&#x27;) type: MediaType): Promise&lt;{ success: boolean; data: any; }&gt; {
+    const result &#x3D; await this.carService.createMediaUploadURL(ext, type);
+    return { success: true, data: result }
+  }
+
+  /**
+   * Retrieves a paginated list of cars for client-side display.
+   * 
+   * This endpoint fetches cars that are suitable for client viewing, potentially
+   * applying filters or sorting to ensure only appropriate and active listings are returned.
+   *
+   * @param page - The page number of results to return. Used for pagination.
+   * @param limit - The maximum number of car entries to return per page.
+   * @returns A Promise that resolves to a paginated list of car entries suitable for client viewing.
+   *          The exact structure of the return value depends on the implementation of
+   *          the CarService&#x27;s findCarForClient method.
+   */
+  @Get(&#x27;client&#x27;)
+  async findCarForClient(@Query(&#x27;page&#x27;) page: number, @Query(&#x27;limit&#x27;) limit: number) {
+    return await this.carService.findCarForClient(page, limit);
+  }
+
+  /**
+   * Retrieves a single car by its ID for client-side display.
+   *
+   * This endpoint fetches detailed information about a specific car based on its unique identifier.
+   * It&#x27;s designed for client-side use and may include additional processing or filtering of the data.
+   *
+   * @param {Types.ObjectId} carId - The unique identifier of the car to retrieve.
+   *                                 This is passed as a route parameter.
+   *
+   * @returns {Promise&lt;Car&gt;} A promise that resolves to the car object if found.
+   *                         The exact structure of the returned car object depends on the
+   *                         implementation of the CarService&#x27;s findOneCarByID method.
+   *
+   * @throws {HttpException} Throws a Not Found (404) exception if no car is found with the given ID.
+   */
+  @Get(&#x27;client/:id&#x27;)
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  async findOneCarByID(@Param(&#x27;id&#x27;) carId: Types.ObjectId): Promise&lt;Car&gt; {
+    const result &#x3D; await this.carService.findOneCarByID(carId);
+    if (!result) {
+      throw new HttpException(&#x27;No car found&#x27;, HttpStatus.NOT_FOUND);
+    }
+    return result
+  }
+
+  /**
+   * Retrieves a single car by its ID for updating or viewing purposes.
+   *
+   * This endpoint is protected and requires authentication and role-based authorization.
+   * It fetches detailed information about a specific car based on its unique identifier,
+   * which can be used for either updating the car&#x27;s information or viewing its details.
+   *
+   * @param {Types.ObjectId} carId - The unique identifier of the car to retrieve.
+   *                                 This is passed as a route parameter.
+   *
+   * @returns {Promise&lt;Car&gt;} A promise that resolves to the car object if found.
+   *                         The exact structure of the returned car object depends on the
+   *                         implementation of the CarService&#x27;s findOneCarForUpdateOrViewByID method.
+   *
+   * @throws {HttpException} Throws a Not Found (404) exception if no car is found with the given ID.
+   */
+  @Get(&#x27;:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  async findOneCarForUpdateOrViewByID(@Param(&#x27;id&#x27;) carId: Types.ObjectId): Promise&lt;Car&gt; {
+    const result &#x3D; await this.carService.findOneCarForUpdateOrViewByID(carId);
+    if (!result) {
+      throw new HttpException(&#x27;No car found&#x27;, HttpStatus.NOT_FOUND);
+    }
+    return result
+  }
+
+  /**
+   * Updates the position of media associated with a car.
+   * 
+   * This endpoint is protected and requires authentication and role-based authorization.
+   * It allows for updating the order or position of media items (such as images or videos)
+   * associated with a car listing.
+   *
+   * @param {CreateMediaPositionDTO} createMediaPositionDTO - Data Transfer Object containing
+   *        the updated position information for car media. This typically includes
+   *        identifiers for the media items and their new positions.
+   * 
+   * @returns {Promise&lt;{ success: boolean }&gt;} A promise that resolves to an object
+   *          indicating the success of the operation. Returns { success: true } if
+   *          the media positions were successfully updated.
+   */
+  @Patch(&#x27;media&#x27;)
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  async updateMediaPostion(@Body() createMediaPositionDTO: CreateMediaPositionDTO): Promise&lt;{ success: boolean; }&gt; {
+    await this.carService.updateCarMediaPosition(createMediaPositionDTO);
+    return { success: true }
+  }
+
+  /**
+   * Updates a car&#x27;s information in the database.
+   * 
+   * This endpoint is protected and requires authentication and role-based authorization.
+   * It updates the car details based on the provided ID and update data.
+   *
+   * @param {Types.ObjectId} id - The unique identifier of the car to be updated.
+   *                              This is passed as a route parameter.
+   * @param {any} updateCarDto - The Data Transfer Object containing the updated car information.
+   *                             The structure of this object depends on the car model and
+   *                             what fields are allowed to be updated.
+   *
+   * @returns {Promise&lt;{ success: boolean, stock_number: string }&gt;} A promise that resolves to an object containing:
+   *   - success: A boolean indicating if the update was successful (always true if the function completes).
+   *   - stock_number: The stock number of the updated car, as returned by the update operation.
+   */
+  @Patch(&#x27;:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  async updateCar(@Param(&#x27;id&#x27;) id: Types.ObjectId, @Body() updateCarDto: any): Promise&lt;{ success: boolean; stock_number: string; }&gt; {
+    const result &#x3D; await this.carService.updateByQueue(id, updateCarDto);
+    return { success: true, stock_number: result.stock_number }
+  }
+
+  /**
+   * Updates the status of a car.
+   * 
+   * This endpoint is protected and requires authentication and role-based authorization.
+   * It allows updating the status of a specific car identified by its ID.
+   *
+   * @param {Types.ObjectId} id - The unique identifier of the car whose status is to be updated.
+   *                              This is passed as a route parameter.
+   * @param {any} updateCarDto - The Data Transfer Object containing the updated status information.
+   *                             The structure of this object depends on what status-related fields
+   *                             are allowed to be updated in the car model.
+   *
+   * @returns {Promise&lt;{ success: boolean }&gt;} A promise that resolves to an object indicating
+   *                                          the success of the operation. Returns { success: true }
+   *                                          if the status was successfully updated.
+   */
+  @Patch(&#x27;status/:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  async updateStatus(@Param(&#x27;id&#x27;) id: Types.ObjectId, @Body() updateCarDto: any): Promise&lt;{ success: boolean; }&gt; {
+    await this.carService.updateStatus(id, updateCarDto);
+    return { success: true }
+  }
+
+  /**
+   * Removes a car from the database.
+   * 
+   * This endpoint is protected and requires authentication and role-based authorization.
+   * It&#x27;s restricted to users with SuperAdmin role.
+   *
+   * @param {Types.ObjectId} id - The unique identifier of the car to be removed.
+   *                              This is passed as a route parameter.
+   * 
+   * @returns {Promise&lt;{ success: boolean }&gt;} A promise that resolves to an object indicating
+   *                                          the success of the operation. Returns { success: true }
+   *                                          if the car was successfully removed.
+   * 
+   * @throws {HttpException} May throw exceptions if the car cannot be found or if there&#x27;s an error during removal.
+   */
+  @Delete(&#x27;:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.SuperAdmin, UserRole.SuperAdmin)
+  async remove(@Param(&#x27;id&#x27;) id: Types.ObjectId): Promise&lt;{ success: boolean; }&gt; {
+    await this.carService.remove(id);
+    return {
+      success: true
+    }
+  }
+
+  /**
+   * Validates whether the provided ID is a valid MongoDB ObjectId.
+   * 
+   * This function checks if the given ID is a valid MongoDB ObjectId.
+   * If the ID is invalid, it throws an HttpException with a &#x27;Not Acceptable&#x27; status.
+   * 
+   * @param {Types.ObjectId} id - The ObjectId to be validated.
+   * @throws {HttpException} Throws an exception if the ID is invalid.
+   * @returns {boolean} Returns true if the ID is valid.
+   */
+  validateID(id: Types.ObjectId): boolean {
+    if (!Types.ObjectId.isValid(id)) {
+      throw new HttpException(&#x27;Invalid Request&#x27;, HttpStatus.NOT_ACCEPTABLE)
+    }
+    return true
+  }
+
+  // @EventPattern(config.QUEUE_ADVERTISEMENT_TOPIC_ADD_REMOVE_MEDIA)
+  // async handleMediaOperations(@Payload() data: any, @Ctx() context: RmqContext) {
+  //   const channel &#x3D; context.getChannelRef();
+  //   const originalMsg &#x3D; context.getMessage();
+
+  //   const createCarMediaDto &#x3D; JSON.parse(data);
+  //   // console.log(&#x27;come to add delete media: &#x27;, createCarMediaDto);
+
+  //   try {
+  //     if (createCarMediaDto.mode &#x3D;&#x3D;&#x3D; &#x27;add&#x27;) {
+  //       // add the media here
+  //       await this.carService.refCarSchema().findOneAndUpdate({ stock_number: createCarMediaDto.id }, { $push: { [createCarMediaDto.field]: createCarMediaDto.media } });
+  //     }
+  //     if (createCarMediaDto.mode &#x3D;&#x3D;&#x3D; &#x27;delete&#x27;) {
+  //       // remove the media here
+  //       await this.carService.refCarSchema().findByIdAndUpdate(createCarMediaDto.id, { $pull: { [createCarMediaDto.field]: { name: createCarMediaDto.media.name } } });
+  //       await this.awsS3Service.delete(createCarMediaDto.media.path + createCarMediaDto.media.name)
+  //     }
+  //   } catch (error) {
+  //     console.log(&#x27;consumer manage media error&#x27;, JSON.stringify(error));
+  //   } finally {
+  //     channel.ack(originalMsg);
+  //   }
+  // }
+
+  // @EventPattern(config.QUEUE_ADVERTISEMENT_TOPIC_ADD_ADVERTISEMENT)
+  // async handleAddAdvertisement(@Payload() data: any, @Ctx() context: RmqContext) {
+  //   const channel &#x3D; context.getChannelRef();
+  //   const originalMsg &#x3D; context.getMessage();
+
+  //   const createCarDto &#x3D; JSON.parse(data);
+  //   console.log(&#x27;come to add car: &#x27;, createCarDto);
+
+  //   try {
+
+  //     // increase car data in mongodb
+  //     let createCar &#x3D; createCarDto;
+  //     await this.carService.createByQueue(createCar);
+
+  //     // update location of car
+  //     // get car details by id
+  //     // let car &#x3D; await this.carService.refCarSchema().findById(carAdded._id).populate(&#x27;store&#x27;);
+  //     // let store &#x3D; car.store as Store
+  //     // carAdded.location &#x3D; { type: &#x27;Point&#x27;, coordinates: [store.location.lng, store.location.lat] as any};
+  //     // carAdded.save();
+
+  //     // get all filters - and increment by 1
+  //     let filters &#x3D; await this.filterService.findAllForAdmin();
+  //     await Promise.allSettled(filters.map(async (filter: Filter) &#x3D;&gt; {
+  //       if (filter.name.value in createCar &amp;&amp; (filter.type &#x3D;&#x3D;&#x3D; &#x27;checkbox&#x27; || filter.type &#x3D;&#x3D;&#x3D; &#x27;textbox-list&#x27;)) {
+  //         let updatedFilter &#x3D; await this.filterService.updateFilterCountOnAdd(filter._id, createCar[filter.name.value]);
+  //         return updatedFilter;
+  //       }
+  //       if (filter.name.value in createCar &amp;&amp; filter.type &#x3D;&#x3D;&#x3D; &#x27;multi-select&#x27;) {
+  //         createCar[filter.name.value].forEach(async (element: labelValue) &#x3D;&gt; {
+  //           let updatedFilter &#x3D; await this.filterService.updateFilterCountOnAdd(filter._id, element.value as string);
+  //           return updatedFilter;
+  //         })
+  //       }
+  //     }));
+
+  //   } catch (error) { 
+  //     console.log(&#x27;consumer add advertisement error&#x27;, JSON.stringify(error));
+  //   } finally {
+  //     channel.ack(originalMsg);
+  //   }
+  // }
+
+  // @EventPattern(config.QUEUE_ADVERTISEMENT_TOPIC_UPDATE_ADVERTISEMENT)
+  // async handleUpdateAdvertisement(@Payload() data: any, @Ctx() context: RmqContext) {
+  //   const channel &#x3D; context.getChannelRef();
+  //   const originalMsg &#x3D; context.getMessage();
+
+  //   const updateCarDto &#x3D; JSON.parse(data);
+  //   // console.log(&#x27;come to update car: &#x27;, updateCarDto);
+
+  //   try {
+  //     // get car details by id
+  //     let car &#x3D; await this.carService.refCarSchema().findById(updateCarDto._id).populate(&#x27;store&#x27;);
+
+  //     // find all filters - decreased by 1
+  //     let filters &#x3D; await this.filterService.findAllForAdmin();
+  //     // convert in object from bson
+  //     car &#x3D; JSON.parse(JSON.stringify(car));
+  //     await Promise.allSettled(filters.map(async (filter: Filter) &#x3D;&gt; {
+  //       if (filter.name.value in car &amp;&amp; (filter.type &#x3D;&#x3D;&#x3D; &#x27;checkbox&#x27; || filter.type &#x3D;&#x3D;&#x3D; &#x27;textbox-list&#x27;)) {
+  //         if(car[filter.name.value] !&#x3D;&#x3D; updateCarDto[filter.name.value]) {
+  //           // decrease by old filter option
+  //           await this.filterService.updateFilterCountOnRemove(filter._id, car[filter.name.value]);
+  //           // increase by new filter option
+  //           await this.filterService.updateFilterCountOnAdd(filter._id, updateCarDto[filter.name.value]);
+  //         }
+  //       }
+  //       if (filter.name.value in car &amp;&amp; filter.type &#x3D;&#x3D;&#x3D; &#x27;multi-select&#x27;) {
+  //         // check is the any chnages in multi-sleect array
+  //         if(JSON.stringify(car[filter.name.value]) !&#x3D;&#x3D; JSON.stringify(updateCarDto[filter.name.value])) {
+  //           car[filter.name.value].forEach(async (element: labelValue) &#x3D;&gt; {
+  //             await this.filterService.updateFilterCountOnRemove(filter._id, element.value as string);
+  //           });
+  //           updateCarDto[filter.name.value].forEach(async (element: labelValue) &#x3D;&gt; {
+  //             await this.filterService.updateFilterCountOnAdd(filter._id, element.value as string);
+  //           });
+  //         }
+  //       }
+  //     }));
+
+  //     // update location of car
+  //     let store &#x3D; car.store as Store
+  //     updateCarDto.location &#x3D; { type: &#x27;Point&#x27;, coordinates: [ store.location.lng, store.location.lat ]};
+  //     // update car in db
+  //     await this.carService.update(car._id, updateCarDto);
+  //   } catch (error) {
+  //     console.log(&#x27;consumer error&#x27;, JSON.stringify(error));
+  //   } finally {
+  //     channel.ack(originalMsg);
+  //   }
+  // }
+
+  // @EventPattern(config.QUEUE_ADVERTISEMENT_TOPIC_UPDATE_POSITION_ADVERTISEMENT)
+  // async handleUpdateMediaPositionAdvertisement(@Payload() data: any, @Ctx() context: RmqContext) {
+  //   const channel &#x3D; context.getChannelRef();
+  //   const originalMsg &#x3D; context.getMessage();
+
+  //   const updateCarMediaPositionDto &#x3D; JSON.parse(data);
+  //   console.log(&#x27;come to update car media position: &#x27;, data);
+
+  //   try {
+  //     // update media postion
+  //     await this.carService.updateCarMediaPosition(updateCarMediaPositionDto);
+  //   } catch (error) {
+  //     console.log(&#x27;consumer error&#x27;, JSON.stringify(error));
+  //   } finally {
+  //     channel.ack(originalMsg);
+  //   }
+  // }
+
+  // @EventPattern(config.QUEUE_ADVERTISEMENT_TOPIC_REMOVE_ADVERTISEMENT)
+  // async handleRemoveAdvertisement(@Payload() id: any, @Ctx() context: RmqContext) {
+  //   const channel &#x3D; context.getChannelRef();
+  //   const originalMsg &#x3D; context.getMessage();
+
+  //   const data &#x3D; JSON.parse(id);
+  //   // console.log(&#x27;come to delete car: &#x27;, data);
+
+  //   try {
+  //     // get car details by id
+  //     let car &#x3D; await this.carService.refCarSchema().findById(data.id);
+
+  //     //remove media files
+  //     // images
+  //     await Promise.allSettled(car.images.map(async (element: Media) &#x3D;&gt; {
+  //       await this.awsS3Service.delete(element.path + element.name)
+  //     }));
+  //     // videos
+  //     if(car.videos.length &gt; 0) {
+  //       await Promise.allSettled(car.videos.map(async (element: Media) &#x3D;&gt; {
+  //         await this.awsS3Service.delete(element.path + element.name)
+  //       }));
+  //     }
+  //     // deactive from list - not deleting from db
+  //     // await this.carService.refCarSchema().findByIdAndUpdate(data.id, { $set: { active: false } });
+  //     await this.carService.refCarSchema().findByIdAndDelete(data.id);
+
+  //     // decrease car count in redis
+  //     let getCarRedis &#x3D; await this.redisService.get(&#x27;all:car&#x27;);
+  //     if(getCarRedis) {
+  //       await this.redisService.decrease(&#x27;all:car&#x27;);
+  //     }
+
+  //     // find all filters - decreased by 1
+  //     let filters &#x3D; await this.filterService.findAllForAdmin();
+  //     // convert in object from bson
+  //     car &#x3D; JSON.parse(JSON.stringify(car));
+  //     await Promise.allSettled(filters.map(async (filter: Filter) &#x3D;&gt; {
+  //       if (filter.name.value in car &amp;&amp; (filter.type &#x3D;&#x3D;&#x3D; &#x27;checkbox&#x27; || filter.type &#x3D;&#x3D;&#x3D; &#x27;textbox-list&#x27;)) {
+  //         let updatedFilter &#x3D; await this.filterService.updateFilterCountOnRemove(filter._id, car[filter.name.value]);
+  //         return updatedFilter;
+  //       }
+  //       if (filter.name.value in car &amp;&amp; filter.type &#x3D;&#x3D;&#x3D; &#x27;multi-select&#x27;) {
+  //         car[filter.name.value].forEach(async (element: labelValue) &#x3D;&gt; {
+  //           let updatedFilter &#x3D; await this.filterService.updateFilterCountOnRemove(filter._id, element.value as string);
+  //           return updatedFilter;
+  //         })
+  //       }
+  //     }));
+  //   } catch (error) {
+  //     console.log(&#x27;consumer error&#x27;, JSON.stringify(error));
+  //   } finally {
+  //     channel.ack(originalMsg);
+  //   }
+  // }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'CarController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

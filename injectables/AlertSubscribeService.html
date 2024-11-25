@@ -1,0 +1,886 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >AlertSubscribeService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/alert-subscribe/alert-subscribe.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllByUserEmail" >findAllByUserEmail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#reset3DaysOlderAuthentication" >reset3DaysOlderAuthentication</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(carService: <a href="../injectables/CarService.html" target="_self">CarService</a>, mailService: <a href="../injectables/MailService.html" target="_self">MailService</a>, filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>, alrtSubscribeSchema: <a href="../classes/AlertSubscribe.html" target="_self">Model&lt;AlertSubscribe&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/modules/alert-subscribe/alert-subscribe.service.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>carService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CarService.html" target="_self" >CarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mailService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MailService.html" target="_self" >MailService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>alrtSubscribeSchema</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/AlertSubscribe.html" target="_self" >Model&lt;AlertSubscribe&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(request: Request, createAlertSubscribeDto: <a href="../classes/CreateAlertSubscribeDto.html" target="_self">CreateAlertSubscribeDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/modules/alert-subscribe/alert-subscribe.service.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new alert subscription based on the provided data and user&#39;s request information.</p>
+<p>This function performs the following steps:</p>
+<ol>
+<li>Extracts IP and geolocation information from the request.</li>
+<li>Retrieves filters and their labels.</li>
+<li>Constructs a title for the alert based on the selected filters.</li>
+<li>Creates and saves a new AlertSubscribe document.</li>
+<li>Sends a confirmation email to the subscriber.</li>
+</ol>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The incoming HTTP request object, used to extract IP and user agent information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createAlertSubscribeDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateAlertSubscribeDto.html" target="_self" >CreateAlertSubscribeDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the details for creating the alert subscription.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves when the alert subscription is created and the confirmation email is sent.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllByUserEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllByUserEmail</b></span>
+                        <a href="#findAllByUserEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllByUserEmail(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">src/modules/alert-subscribe/alert-subscribe.service.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all alert subscriptions for a given user email.</p>
+<p>This function queries the database for all alert subscriptions associated with the provided email address.
+The results are sorted in descending order based on the creation date, so the most recent subscriptions appear first.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     sorted by creation date in descending order.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>email</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The email address of the user whose alert subscriptions are to be retrieved.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an array of AlertSubscribe documents matching the given email,
+sorted by creation date in descending order.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">src/modules/alert-subscribe/alert-subscribe.service.ts:203</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes an alert subscription from the database based on its ID.</p>
+<p>This function attempts to find and delete an AlertSubscribe document
+in the database using the provided ObjectId. If found, the document
+is removed from the database.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     or null if no document was found with the given ID.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The MongoDB ObjectId of the alert subscription to be removed.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the deleted AlertSubscribe document if found,
+or null if no document was found with the given ID.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reset3DaysOlderAuthentication"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>reset3DaysOlderAuthentication</b></span>
+                        <a href="#reset3DaysOlderAuthentication"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reset3DaysOlderAuthentication()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Cron(CronExpression.EVERY_DAY_AT_2AM)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/modules/alert-subscribe/alert-subscribe.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sends daily email alerts to subscribers about matching car records.
+This function is scheduled to run every day at 2 AM.</p>
+<p>The function performs the following steps:</p>
+<ol>
+<li>Retrieves all subscribers from the database.</li>
+<li>For each subscriber, finds matching car records based on their filter and postal code.</li>
+<li>If matching car records are found, prepares and sends an email to the subscriber.</li>
+</ol>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves when all emails have been sent.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Req } from &#x27;@nestjs/common&#x27;;
+import { CreateAlertSubscribeDto } from &#x27;./dto/create-alert-subscribe.dto&#x27;;
+import { UpdateAlertSubscribeDto } from &#x27;./dto/update-alert-subscribe.dto&#x27;;
+
+// get request information
+import * as geo from &#x27;geoip-lite&#x27;;
+import { Request } from &#x27;express&#x27;;
+
+// mongoose alert subscribe
+import { AlertSubscribe } from &#x27;./schema/alert-subscribe.schema&#x27;;
+import { Model, Types } from &#x27;mongoose&#x27;;
+import { InjectModel } from &#x27;@nestjs/mongoose&#x27;;
+
+// mail service
+import { MailService } from &#x27;../../utilities/services/mail/mail.service&#x27;;
+
+// get label of the filters
+import { FilterService } from &#x27;../filter/filter.service&#x27;;
+import { Filter, labelValue } from &#x27;../filter/schema/filter.schema&#x27;;
+
+// canadian cities
+import * as canada_cities from &#x27;../../utilities/files/canadiancities&#x27;
+
+// cron
+import { Cron, CronExpression } from &#x27;@nestjs/schedule&#x27;;
+
+// sending mail for subscription
+import { CarService } from &#x27;../car/car.service&#x27;;
+
+@Injectable()
+export class AlertSubscribeService {
+
+  constructor(
+    private readonly carService: CarService,
+    private readonly mailService: MailService,
+    private readonly filterService: FilterService,
+    @InjectModel(AlertSubscribe.name) private readonly alrtSubscribeSchema: Model&lt;AlertSubscribe&gt;
+  ) { }
+
+  /**
+   * Sends daily email alerts to subscribers about matching car records.
+   * This function is scheduled to run every day at 2 AM.
+   *
+   * @remarks
+   * The function performs the following steps:
+   * 1. Retrieves all subscribers from the database.
+   * 2. For each subscriber, finds matching car records based on their filter and postal code.
+   * 3. If matching car records are found, prepares and sends an email to the subscriber.
+   *
+   * @returns {Promise&lt;void&gt;} A promise that resolves when all emails have been sent.
+   *
+   * @throws Will throw an error if there&#x27;s an issue with database queries or email sending.
+   */
+  @Cron(CronExpression.EVERY_DAY_AT_2AM)
+  async reset3DaysOlderAuthentication(): Promise&lt;void&gt; {
+    const allSubscribers &#x3D; await this.alrtSubscribeSchema.find();
+    for (const subscriber of allSubscribers) {
+      const carRecords &#x3D; await this.carService.findAllCarByFilterForMail(subscriber.filter, subscriber.postal_code);
+      if(carRecords.length &gt; 0) {
+        const mailClient &#x3D; {
+          to: subscriber.email,
+          from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+          templateId: &#x27;d-5696a8a3989644ca964f5b8191797e7d&#x27;,
+          dynamicTemplateData: {
+            cars: carRecords.splice(0, 5),
+            title: subscriber.name,
+            count: carRecords.length,
+            price: Math.min(...carRecords.map((car: any) &#x3D;&gt; car.asking_price)),
+          }
+        };
+        await this.mailService.send(mailClient);
+      }
+    }
+  }
+
+
+  /**
+   * Creates a new alert subscription based on the provided data and user&#x27;s request information.
+   * 
+   * This function performs the following steps:
+   * 1. Extracts IP and geolocation information from the request.
+   * 2. Retrieves filters and their labels.
+   * 3. Constructs a title for the alert based on the selected filters.
+   * 4. Creates and saves a new AlertSubscribe document.
+   * 5. Sends a confirmation email to the subscriber.
+   * 
+   * @param request - The incoming HTTP request object, used to extract IP and user agent information.
+   * @param createAlertSubscribeDto - Data transfer object containing the details for creating the alert subscription.
+   * @returns {Promise&lt;void&gt;} A promise that resolves when the alert subscription is created and the confirmation email is sent.
+   * @throws Will throw an error if there&#x27;s an issue with database operations or email sending.
+   */
+  async create(@Req() request: Request, createAlertSubscribeDto: CreateAlertSubscribeDto): Promise&lt;void&gt; {
+
+    // get request information
+    const ip &#x3D; request.headers[&#x27;x-forwarded-for&#x27;] || request.socket.remoteAddress || request.ip;
+    const geoResponse &#x3D; geo.lookup(ip as string);
+
+    // filters to take labels of selected values
+    const filters &#x3D; await this.filterService.findAllForAdmin();
+
+    // find make
+    const make: any &#x3D; createAlertSubscribeDto.filter.find((flt: any) &#x3D;&gt; flt.name &#x3D;&#x3D;&#x3D; &#x27;make&#x27;);
+    const makeFilterName &#x3D; make ? (filters.find((flt: Filter) &#x3D;&gt; flt.name.value &#x3D;&#x3D;&#x3D; &#x27;make&#x27;).data.find((flt: labelValue) &#x3D;&gt; flt.value &#x3D;&#x3D;&#x3D; make.value) as labelValue).label : undefined
+
+    // find model
+    const model: any &#x3D; createAlertSubscribeDto.filter.find((flt: any) &#x3D;&gt; flt.name &#x3D;&#x3D;&#x3D; &#x27;model&#x27;);
+    const modelFilterName &#x3D; model ? (filters.find((flt: Filter) &#x3D;&gt; flt.name.value &#x3D;&#x3D;&#x3D; &#x27;model&#x27;).data.find((flt: labelValue) &#x3D;&gt; flt.value &#x3D;&#x3D;&#x3D; model.value) as labelValue).label : undefined
+
+    // find distance
+    const distance: any &#x3D; createAlertSubscribeDto.filter.find((flt: any) &#x3D;&gt; flt.name &#x3D;&#x3D;&#x3D; &#x27;Distance&#x27;);
+
+    // find seller type
+    let title &#x3D; &#x27;&#x27;;
+    const seller_type: any &#x3D; createAlertSubscribeDto.filter.find((flt: any) &#x3D;&gt; flt.name &#x3D;&#x3D;&#x3D; &#x27;condition&#x27;);
+    if (seller_type &amp;&amp; seller_type.value.length &gt; 0) {
+      seller_type.value.forEach((element: string, index: number) &#x3D;&gt; {
+        const type &#x3D; (filters.find((flt: Filter) &#x3D;&gt; flt.name.value &#x3D;&#x3D;&#x3D; &#x27;condition&#x27;).data.find((flt: labelValue) &#x3D;&gt; flt.value &#x3D;&#x3D;&#x3D; element) as labelValue).label
+        if (type) {
+          title +&#x3D; index &#x3D;&#x3D; 0 ? &#x60;${type}&#x60; : &#x60; &amp; ${type}&#x60;;
+        }
+      });
+    }
+
+
+    // add make and model in title if it&#x27;s available
+    title +&#x3D; make &amp;&amp; model &amp;&amp; makeFilterName &amp;&amp; modelFilterName ? &#x60; ${makeFilterName} ${modelFilterName} for sale&#x60; : &#x60; Cars for sale&#x60;;
+
+    // get city name by postal code
+    const code &#x3D; createAlertSubscribeDto.postal_code.split(&#x27; &#x27;)[0];
+    const cityRecord &#x3D; canada_cities.data.find((city: any) &#x3D;&gt; city.postal.split(&#x27; &#x27;).includes(code));
+    if (cityRecord) {
+      title +&#x3D; &#x60; in ${cityRecord.city}&#x60;;
+    }
+
+    // create alert subscribe referance
+    const alertSubscribe &#x3D; new AlertSubscribe();
+    alertSubscribe.email &#x3D; createAlertSubscribeDto.email;
+    alertSubscribe.filter &#x3D; createAlertSubscribeDto.filter;
+    alertSubscribe.postal_code &#x3D; createAlertSubscribeDto.postal_code;
+    alertSubscribe.name &#x3D; title;
+    if (geoResponse) {
+      alertSubscribe.detail &#x3D; {
+        country: geoResponse.country,
+        city: geoResponse.city,
+        region: geoResponse.region,
+        timezone: geoResponse.timezone,
+        ip: request.ip,
+        remoteIP: ip,
+        userAgent: request.headers[&#x27;user-agent&#x27;],
+        location: [geoResponse.ll[1], geoResponse.ll[0]],
+      };
+    }
+    alertSubscribe.active &#x3D; true;
+
+    // add in db
+    const createdAward &#x3D; new this.alrtSubscribeSchema(alertSubscribe);
+    await createdAward.save();
+
+    const mailClient &#x3D; {
+      to: createAlertSubscribeDto.email,
+      from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+      templateId: &#x27;d-082e40dad6164b59ae092f4c7cca1fef&#x27;,
+      dynamicTemplateData: {
+        title,
+        location: &#x60;${cityRecord.city}, ${cityRecord.province_id}&#x60;,
+        km: distance.value,
+        make: make ? makeFilterName : &#x27;Any&#x27;,
+        model: model ? modelFilterName : &#x27;Any&#x27;,
+      },
+      hideWarnings: true, // now the warning won&#x27;t be logged
+    };
+    // console.log(&#x27;mail data: &#x27;, mailClient, createAlertSubscribeDto, code, cityRecord)
+    await this.mailService.send(mailClient);
+  }
+
+  /**
+   * Retrieves all alert subscriptions for a given user email.
+   * 
+   * This function queries the database for all alert subscriptions associated with the provided email address.
+   * The results are sorted in descending order based on the creation date, so the most recent subscriptions appear first.
+   * 
+   * @param email - The email address of the user whose alert subscriptions are to be retrieved.
+   * @returns A Promise that resolves to an array of AlertSubscribe documents matching the given email,
+   *          sorted by creation date in descending order.
+   */
+  async findAllByUserEmail(email: string) {
+    return await this.alrtSubscribeSchema.find({ email })
+      .sort({ createdAt: -1 })
+      .exec();
+  }
+
+  /**
+   * Removes an alert subscription from the database based on its ID.
+   * 
+   * This function attempts to find and delete an AlertSubscribe document
+   * in the database using the provided ObjectId. If found, the document
+   * is removed from the database.
+   *
+   * @param id - The MongoDB ObjectId of the alert subscription to be removed.
+   * @returns A Promise that resolves to the deleted AlertSubscribe document if found,
+   *          or null if no document was found with the given ID.
+   */
+  async remove(id: Types.ObjectId) {
+    return await this.alrtSubscribeSchema.findByIdAndDelete(id);
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AlertSubscribeService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

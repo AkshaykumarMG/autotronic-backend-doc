@@ -1,0 +1,1830 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >FilterService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/filter/filter.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#addFilterData" >addFilterData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForAdmin" >findAllForAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onApplicationBootstrap" >onApplicationBootstrap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#reNewFilterDataFromRedis" >reNewFilterDataFromRedis</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#resetFilterRedisCache" >resetFilterRedisCache</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateDataByFiltername" >updateDataByFiltername</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateFilterCountOnAdd" >updateFilterCountOnAdd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateFilterCountOnRemove" >updateFilterCountOnRemove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateFilterCountReset" >updateFilterCountReset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateFilterSequence" >updateFilterSequence</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(filterSchema: <a href="../classes/Filter.html" target="_self">Model&lt;Filter&gt;</a>, redisService: <a href="../injectables/RedisService.html" target="_self">RedisService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/modules/filter/filter.service.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>filterSchema</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Filter.html" target="_self" >Model&lt;Filter&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>redisService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RedisService.html" target="_self" >RedisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addFilterData"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>addFilterData</b></span>
+                        <a href="#addFilterData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addFilterData(id: Types.ObjectId, data: labelValue | labelValueJoin)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adds new filter data to an existing filter document in the database.</p>
+<p>This method uses the $addToSet operator to add the provided data to the filter&#39;s data array,
+ensuring that only unique values are added.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the filter document to update</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                        <code>labelValue | labelValueJoin</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The new filter data to add, which can be either a labelValue or labelValueJoin object</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the updated filter document, or null if no document was found</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(createFilterDto: <a href="../classes/CreateFilterDto.html" target="_self">CreateFilterDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new filter and adds it to the database.</p>
+<p>This function creates a new filter based on the provided DTO, saves it to MongoDB,
+and dynamically updates the CarSchema if the filter type is &#39;checkbox&#39; or &#39;multi-select&#39;.
+After creating the filter, it refreshes the Redis cache with the updated filter data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createFilterDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateFilterDto.html" target="_self" >CreateFilterDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Data Transfer Object containing the filter details to be created.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Filter.html" target="_self" >Promise&lt;Filter&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the newly created Filter object.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="146"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:146</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all filter data, prioritizing cached data from Redis.</p>
+<p>This function first attempts to fetch filter data from the Redis cache.
+If cached data is available, it returns that. Otherwise, it queries
+the database for all filter documents and returns the result.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This could be from Redis cache or directly from the database.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Filter.html" target="_self" >Promise&lt;Filter[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an array of Filter objects.
+This could be from Redis cache or directly from the database.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForAdmin"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForAdmin</b></span>
+                        <a href="#findAllForAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForAdmin()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="162"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all filter documents from the database for administrative purposes.</p>
+<p>This method fetches all filter records without any restrictions or transformations,
+providing a comprehensive view of the filter data for admin-level operations.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Filter.html" target="_self" >Promise&lt;Filter[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an array of all Filter documents in the database.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="172"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single filter document from the database by its ID.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the filter document to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the found Filter document, or null if no document matches the given ID.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onApplicationBootstrap"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onApplicationBootstrap</b></span>
+                        <a href="#onApplicationBootstrap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onApplicationBootstrap()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Dynamically adds filter options to the CarSchema based on the existing filters in the database.
+This method is called when the application bootstraps.</p>
+<p>This method retrieves all filters from the database and adds corresponding fields
+to the CarSchema based on the filter type:</p>
+<ul>
+<li>For &#39;checkbox&#39; type, it adds a String field.</li>
+<li>For &#39;multi-choice&#39; type, it adds an indexed Array of Strings field.</li>
+<li>For &#39;multi-select&#39; type, it adds an Array of Strings field.</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves when all filter options have been added to the CarSchema.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="298"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:298</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes a filter document from the database and updates the Redis cache.</p>
+<p>This function deletes a filter document with the specified ID from the database.
+After deletion, it refreshes the filter data in the Redis cache to ensure
+consistency between the database and the cache.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the filter document to be removed.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the removed filter document, or null if no document was found.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reNewFilterDataFromRedis"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>reNewFilterDataFromRedis</b></span>
+                        <a href="#reNewFilterDataFromRedis"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reNewFilterDataFromRedis()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="316"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:316</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Refreshes the filter data in Redis cache.</p>
+<p>This method performs the following steps:</p>
+<ol>
+<li>Deletes the existing &#39;all:filter&#39; key from Redis.</li>
+<li>Retrieves all filter documents from the database.</li>
+<li>Stores the retrieved filter data back in Redis under the &#39;all:filter&#39; key.</li>
+</ol>
+<p>This ensures that the Redis cache always contains the most up-to-date filter information.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves when the Redis cache has been successfully updated with fresh filter data.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetFilterRedisCache"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>resetFilterRedisCache</b></span>
+                        <a href="#resetFilterRedisCache"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetFilterRedisCache()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Cron(CronExpression.EVERY_DAY_AT_3AM)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Resets the filter data in Redis cache every day at 3 AM.</p>
+<p>This method is scheduled to run daily at 3 AM using the NestJS Cron job.
+It logs a message indicating the filter reset operation and then calls
+the <code>reNewFilterDataFromRedis</code> method to refresh the filter data in Redis.</p>
+<p>This function helps maintain up-to-date filter data in the Redis cache,
+ensuring that any changes made to filters during the day are reflected
+in the cache for improved performance and data consistency.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: Types.ObjectId, updateFilterDto: <a href="../classes/UpdateFilterDto.html" target="_self">UpdateFilterDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates an existing filter document in the database.</p>
+<p>This method replaces the entire document matching the given ID with the new data
+provided in the updateFilterDto. After updating, it refreshes the filter data in Redis cache.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The result typically includes information about the operation&#39;s success,
+     such as the number of documents modified.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the filter document to update.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateFilterDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateFilterDto.html" target="_self" >UpdateFilterDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Data Transfer Object containing the updated filter data.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the result of the update operation.
+The result typically includes information about the operation&#39;s success,
+such as the number of documents modified.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateDataByFiltername"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateDataByFiltername</b></span>
+                        <a href="#updateDataByFiltername"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateDataByFiltername(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="284"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:284</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the data of all filter documents that match the given filter name.</p>
+<p>This function finds all filter documents where the &#39;name.value&#39; field matches
+the provided name, and updates their &#39;data&#39; field with the new data provided.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">          that is compatible with the filter&#39;s data structure.
+     value is not specified and should not be relied upon.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>name</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The value of the &#39;name.value&#39; field to match filters for updating.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The new data to set for the matched filters. This can be of any type
+that is compatible with the filter&#39;s data structure.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves when the update operation is complete. The resolved
+value is not specified and should not be relied upon.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFilterCountOnAdd"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateFilterCountOnAdd</b></span>
+                        <a href="#updateFilterCountOnAdd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateFilterCountOnAdd(id: Types.ObjectId, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="205"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:205</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Increments the count of a specific filter value by 1.</p>
+<p>This method finds a filter document by its ID and a specific value within its data array,
+then increases the count of that value by 1. This is typically used when a new item
+matching this filter value is added to the system.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the filter document to update.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The specific value within the filter&#39;s data array to increment.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the updated filter document, or null if no document was found or updated.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFilterCountOnRemove"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateFilterCountOnRemove</b></span>
+                        <a href="#updateFilterCountOnRemove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateFilterCountOnRemove(id: Types.ObjectId, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="220"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:220</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Decrements the count of a specific filter value by 1.</p>
+<p>This method finds a filter document by its ID and a specific value within its data array,
+then decreases the count of that value by 1. This is typically used when an item
+matching this filter value is removed from the system.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the filter document to update.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The specific value within the filter&#39;s data array to decrement.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the updated filter document, or null if no document was found or updated.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFilterCountReset"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateFilterCountReset</b></span>
+                        <a href="#updateFilterCountReset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateFilterCountReset()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="238"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:238</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Resets the count of all filter data to zero for specific filter types.</p>
+<p>This function retrieves all filters, then for each filter of type &#39;checkbox&#39;, &#39;textbox-list&#39;,
+&#39;multi-select&#39;, or &#39;multi-choice&#39;, it resets the count of each data item to zero.
+This is useful for periodically resetting filter usage statistics.</p>
+<p>The function uses <code>Promise.allSettled</code> to process all filters concurrently,
+which may improve performance for large numbers of filters.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                        regardless of individual filter update successes or failures.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to true when the operation is complete, 
+regardless of individual filter update successes or failures.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFilterSequence"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateFilterSequence</b></span>
+                        <a href="#updateFilterSequence"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateFilterSequence(updateFilterSquenceDto: UpdateFilterSquenceDto[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="265"
+                                    class="link-to-prism">src/modules/filter/filter.service.ts:265</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the sequence (position) of multiple filters in the database.</p>
+<p>This function iterates through an array of filter sequence updates, applying each update
+to the corresponding filter document in the database. After all updates are processed,
+it refreshes the filter data in the Redis cache.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                            Each object should have &#39;_id&#39; (filter ID) and &#39;position&#39; (new sequence number) properties.
+                     and the Redis cache has been refreshed.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>updateFilterSquenceDto</td>
+                                            <td>
+                                                        <code>UpdateFilterSquenceDto[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An array of objects containing filter IDs and their new positions.
+Each object should have &#39;_id&#39; (filter ID) and &#39;position&#39; (new sequence number) properties.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves when all filter sequences have been updated
+and the Redis cache has been refreshed.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpException, HttpStatus, Injectable, OnApplicationBootstrap } from &#x27;@nestjs/common&#x27;;
+import { CreateFilterDto } from &#x27;./dto/create-filter.dto&#x27;;
+import { UpdateFilterDto } from &#x27;./dto/update-filter.dto&#x27;;
+import { UpdateFilterSquenceDto } from &#x27;./dto/update-filter-squence&#x27;;
+
+// cron
+import { Cron, CronExpression } from &#x27;@nestjs/schedule&#x27;;
+
+// mongodb - filter model
+import { InjectModel } from &#x27;@nestjs/mongoose&#x27;;
+import { Model, Schema, Types } from &#x27;mongoose&#x27;;
+import { Filter, labelValue, labelValueJoin } from &#x27;./schema/filter.schema&#x27;;
+import { CarSchema } from &#x27;../car/schema/car.schema&#x27;;
+
+// redis
+import { RedisService } from &#x27;../../utilities/services/redis/redis.service&#x27;;
+
+@Injectable()
+export class FilterService implements OnApplicationBootstrap {
+
+  constructor(
+    @InjectModel(Filter.name) private readonly filterSchema: Model&lt;Filter&gt;,
+    private readonly redisService: RedisService,
+  ) { }
+
+  /**
+   * Dynamically adds filter options to the CarSchema based on the existing filters in the database.
+   * This method is called when the application bootstraps.
+   * 
+   * @remarks
+   * This method retrieves all filters from the database and adds corresponding fields
+   * to the CarSchema based on the filter type:
+   * - For &#x27;checkbox&#x27; type, it adds a String field.
+   * - For &#x27;multi-choice&#x27; type, it adds an indexed Array of Strings field.
+   * - For &#x27;multi-select&#x27; type, it adds an Array of Strings field.
+   * 
+   * @returns {Promise&lt;void&gt;} A promise that resolves when all filter options have been added to the CarSchema.
+   */
+  async onApplicationBootstrap(): Promise&lt;void&gt; {
+    const allFilters &#x3D; await this.filterSchema.find().exec();
+    allFilters.forEach((element: Filter) &#x3D;&gt; {
+      if (element.type &#x3D;&#x3D;&#x3D; &#x27;checkbox&#x27;) {
+        // add new filter in car schema
+        const newFilterSchema &#x3D; new Schema({ [element.name.value]: { type: String, require: true, index: true } });
+        // update schema
+        CarSchema.add(newFilterSchema);
+      }
+      if (element.type &#x3D;&#x3D;&#x3D; &#x27;multi-choice&#x27;) {
+        // add new filter in car schema
+        const newFilterSchema &#x3D; new Schema({ [element.name.value]: { type: Array&lt;String&gt;, require: true, index: true, default: [] } });
+        // update schema
+        CarSchema.add(newFilterSchema);
+      }
+      if (element.type &#x3D;&#x3D;&#x3D; &#x27;multi-select&#x27;) {
+        // add new filter in car schema
+        const newFilterSchema &#x3D; new Schema({ [element.name.value]: { type: Array&lt;String&gt;, require: true, default: [] } });
+        // update schema
+        CarSchema.add(newFilterSchema);
+      }
+    })
+  }
+
+  /**
+   * Resets the filter data in Redis cache every day at 3 AM.
+   * 
+   * This method is scheduled to run daily at 3 AM using the NestJS Cron job.
+   * It logs a message indicating the filter reset operation and then calls
+   * the &#x60;reNewFilterDataFromRedis&#x60; method to refresh the filter data in Redis.
+   * 
+   * @remarks
+   * This function helps maintain up-to-date filter data in the Redis cache,
+   * ensuring that any changes made to filters during the day are reflected
+   * in the cache for improved performance and data consistency.
+   * 
+   * @returns {void}
+   */
+  @Cron(CronExpression.EVERY_DAY_AT_3AM)
+  resetFilterRedisCache(): void {
+    this.reNewFilterDataFromRedis();
+  }
+
+  /**
+   * Creates a new filter and adds it to the database.
+   * 
+   * This function creates a new filter based on the provided DTO, saves it to MongoDB,
+   * and dynamically updates the CarSchema if the filter type is &#x27;checkbox&#x27; or &#x27;multi-select&#x27;.
+   * After creating the filter, it refreshes the Redis cache with the updated filter data.
+   *
+   * @param createFilterDto - The Data Transfer Object containing the filter details to be created.
+   * @returns A Promise that resolves to the newly created Filter object.
+   * @throws {HttpException} If there&#x27;s a duplicate key error (non-unique name) or any other error during creation.
+   */
+  async create(createFilterDto: CreateFilterDto): Promise&lt;Filter&gt; {
+    try {
+      // add data in mongodb
+      const createdFilter &#x3D; new this.filterSchema(createFilterDto);
+      const result &#x3D; await createdFilter.save();
+      // if new filter type is checkbox then we add filter in car schema dynamically
+      if (result.type &#x3D;&#x3D;&#x3D; &#x27;checkbox&#x27;) {
+        // add new filter in car schema
+        const newFilterSchema &#x3D; new Schema({ [result.name.value]: { type: String, require: true, index: true } });
+        // update schema
+        CarSchema.add(newFilterSchema);
+      }
+      if (result.type &#x3D;&#x3D;&#x3D; &#x27;multi-select&#x27;) {
+        // add new filter in car schema
+        const newFilterSchema &#x3D; new Schema({ [result.name.value]: { type: Array&lt;String&gt;, require: true, index: true, default: [] } });
+        // update schema
+        CarSchema.add(newFilterSchema);
+      }
+      // reset redis filter data after adding new record
+      await this.reNewFilterDataFromRedis();
+      return result;
+    } catch (error) {
+      if (error.message.includes(&#x27;duplicate key error&#x27;)) {
+        throw new HttpException(&#x60;Name should be unique. ${createFilterDto.name.label} filter is already exist.&#x60;, HttpStatus.NOT_ACCEPTABLE);
+      }
+      throw new HttpException(error, HttpStatus.NOT_ACCEPTABLE);
+    }
+  }
+
+  /**
+   * Adds new filter data to an existing filter document in the database.
+   * 
+   * This method uses the $addToSet operator to add the provided data to the filter&#x27;s data array,
+   * ensuring that only unique values are added.
+   *
+   * @param id - The ObjectId of the filter document to update
+   * @param data - The new filter data to add, which can be either a labelValue or labelValueJoin object
+   * @returns A Promise that resolves to the updated filter document, or null if no document was found
+   */
+  async addFilterData(id: Types.ObjectId, data: labelValue | labelValueJoin) {
+    return await this.filterSchema.findOneAndUpdate({ _id: id }, { $addToSet: { data } });
+  }
+
+  /**
+   * Retrieves all filter data, prioritizing cached data from Redis.
+   * 
+   * This function first attempts to fetch filter data from the Redis cache.
+   * If cached data is available, it returns that. Otherwise, it queries
+   * the database for all filter documents and returns the result.
+   * 
+   * @returns {Promise&lt;Filter[]&gt;} A promise that resolves to an array of Filter objects.
+   *                              This could be from Redis cache or directly from the database.
+   */
+  async findAll(): Promise&lt;Filter[]&gt; {
+    const dataRedis &#x3D; await this.redisService.getObject(&#x27;all:filter&#x27;);
+    if (dataRedis) {
+      return dataRedis;
+    }
+    return await this.filterSchema.find().exec();
+  }
+
+  /**
+   * Retrieves all filter documents from the database for administrative purposes.
+   * 
+   * This method fetches all filter records without any restrictions or transformations,
+   * providing a comprehensive view of the filter data for admin-level operations.
+   * 
+   * @returns {Promise&lt;Filter[]&gt;} A promise that resolves to an array of all Filter documents in the database.
+   */
+  async findAllForAdmin(): Promise&lt;Filter[]&gt; {
+    return await this.filterSchema.find().exec();
+  }
+
+  /**
+   * Retrieves a single filter document from the database by its ID.
+   *
+   * @param id - The ObjectId of the filter document to retrieve.
+   * @returns A Promise that resolves to the found Filter document, or null if no document matches the given ID.
+   */
+  async findOne(id: Types.ObjectId) {
+    return await this.filterSchema.findById(id).exec();
+  }
+
+  /**
+   * Updates an existing filter document in the database.
+   * 
+   * This method replaces the entire document matching the given ID with the new data
+   * provided in the updateFilterDto. After updating, it refreshes the filter data in Redis cache.
+   *
+   * @param id - The ObjectId of the filter document to update.
+   * @param updateFilterDto - The Data Transfer Object containing the updated filter data.
+   * @returns A Promise that resolves to the result of the update operation.
+   *          The result typically includes information about the operation&#x27;s success,
+   *          such as the number of documents modified.
+   */
+  async update(id: Types.ObjectId, updateFilterDto: UpdateFilterDto) {
+    const result &#x3D; await this.filterSchema.replaceOne({ _id: id }, updateFilterDto);
+    await this.reNewFilterDataFromRedis();
+    return result;
+  }
+
+  /**
+   * Increments the count of a specific filter value by 1.
+   * 
+   * This method finds a filter document by its ID and a specific value within its data array,
+   * then increases the count of that value by 1. This is typically used when a new item
+   * matching this filter value is added to the system.
+   *
+   * @param id - The ObjectId of the filter document to update.
+   * @param value - The specific value within the filter&#x27;s data array to increment.
+   * @returns A Promise that resolves to the updated filter document, or null if no document was found or updated.
+   */
+  async updateFilterCountOnAdd(id: Types.ObjectId, value: string) {
+    return await this.filterSchema.findOneAndUpdate({ _id: id, &#x27;data.value&#x27;: value }, { $inc: { &#x27;data.$.count&#x27;: 1 } });
+  }
+
+  /**
+   * Decrements the count of a specific filter value by 1.
+   * 
+   * This method finds a filter document by its ID and a specific value within its data array,
+   * then decreases the count of that value by 1. This is typically used when an item
+   * matching this filter value is removed from the system.
+   *
+   * @param id - The ObjectId of the filter document to update.
+   * @param value - The specific value within the filter&#x27;s data array to decrement.
+   * @returns A Promise that resolves to the updated filter document, or null if no document was found or updated.
+   */
+  async updateFilterCountOnRemove(id: Types.ObjectId, value: string) {
+    return await this.filterSchema.findOneAndUpdate({ _id: id, &#x27;data.value&#x27;: value }, { $inc: { &#x27;data.$.count&#x27;: -1 } });
+  }
+
+  /**
+   * Resets the count of all filter data to zero for specific filter types.
+   * 
+   * This function retrieves all filters, then for each filter of type &#x27;checkbox&#x27;, &#x27;textbox-list&#x27;, 
+   * &#x27;multi-select&#x27;, or &#x27;multi-choice&#x27;, it resets the count of each data item to zero. 
+   * This is useful for periodically resetting filter usage statistics.
+   * 
+   * @remarks
+   * The function uses &#x60;Promise.allSettled&#x60; to process all filters concurrently, 
+   * which may improve performance for large numbers of filters.
+   * 
+   * @returns {Promise&lt;boolean&gt;} A promise that resolves to true when the operation is complete, 
+   *                             regardless of individual filter update successes or failures.
+   */
+  async updateFilterCountReset(): Promise&lt;boolean&gt; {
+    const filters &#x3D; await this.findAllForAdmin();
+    await Promise.allSettled(filters.map(async (filter: any) &#x3D;&gt; {
+      if ([&#x27;checkbox&#x27;, &#x27;textbox-list&#x27;, &#x27;multi-select&#x27;, &#x27;multi-choice&#x27;].includes(filter.type)) {
+        // if([&#x27;condition&#x27;, &#x27;seller_type&#x27;, &#x27;home_services&#x27;, &#x27;year&#x27;, &#x27;mileage&#x27;, &#x27;features&#x27;].includes(filter.name.value)) return
+        // await this.filterSchema.findOneAndUpdate({ _id: filter._id }, { $set: { data: [] }});
+  
+        filter.data.forEach(async (data: labelValue) &#x3D;&gt; {
+          await this.filterSchema.findOneAndUpdate({ _id: filter._id, &#x27;data.value&#x27;: data.value }, { $set: { &#x27;data.$.count&#x27;: 0 } });
+        })
+      }
+    }));
+    return true;
+  }
+
+  /**
+   * Updates the sequence (position) of multiple filters in the database.
+   * 
+   * This function iterates through an array of filter sequence updates, applying each update
+   * to the corresponding filter document in the database. After all updates are processed,
+   * it refreshes the filter data in the Redis cache.
+   * 
+   * @param updateFilterSquenceDto - An array of objects containing filter IDs and their new positions.
+   *                                 Each object should have &#x27;_id&#x27; (filter ID) and &#x27;position&#x27; (new sequence number) properties.
+   * @returns {Promise&lt;void&gt;} A promise that resolves when all filter sequences have been updated
+   *                          and the Redis cache has been refreshed.
+   */
+  async updateFilterSequence(updateFilterSquenceDto: UpdateFilterSquenceDto[]): Promise&lt;void&gt; {
+    for(const item of updateFilterSquenceDto) {
+      await this.filterSchema.updateOne({ _id: item._id }, { position: item.position });
+    }
+    await this.reNewFilterDataFromRedis();
+  }
+
+  /**
+   * Updates the data of all filter documents that match the given filter name.
+   * 
+   * This function finds all filter documents where the &#x27;name.value&#x27; field matches
+   * the provided name, and updates their &#x27;data&#x27; field with the new data provided.
+   * 
+   * @param name - The value of the &#x27;name.value&#x27; field to match filters for updating.
+   * @param data - The new data to set for the matched filters. This can be of any type
+   *               that is compatible with the filter&#x27;s data structure.
+   * @returns A Promise that resolves when the update operation is complete. The resolved
+   *          value is not specified and should not be relied upon.
+   */
+  async updateDataByFiltername(name: string, data: any) {
+    await this.filterSchema.updateMany({ &#x27;name.value&#x27;: name }, { $set: { data } });
+  }
+
+  /**
+   * Removes a filter document from the database and updates the Redis cache.
+   * 
+   * This function deletes a filter document with the specified ID from the database.
+   * After deletion, it refreshes the filter data in the Redis cache to ensure
+   * consistency between the database and the cache.
+   *
+   * @param id - The ObjectId of the filter document to be removed.
+   * @returns A Promise that resolves to the removed filter document, or null if no document was found.
+   */
+  async remove(id: Types.ObjectId) {
+    const result &#x3D; await this.filterSchema.findByIdAndDelete(id);
+    await this.reNewFilterDataFromRedis();
+    return result;
+  }
+
+  /**
+   * Refreshes the filter data in Redis cache.
+   * 
+   * This method performs the following steps:
+   * 1. Deletes the existing &#x27;all:filter&#x27; key from Redis.
+   * 2. Retrieves all filter documents from the database.
+   * 3. Stores the retrieved filter data back in Redis under the &#x27;all:filter&#x27; key.
+   * 
+   * This ensures that the Redis cache always contains the most up-to-date filter information.
+   * 
+   * @returns {Promise&lt;void&gt;} A promise that resolves when the Redis cache has been successfully updated with fresh filter data.
+   */
+  async reNewFilterDataFromRedis(): Promise&lt;void&gt; {
+    await this.redisService.delete(&#x27;all:filter&#x27;);
+    const data &#x3D; await this.filterSchema.find().exec();
+    await this.redisService.setObject(&#x27;all:filter&#x27;, data);
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'FilterService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

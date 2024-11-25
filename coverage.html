@@ -1,0 +1,2540 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content coverage">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Documentation coverage</li>
+</ol>
+
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/AppController.html">src/app.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>AppController</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AppService.html">src/app.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AppService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#bootstrap">src/main.ts</a>
+            </td>
+            <td>function</td>
+            <td>bootstrap</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/AlertPriceController.html">src/modules/alert-price/alert-price.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>AlertPriceController</td>
+            <td align="right" data-sort="75">
+                <span class="coverage-percent">75 %</span>
+                <span class="coverage-count">(3/4)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AlertPriceService.html">src/modules/alert-price/alert-price.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AlertPriceService</td>
+            <td align="right" data-sort="62">
+                <span class="coverage-percent">62 %</span>
+                <span class="coverage-count">(5/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateAlertPriceDto.html">src/modules/alert-price/dto/create-alert-price.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateAlertPriceDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateAlertPriceDto.html">src/modules/alert-price/dto/update-alert-price.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateAlertPriceDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AlertSubscribeConsumerService.html">src/modules/alert-price/queue/alert-subscription-consumer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AlertSubscribeConsumerService</td>
+            <td align="right" data-sort="60">
+                <span class="coverage-percent">60 %</span>
+                <span class="coverage-count">(3/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/AlertPrice.html">src/modules/alert-price/schema/alert-price.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>AlertPrice</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AlertPriceSchema">src/modules/alert-price/schema/alert-price.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AlertPriceSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/AlertSubscribeController.html">src/modules/alert-subscribe/alert-subscribe.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>AlertSubscribeController</td>
+            <td align="right" data-sort="75">
+                <span class="coverage-percent">75 %</span>
+                <span class="coverage-count">(3/4)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AlertSubscribeService.html">src/modules/alert-subscribe/alert-subscribe.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AlertSubscribeService</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(4/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateAlertSubscribeDto.html">src/modules/alert-subscribe/dto/create-alert-subscribe.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateAlertSubscribeDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateAlertSubscribeDto.html">src/modules/alert-subscribe/dto/update-alert-subscribe.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateAlertSubscribeDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/AlertSubscribe.html">src/modules/alert-subscribe/schema/alert-subscribe.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>AlertSubscribe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AlertSubscribeSchema">src/modules/alert-subscribe/schema/alert-subscribe.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AlertSubscribeSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/AuthenticationController.html">src/modules/authentication/authentication.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>AuthenticationController</td>
+            <td align="right" data-sort="16">
+                <span class="coverage-percent">16 %</span>
+                <span class="coverage-count">(2/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthenticationService.html">src/modules/authentication/authentication.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AuthenticationService</td>
+            <td align="right" data-sort="90">
+                <span class="coverage-percent">90 %</span>
+                <span class="coverage-count">(18/20)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateAuthenticationDto.html">src/modules/authentication/dto/create-authentication.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateAuthenticationDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateNotificationTokenDto.html">src/modules/authentication/dto/create-notification-token.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateNotificationTokenDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateSignInDto.html">src/modules/authentication/dto/create-signin.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateSignInDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateSignUpDTO.html">src/modules/authentication/dto/create-signup.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateSignUpDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ForgetPasswordDTO.html">src/modules/authentication/dto/create-signup.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>ForgetPasswordDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/GetEmailDTO.html">src/modules/authentication/dto/create-signup.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>GetEmailDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/VerifySignUpDTO.html">src/modules/authentication/dto/create-signup.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>VerifySignUpDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateAuthenticationDto.html">src/modules/authentication/dto/update-authentication.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateAuthenticationDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Authentication.html">src/modules/authentication/schema/authentication.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>Authentication</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AuthenticationSchema">src/modules/authentication/schema/authentication.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AuthenticationSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/AwardController.html">src/modules/award/award.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>AwardController</td>
+            <td align="right" data-sort="88">
+                <span class="coverage-percent">88 %</span>
+                <span class="coverage-count">(8/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AwardService.html">src/modules/award/award.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AwardService</td>
+            <td align="right" data-sort="80">
+                <span class="coverage-percent">80 %</span>
+                <span class="coverage-count">(8/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateAwardDto.html">src/modules/award/dto/create-award.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateAwardDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ManageUserAwardDto.html">src/modules/award/dto/manage-user-award.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>ManageUserAwardDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateAwardDto.html">src/modules/award/dto/update-award.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateAwardDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Award.html">src/modules/award/schema/award.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>Award</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AwardSchema">src/modules/award/schema/award.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AwardSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/CarController.html">src/modules/car/car.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>CarController</td>
+            <td align="right" data-sort="96">
+                <span class="coverage-percent">96 %</span>
+                <span class="coverage-count">(24/25)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CarService.html">src/modules/car/car.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CarService</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(37/40)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateCarDto.html">src/modules/car/dto/create-car.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateCarDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(29/29)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/LocationDTO.html">src/modules/car/dto/create-car.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>LocationDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/MediaDTO.html">src/modules/car/dto/create-car.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>MediaDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateMediaPositionDTO.html">src/modules/car/dto/create-media-position.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateMediaPositionDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateUserFilterDto.html">src/modules/car/dto/create-user-filter.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateUserFilterDto</td>
+            <td align="right" data-sort="4">
+                <span class="coverage-percent">4 %</span>
+                <span class="coverage-count">(1/23)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateCarMediaDto.html">src/modules/car/dto/media-car.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateCarMediaDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/MediaDTO.html">src/modules/car/dto/media-car.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>MediaDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/FindCarStoreDTO.html">src/modules/car/dto/store-car-find.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>FindCarStoreDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateCarDto.html">src/modules/car/dto/update-car.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateCarDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/VerifyVinDTO.html">src/modules/car/dto/verify-vin.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>VerifyVinDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CarConsumerService.html">src/modules/car/queue/car-consumer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CarConsumerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/GetResponse.html">src/modules/car/queue/car-consumer.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>GetResponse</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Car.html">src/modules/car/schema/car.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>Car</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/39)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/location.html">src/modules/car/schema/car.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>location</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Media.html">src/modules/car/schema/car.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Media</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/TaxesAndFees.html">src/modules/car/schema/car.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>TaxesAndFees</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#CarSchema">src/modules/car/schema/car.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>CarSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#LocationSchme">src/modules/car/schema/car.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>LocationSchme</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#CarDocument">src/modules/car/schema/car.schema.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>CarDocument</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#all">src/modules/car/trim.data.ts</a>
+            </td>
+            <td>variable</td>
+            <td>all</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#data">src/modules/car/trim.data.ts</a>
+            </td>
+            <td>variable</td>
+            <td>data</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#data1">src/modules/car/trim.data.ts</a>
+            </td>
+            <td>variable</td>
+            <td>data1</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateFilterDto.html">src/modules/filter/dto/create-filter.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateFilterDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DataElementDTO.html">src/modules/filter/dto/create-filter.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>DataElementDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Discriminator.html">src/modules/filter/dto/create-filter.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>Discriminator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/LabelValueDTO.html">src/modules/filter/dto/create-filter.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>LabelValueDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/LabelValueJoinDTO.html">src/modules/filter/dto/create-filter.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>LabelValueJoinDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateFilterSquenceDto.html">src/modules/filter/dto/update-filter-squence.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateFilterSquenceDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateFilterDto.html">src/modules/filter/dto/update-filter.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateFilterDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/FilterController.html">src/modules/filter/filter.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>FilterController</td>
+            <td align="right" data-sort="88">
+                <span class="coverage-percent">88 %</span>
+                <span class="coverage-count">(8/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FilterService.html">src/modules/filter/filter.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FilterService</td>
+            <td align="right" data-sort="88">
+                <span class="coverage-percent">88 %</span>
+                <span class="coverage-count">(15/17)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Filter.html">src/modules/filter/schema/filter.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>Filter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#FilterSchema">src/modules/filter/schema/filter.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>FilterSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#DataElement">src/modules/filter/schema/filter.schema.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>DataElement</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#FilterDocument">src/modules/filter/schema/filter.schema.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>FilterDocument</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#labelValue">src/modules/filter/schema/filter.schema.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>labelValue</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#labelValueJoin">src/modules/filter/schema/filter.schema.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>labelValueJoin</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateFinanceApplicationDto.html">src/modules/finance-application/dto/create-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateFinanceApplicationDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateUserFinanceApplicationDto.html">src/modules/finance-application/dto/create-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateUserFinanceApplicationDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/43)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/PreviousFinanceEmployerDto.html">src/modules/finance-application/dto/create-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>PreviousFinanceEmployerDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateFinanceApplicationDto.html">src/modules/finance-application/dto/update-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateFinanceApplicationDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/FinanceApplicationController.html">src/modules/finance-application/finance-application.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>FinanceApplicationController</td>
+            <td align="right" data-sort="83">
+                <span class="coverage-percent">83 %</span>
+                <span class="coverage-count">(5/6)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FinanceApplicationService.html">src/modules/finance-application/finance-application.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FinanceApplicationService</td>
+            <td align="right" data-sort="62">
+                <span class="coverage-percent">62 %</span>
+                <span class="coverage-count">(5/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/FinanceApplication.html">src/modules/finance-application/schema/finance-application.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>FinanceApplication</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/FinanceApplicationUser.html">src/modules/finance-application/schema/finance-application.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>FinanceApplicationUser</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/42)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/PreviousFinanceEmployer.html">src/modules/finance-application/schema/finance-application.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PreviousFinanceEmployer</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#FinanceApplicationSchema">src/modules/finance-application/schema/finance-application.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>FinanceApplicationSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#FinanceApplicationUserSchema">src/modules/finance-application/schema/finance-application.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>FinanceApplicationUserSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#FinanceApplicationDocument">src/modules/finance-application/schema/finance-application.schema.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>FinanceApplicationDocument</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateFinanceHelpDto.html">src/modules/finance-help/dto/create-finance-help.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateFinanceHelpDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ManageFinanceHelpDto.html">src/modules/finance-help/dto/manage-finance-help.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>ManageFinanceHelpDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateFinanceHelpDto.html">src/modules/finance-help/dto/update-finance-help.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateFinanceHelpDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/FinanceHelpController.html">src/modules/finance-help/finance-help.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>FinanceHelpController</td>
+            <td align="right" data-sort="80">
+                <span class="coverage-percent">80 %</span>
+                <span class="coverage-count">(4/5)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FinanceHelpService.html">src/modules/finance-help/finance-help.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FinanceHelpService</td>
+            <td align="right" data-sort="75">
+                <span class="coverage-percent">75 %</span>
+                <span class="coverage-count">(6/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/FinanceHelp.html">src/modules/finance-help/schema/finance-help.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>FinanceHelp</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Timeline.html">src/modules/finance-help/schema/finance-help.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Timeline</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#FinanceHelpSchema">src/modules/finance-help/schema/finance-help.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>FinanceHelpSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#TimelineSchme">src/modules/finance-help/schema/finance-help.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>TimelineSchme</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#FinanceHelpDocument">src/modules/finance-help/schema/finance-help.schema.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>FinanceHelpDocument</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateInquiryPersonDto.html">src/modules/inquiry/dto/create-inquiry-person.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateInquiryPersonDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateInquiryDto.html">src/modules/inquiry/dto/create-inquiry.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateInquiryDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ManageInquiryStatusDto.html">src/modules/inquiry/dto/manage-inquiry-status.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>ManageInquiryStatusDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateInquiryDto.html">src/modules/inquiry/dto/update-inquiry.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateInquiryDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateStatusInquiryDto.html">src/modules/inquiry/dto/update-status-inquiry.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateStatusInquiryDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/InquiryController.html">src/modules/inquiry/inquiry.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>InquiryController</td>
+            <td align="right" data-sort="87">
+                <span class="coverage-percent">87 %</span>
+                <span class="coverage-count">(7/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/InquiryService.html">src/modules/inquiry/inquiry.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>InquiryService</td>
+            <td align="right" data-sort="77">
+                <span class="coverage-percent">77 %</span>
+                <span class="coverage-count">(7/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Inquiry.html">src/modules/inquiry/schema/inquiry.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>Inquiry</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Timeline.html">src/modules/inquiry/schema/inquiry.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Timeline</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InquirySchema">src/modules/inquiry/schema/inquiry.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InquirySchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#TimelineSchme">src/modules/inquiry/schema/inquiry.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>TimelineSchme</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#InquiryDocument">src/modules/inquiry/schema/inquiry.schema.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>InquiryDocument</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateNotificationDto.html">src/modules/notification/dto/create-notification.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateNotificationDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateNotificationDto.html">src/modules/notification/dto/update-notification.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateNotificationDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateReadNotificationDto.html">src/modules/notification/dto/update-read-notification.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateReadNotificationDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/NotificationController.html">src/modules/notification/notification.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>NotificationController</td>
+            <td align="right" data-sort="75">
+                <span class="coverage-percent">75 %</span>
+                <span class="coverage-count">(3/4)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/NotificationService.html">src/modules/notification/notification.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>NotificationService</td>
+            <td align="right" data-sort="60">
+                <span class="coverage-percent">60 %</span>
+                <span class="coverage-count">(3/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Notification.html">src/modules/notification/schema/notification.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>Notification</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#NotificationSchema">src/modules/notification/schema/notification.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>NotificationSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateRemoteServiceDto.html">src/modules/remote-service/dto/create-remote-service.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateRemoteServiceDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateRemoteServiceDto.html">src/modules/remote-service/dto/update-remote-service.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateRemoteServiceDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/RemoteServiceController.html">src/modules/remote-service/remote-service.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>RemoteServiceController</td>
+            <td align="right" data-sort="85">
+                <span class="coverage-percent">85 %</span>
+                <span class="coverage-count">(6/7)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/RemoteServiceService.html">src/modules/remote-service/remote-service.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>RemoteServiceService</td>
+            <td align="right" data-sort="75">
+                <span class="coverage-percent">75 %</span>
+                <span class="coverage-count">(6/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/RemoteService.html">src/modules/remote-service/schema/remote-service.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>RemoteService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#RemoteServiceSchema">src/modules/remote-service/schema/remote-service.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>RemoteServiceSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/AddressDTO.html">src/modules/store/dto/create-store.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>AddressDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContactListDTO.html">src/modules/store/dto/create-store.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContactListDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateStoreDto.html">src/modules/store/dto/create-store.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateStoreDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/LocationDTO.html">src/modules/store/dto/create-store.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>LocationDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/TimeDTO.html">src/modules/store/dto/create-store.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>TimeDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/TimeFormatDTO.html">src/modules/store/dto/create-store.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>TimeFormatDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ManageUserStatusDto.html">src/modules/store/dto/manage-user-status.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>ManageUserStatusDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/SearchRegionStatusDto.html">src/modules/store/dto/search-region-status.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>SearchRegionStatusDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateStoreDto.html">src/modules/store/dto/update-store.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateStoreDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Store.html">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>Store</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(20/20)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Address.html">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Address</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/location.html">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>location</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Time.html">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Time</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Timeline.html">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Timeline</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AddressSchema">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AddressSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#LocationSchme">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>LocationSchme</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#StoreSchema">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>StoreSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#TimelineSchme">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>TimelineSchme</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#TimeSchme">src/modules/store/schema/store.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>TimeSchme</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/StoreController.html">src/modules/store/store.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>StoreController</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(13/14)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/StoreService.html">src/modules/store/store.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>StoreService</td>
+            <td align="right" data-sort="89">
+                <span class="coverage-percent">89 %</span>
+                <span class="coverage-count">(17/19)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ICurrentUser.html">src/modules/user/decorator/current-user.decorator.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ICurrentUser</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#CurrentUser">src/modules/user/decorator/current-user.decorator.ts</a>
+            </td>
+            <td>variable</td>
+            <td>CurrentUser</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ChangePasswordDto.html">src/modules/user/dto/change-password.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>ChangePasswordDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateAddressDTO.html">src/modules/user/dto/create-address.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateAddressDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateUserAdminDto.html">src/modules/user/dto/create-user-admin.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateUserAdminDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateUserDto.html">src/modules/user/dto/create-user.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateUserDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ManageUserFavouriteDto.html">src/modules/user/dto/manage-user-favourite.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>ManageUserFavouriteDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/SetStorePermissionDto.html">src/modules/user/dto/set-store-permission.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>SetStorePermissionDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UserStoreDTO.html">src/modules/user/dto/set-store-permission.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UserStoreDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/SetUserAdminPermissionDto.html">src/modules/user/dto/set-user-admin-permission.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>SetUserAdminPermissionDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UserAdminStoreDTO.html">src/modules/user/dto/set-user-admin-permission.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UserAdminStoreDTO</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateUserDto.html">src/modules/user/dto/update-user.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateUserDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Roles">src/modules/user/role/role.decorator.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Roles</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ROLES_KEY">src/modules/user/role/role.decorator.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ROLES_KEY</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/User.html">src/modules/user/schema/user.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>User</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Address.html">src/modules/user/schema/user.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Address</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/location.html">src/modules/user/schema/user.schema.ts</a>
+            </td>
+            <td>interface</td>
+            <td>location</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AddressSchema">src/modules/user/schema/user.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AddressSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#LocationSchme">src/modules/user/schema/user.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>LocationSchme</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#UserSchema">src/modules/user/schema/user.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>UserSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/UserController.html">src/modules/user/user.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>UserController</td>
+            <td align="right" data-sort="9">
+                <span class="coverage-percent">9 %</span>
+                <span class="coverage-count">(2/21)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/UserService.html">src/modules/user/user.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>UserService</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(31/33)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateDirectResultDto.html">src/modules/vehicle-finance-application/dto/create-direct-result.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateDirectResultDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateResultVehicleFinanceApplicationDto.html">src/modules/vehicle-finance-application/dto/create-user-with-vehicle-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateResultVehicleFinanceApplicationDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateSubVehicleFinanceApplicationDto.html">src/modules/vehicle-finance-application/dto/create-user-with-vehicle-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateSubVehicleFinanceApplicationDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateUserVehicleFinanceApplicationDto.html">src/modules/vehicle-finance-application/dto/create-user-with-vehicle-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateUserVehicleFinanceApplicationDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CreateVehicleFinanceApplicationDto.html">src/modules/vehicle-finance-application/dto/create-vehicle-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>CreateVehicleFinanceApplicationDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ResultVehicleFinanceApplicationDto.html">src/modules/vehicle-finance-application/dto/create-vehicle-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>ResultVehicleFinanceApplicationDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(10/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateOtherFieldVehicleDto.html">src/modules/vehicle-finance-application/dto/update-other-field-vehicle-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateOtherFieldVehicleDto</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(14/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UpdateVehicleFinanceApplicationDto.html">src/modules/vehicle-finance-application/dto/update-vehicle-finance-application.dto.ts</a>
+            </td>
+            <td>class</td>
+            <td>UpdateVehicleFinanceApplicationDto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ResultVehicleFinanceApplication.html">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>ResultVehicleFinanceApplication</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/SubVehicleFinanceApplication.html">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>SubVehicleFinanceApplication</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(12/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/VehicleFinanceApplication.html">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts</a>
+            </td>
+            <td>class</td>
+            <td>VehicleFinanceApplication</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(21/21)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ResultVehicleFinanceApplicationSchema">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ResultVehicleFinanceApplicationSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#SubVehicleFinanceApplicationSchema">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>SubVehicleFinanceApplicationSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#VehicleFinanceApplicationSchema">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts</a>
+            </td>
+            <td>variable</td>
+            <td>VehicleFinanceApplicationSchema</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#VehicleFinanceApplicationDocument">src/modules/vehicle-finance-application/schema/vehicle-finance-application.schema.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>VehicleFinanceApplicationDocument</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./controllers/VehicleFinanceApplicationController.html">src/modules/vehicle-finance-application/vehicle-finance-application.controller.ts</a>
+            </td>
+            <td>controller</td>
+            <td>VehicleFinanceApplicationController</td>
+            <td align="right" data-sort="85">
+                <span class="coverage-percent">85 %</span>
+                <span class="coverage-count">(6/7)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/VehicleFinanceApplicationService.html">src/modules/vehicle-finance-application/vehicle-finance-application.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>VehicleFinanceApplicationService</td>
+            <td align="right" data-sort="63">
+                <span class="coverage-percent">63 %</span>
+                <span class="coverage-count">(7/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#config">src/utilities/config.ts</a>
+            </td>
+            <td>variable</td>
+            <td>config</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#data">src/utilities/files/canadiancities.ts</a>
+            </td>
+            <td>variable</td>
+            <td>data</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./guards/AuthGuard.html">src/utilities/guard/auth/auth.guard.ts</a>
+            </td>
+            <td>guard</td>
+            <td>AuthGuard</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./guards/RoleGuard.html">src/utilities/guard/role/role.guard.ts</a>
+            </td>
+            <td>guard</td>
+            <td>RoleGuard</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/OriginMiddleware.html">src/utilities/middleware/origin/origin.middleware.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>OriginMiddleware</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/IsNumberOrString.html">src/utilities/other/is-number-or-string.validator.ts</a>
+            </td>
+            <td>class</td>
+            <td>IsNumberOrString</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CustomValidationPipe.html">src/utilities/pipes/custom-validation/custom-validation.pipe.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CustomValidationPipe</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(2/3)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AwsS3Service.html">src/utilities/services/aws_s3/aws_s3.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AwsS3Service</td>
+            <td align="right" data-sort="69">
+                <span class="coverage-percent">69 %</span>
+                <span class="coverage-count">(9/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#customParseFormat">src/utilities/services/aws_s3/aws_s3.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>customParseFormat</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CommonService.html">src/utilities/services/common/common.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CommonService</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(2/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/TimestampReturn.html">src/utilities/services/common/common.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>TimestampReturn</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FirebaseNotificationService.html">src/utilities/services/firebase/notification/firebase-notification.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FirebaseNotificationService</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(2/4)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/MailService.html">src/utilities/services/mail/mail.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MailService</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/RedisService.html">src/utilities/services/redis/redis.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>RedisService</td>
+            <td align="right" data-sort="84">
+                <span class="coverage-percent">84 %</span>
+                <span class="coverage-count">(11/13)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

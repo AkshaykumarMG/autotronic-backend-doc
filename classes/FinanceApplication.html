@@ -1,0 +1,591 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >FinanceApplication</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/finance-application/schema/finance-application.schema.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#_id" >_id</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_id"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>_id</b></span>
+                        <a href="#_id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>mongoose.Types.ObjectId</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="217" class="link-to-prism">src/modules/finance-application/schema/finance-application.schema.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FinanceApplicationUser[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: undefined, required: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="223" class="link-to-prism">src/modules/finance-application/schema/finance-application.schema.ts:223</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/User.html" target="_self" >User | Types.ObjectId</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Prop({type: undefined, ref: undefined, unique: true, required: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="220" class="link-to-prism">src/modules/finance-application/schema/finance-application.schema.ts:220</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Prop, Schema, SchemaFactory } from &#x27;@nestjs/mongoose&#x27;;
+import mongoose, { HydratedDocument, SchemaTypes, Types } from &#x27;mongoose&#x27;;
+import { User } from &#x27;../../user/schema/user.schema&#x27;;
+
+export type FinanceApplicationDocument &#x3D; HydratedDocument&lt;FinanceApplication&gt;;
+
+export enum Subject {
+    mr &#x3D; &#x27;mr&#x27;,
+    mrs &#x3D; &#x27;mrs&#x27;,
+    miss &#x3D; &#x27;miss&#x27;,
+    ms &#x3D; &#x27;ms&#x27;
+};
+
+export enum MaritalStatus {
+    single &#x3D; &#x27;single&#x27;,
+    married &#x3D; &#x27;married&#x27;,
+    divorced &#x3D; &#x27;divorced&#x27;,
+    separated &#x3D; &#x27;separated&#x27;,
+    common_law &#x3D; &#x27;common_law&#x27;
+};
+
+export enum LicenseClass {
+    g1 &#x3D; &#x27;g1&#x27;,
+    g2 &#x3D; &#x27;g2&#x27;,
+    g &#x3D; &#x27;g&#x27;,
+    m1 &#x3D; &#x27;m1&#x27;,
+    m2 &#x3D; &#x27;m2&#x27;,
+    m &#x3D; &#x27;m&#x27;,
+    az &#x3D; &#x27;az&#x27;,
+    dz &#x3D; &#x27;dz&#x27;,
+    none &#x3D; &#x27;none&#x27;
+};
+
+export enum Residence {
+    own &#x3D; &#x27;own&#x27;,
+    rent &#x3D; &#x27;rent&#x27;,
+    living_with_family &#x3D; &#x27;living_with_family&#x27;
+}
+
+export enum WorkType {
+    contract &#x3D; &#x27;contract&#x27;,
+    full_time &#x3D; &#x27;full_time&#x27;,
+    part_time &#x3D; &#x27;part_time&#x27;,
+    retired &#x3D; &#x27;retired&#x27;,
+    student &#x3D; &#x27;student&#x27;,
+    seasonal &#x3D; &#x27;seasonal&#x27;,
+    unemployed &#x3D; &#x27;unemployed&#x27;
+}
+
+export enum Relationship {
+    spouse &#x3D; &#x27;spouse&#x27;,
+    sibling &#x3D; &#x27;sibling&#x27;,
+    common_law &#x3D; &#x27;common_law&#x27;,
+    family_member &#x3D; &#x27;family_member&#x27;,
+    friend &#x3D; &#x27;friend&#x27;,
+    other &#x3D; &#x27;other&#x27;
+}
+
+export enum ResidencyStatus {
+    canadian_citizen &#x3D; &#x27;canadian_citizen&#x27;,
+    permenent_resident &#x3D; &#x27;permenent_resident&#x27;,
+    other &#x3D; &#x27;other&#x27;
+}
+
+export interface PreviousFinanceEmployer {
+    previous_employer: string;
+    previous_position: string;
+    previous_employer_annual_income: number;
+    previous_employer_phone_number: string;
+    previous_employer_duration_year: number;
+    previous_employer_duration_month: number;
+}
+
+@Schema({ timestamps: false, versionKey: false })
+export class FinanceApplicationUser {
+
+    _id?: mongoose.Types.ObjectId;
+
+    @Prop({ type: String, enum: Subject })
+    subject: Subject;
+
+    @Prop({ type: String })
+    first_name: string;
+
+    @Prop({ type: String })
+    middle_name: string;
+
+    @Prop({ type: String })
+    last_name: string;
+
+    @Prop({ type: String })
+    phone_number: string;
+
+    @Prop({ type: String })
+    home_number: string;
+
+    @Prop({ type: String })
+    email_address: string;
+
+    @Prop({ type: String })
+    date_of_birth: string;
+
+    @Prop({ type: String })
+    social_insurance_number: string;
+
+    @Prop({ type: String, enum: MaritalStatus })
+    marital_status: MaritalStatus;
+
+    @Prop({ type: String, enum: Relationship })
+    relationship: Relationship;
+
+    @Prop({ type: String })
+    driving_license_number: string;
+
+    @Prop({ type: String })
+    license_expiration_date: string;
+
+    @Prop({ type: String, enum: LicenseClass })
+    license_class: LicenseClass;
+
+    @Prop({ type: String })
+    home_address: string;
+
+    @Prop({ type: String })
+    city: string;
+
+    @Prop({ type: String })
+    province: string;
+
+    @Prop({ type: String })
+    postal_code: string;
+
+    @Prop({ type: Number })
+    duration_year: number;
+
+    @Prop({ type: Number })
+    duration_month: number;
+
+    @Prop({ type: String, enum: Residence })
+    residence: Residence;
+
+    // @Prop({ type: Number })
+    // morgage_payment: number;
+
+    // @Prop({ type: Number })
+    // value: number;
+
+    // @Prop({ type: Number })
+    // morgage_balance: number;
+
+    // @Prop({ type: String })
+    // morgage_holder: string;
+
+    @Prop({ type: Number, required: true })
+    estimated_credit_score?: number;
+
+    @Prop({ type: Number, required: true })
+    monthly_payment: number;
+
+    @Prop({ type: String })
+    current_employer: string;
+
+    @Prop({ type: String })
+    current_position: string;
+
+    @Prop({ type: String })
+    current_employer_phone_number: string;
+
+    @Prop({ type: String })
+    current_employer_address: string;
+
+    @Prop({ type: String })
+    current_employer_city: string;
+
+    @Prop({ type: String })
+    current_employer_province: string;
+
+    @Prop({ type: String })
+    current_employer_postal_code: string;
+
+    @Prop({ type: Number })
+    current_employer_duration_year: number;
+
+    @Prop({ type: Number })
+    current_employer_duration_month: number;
+
+    @Prop({ type: String })
+    self_employed: string;
+
+    @Prop({ type: String, enum: WorkType })
+    work_type: WorkType;
+
+    @Prop({ type: Number, required: true })
+    gross_annual_income: number;
+
+    @Prop({ type: Array&lt;PreviousFinanceEmployer&gt; })
+    previous_employers: PreviousFinanceEmployer[];
+
+    @Prop({ type: Number })
+    other_income_source: number;
+
+    @Prop({ type: Number })
+    monthly_amount: number;
+
+    @Prop({ type: Number })
+    other_year_duration: number;
+
+    @Prop({ type: Number })
+    other_month_duration: number;
+}
+
+export const FinanceApplicationUserSchema &#x3D; SchemaFactory.createForClass(FinanceApplicationUser);
+
+@Schema({ timestamps: true, versionKey: false })
+export class FinanceApplication {
+
+    _id?: mongoose.Types.ObjectId;
+
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: User.name, unique: true, required: true })
+    user: User | Types.ObjectId;
+
+    @Prop({ type: [FinanceApplicationUserSchema], required: true })
+    data: FinanceApplicationUser[];
+}
+
+export const FinanceApplicationSchema &#x3D; SchemaFactory.createForClass(FinanceApplication);</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'FinanceApplication.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

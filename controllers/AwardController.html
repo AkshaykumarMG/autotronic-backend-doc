@@ -1,0 +1,1239 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >AwardController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/award/award.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>award</code>
+            </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#addAwardToStore" >addAwardToStore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForSelect" >findAllForSelect</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#removeAwardToStore" >removeAwardToStore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addAwardToStore"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>addAwardToStore</b></span>
+                        <a href="#addAwardToStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addAwardToStore(manageUserAwardDto: <a href="../classes/ManageUserAwardDto.html" target="_self">ManageUserAwardDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;add-store&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/modules/award/award.controller.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adds an award to a store.</p>
+<p>This function handles the process of associating an award with a specific store.
+It calls the award service to update the store&#39;s award list.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                        This includes details such as the award ID and the store ID.
+     The object has a single boolean property &#39;success&#39; which is true if the
+     award was successfully added to the store.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>manageUserAwardDto</td>
+                                            <td>
+                                                            <code><a href="../classes/ManageUserAwardDto.html" target="_self" >ManageUserAwardDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the award and store information.
+This includes details such as the award ID and the store ID.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object indicating the success of the operation.
+The object has a single boolean property &#39;success&#39; which is true if the
+award was successfully added to the store.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, createAwardDto: <a href="../classes/CreateAwardDto.html" target="_self">CreateAwardDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/modules/award/award.controller.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new award in the system.</p>
+<p>This function handles the creation of a new award by setting the creator
+and passing the data to the award service.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The current authenticated user creating the award.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createAwardDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateAwardDto.html" target="_self" >CreateAwardDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data transfer object containing the award details.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the created award object.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/modules/award/award.controller.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a paginated list of all awards.</p>
+<p>This endpoint allows fetching awards with pagination support. It uses query parameters
+to determine which page of results to return and how many items per page.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                    The exact structure of the return object depends on the implementation
+                    of the AwardService&#39;s findAll method.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The page number of results to return. Used for pagination.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of items to return per page.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object containing the paginated list of awards.
+The exact structure of the return object depends on the implementation
+of the AwardService&#39;s findAll method.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForSelect"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForSelect</b></span>
+                        <a href="#findAllForSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForSelect()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;select&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/modules/award/award.controller.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all awards for selection purposes.</p>
+<p>This endpoint fetches a list of all awards in a format suitable for selection,
+typically used in dropdown menus or similar UI components. The exact format
+of the returned data depends on the implementation of the AwardService&#39;s
+findAllForSelect method.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                    the awards in a format suitable for selection. The exact
+                    structure depends on the AwardService implementation.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an array or object containing
+the awards in a format suitable for selection. The exact
+structure depends on the AwardService implementation.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/modules/award/award.controller.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a specific award by its ID.</p>
+<p>This endpoint fetches the details of a single award based on the provided ID.
+It uses the AwardService to fetch the award from the database.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This should be a valid MongoDB ObjectId.
+                      The exact structure of the Award object depends on the schema definition.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the award to retrieve.
+This should be a valid MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Award.html" target="_self" >Promise&lt;Award&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the Award object matching the provided ID.
+The exact structure of the Award object depends on the schema definition.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:id&#x27;)<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/modules/award/award.controller.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes an award from the system.</p>
+<p>This endpoint deletes a specific award based on the provided ID.
+It uses the AwardService to remove the award from the database.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This should be a valid MongoDB ObjectId.
+                                     indicating the success of the operation.
+                                     The object has a single boolean property
+                                     &#39;success&#39; which is true if the award
+                                     was successfully removed.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the award to be removed.
+This should be a valid MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object 
+indicating the success of the operation.
+The object has a single boolean property 
+&#39;success&#39; which is true if the award 
+was successfully removed.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAwardToStore"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>removeAwardToStore</b></span>
+                        <a href="#removeAwardToStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeAwardToStore(manageUserAwardDto: <a href="../classes/ManageUserAwardDto.html" target="_self">ManageUserAwardDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;remove-store&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/modules/award/award.controller.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes an award from a store.</p>
+<p>This function handles the process of disassociating an award from a specific store.
+It calls the award service to update the store&#39;s award list by removing the specified award.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                                             This includes details such as the award ID and the store ID.
+                                     The object has a single boolean property &#39;success&#39; which is true if the
+                                     award was successfully removed from the store.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>manageUserAwardDto</td>
+                                            <td>
+                                                            <code><a href="../classes/ManageUserAwardDto.html" target="_self" >ManageUserAwardDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the award and store information.
+This includes details such as the award ID and the store ID.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object indicating the success of the operation.
+The object has a single boolean property &#39;success&#39; which is true if the
+award was successfully removed from the store.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: Types.ObjectId, updateAwardDto: <a href="../classes/UpdateAwardDto.html" target="_self">UpdateAwardDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id&#x27;)<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">src/modules/award/award.controller.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates an existing award in the system.</p>
+<p>This endpoint allows for the modification of an award&#39;s details based on the provided ID.
+It uses the AwardService to update the award in the database.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                         This should be a valid MongoDB ObjectId.
+                                     This includes any fields that need to be modified.
+                      The returned object reflects the award&#39;s state after the update.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the award to be updated.
+This should be a valid MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateAwardDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateAwardDto.html" target="_self" >UpdateAwardDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the updated award details.
+This includes any fields that need to be modified.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Award.html" target="_self" >Promise&lt;Award&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the updated Award object.
+The returned object reflects the award&#39;s state after the update.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Query } from &#x27;@nestjs/common&#x27;;
+import { AwardService } from &#x27;./award.service&#x27;;
+import { CreateAwardDto } from &#x27;./dto/create-award.dto&#x27;;
+import { UpdateAwardDto } from &#x27;./dto/update-award.dto&#x27;;
+import { ManageUserAwardDto } from &#x27;./dto/manage-user-award.dto&#x27;;
+
+// mongoose
+import { Types } from &#x27;mongoose&#x27;;
+
+// verify user by credential and role
+import { AuthGuard } from &#x27;../../utilities/guard/auth/auth.guard&#x27;;
+import { Roles } from &#x27;../user/role/role.decorator&#x27;;
+import { UserRole } from &#x27;../user/schema/user.schema&#x27;;
+import { RoleGuard } from &#x27;../../utilities/guard/role/role.guard&#x27;;
+import { CurrentUser, ICurrentUser } from &#x27;../user/decorator/current-user.decorator&#x27;;
+
+// swagger cookie
+import { ApiCookieAuth, ApiParam } from &#x27;@nestjs/swagger&#x27;;
+import { Award } from &#x27;./schema/award.schema&#x27;;
+
+@Controller(&#x27;award&#x27;)
+@ApiCookieAuth()
+@UseGuards(AuthGuard, RoleGuard)
+@Roles(UserRole.SuperAdmin)
+export class AwardController {
+  constructor(private readonly awardService: AwardService) { }
+
+  /**
+   * Creates a new award in the system.
+   * 
+   * This function handles the creation of a new award by setting the creator
+   * and passing the data to the award service.
+   * 
+   * @param user - The current authenticated user creating the award.
+   * @param createAwardDto - The data transfer object containing the award details.
+   * @returns A promise that resolves to the created award object.
+   */
+  @Post()
+  async create(@CurrentUser() user: ICurrentUser, @Body() createAwardDto: CreateAwardDto) {
+    createAwardDto.createdBy &#x3D; user._id;
+    return await this.awardService.create(createAwardDto);
+  }
+
+  /**
+   * Adds an award to a store.
+   * 
+   * This function handles the process of associating an award with a specific store.
+   * It calls the award service to update the store&#x27;s award list.
+   * 
+   * @param manageUserAwardDto - Data transfer object containing the award and store information.
+   *                             This includes details such as the award ID and the store ID.
+   * @returns A promise that resolves to an object indicating the success of the operation.
+   *          The object has a single boolean property &#x27;success&#x27; which is true if the
+   *          award was successfully added to the store.
+   */
+  @Post(&#x27;add-store&#x27;)
+  async addAwardToStore(@Body() manageUserAwardDto: ManageUserAwardDto) {
+    await this.awardService.updateAddAwardToStore(manageUserAwardDto);
+    return { success: true };
+  }
+
+  /**
+   * Removes an award from a store.
+   * 
+   * This function handles the process of disassociating an award from a specific store.
+   * It calls the award service to update the store&#x27;s award list by removing the specified award.
+   * 
+   * @param {ManageUserAwardDto} manageUserAwardDto - Data transfer object containing the award and store information.
+   *                                                  This includes details such as the award ID and the store ID.
+   * @returns {Promise&lt;{ success: boolean }&gt;} A promise that resolves to an object indicating the success of the operation.
+   *                                          The object has a single boolean property &#x27;success&#x27; which is true if the
+   *                                          award was successfully removed from the store.
+   */
+  @Post(&#x27;remove-store&#x27;)
+  async removeAwardToStore(@Body() manageUserAwardDto: ManageUserAwardDto): Promise&lt;{ success: boolean; }&gt; {
+    await this.awardService.updateRmoveAwardToStore(manageUserAwardDto);
+    return { success: true };
+  }
+
+  /**
+   * Retrieves a paginated list of all awards.
+   * 
+   * This endpoint allows fetching awards with pagination support. It uses query parameters
+   * to determine which page of results to return and how many items per page.
+   *
+   * @param {number} page - The page number of results to return. Used for pagination.
+   * @param {number} limit - The maximum number of items to return per page.
+   * @returns {Promise&lt;any&gt;} A promise that resolves to an object containing the paginated list of awards.
+   *                         The exact structure of the return object depends on the implementation
+   *                         of the AwardService&#x27;s findAll method.
+   */
+  @Get()
+  async findAll(@Query(&#x27;page&#x27;) page: number, @Query(&#x27;limit&#x27;) limit: number): Promise&lt;any&gt; {
+    return await this.awardService.findAll(page, limit);
+  }
+
+  /**
+   * Retrieves all awards for selection purposes.
+   * 
+   * This endpoint fetches a list of all awards in a format suitable for selection,
+   * typically used in dropdown menus or similar UI components. The exact format
+   * of the returned data depends on the implementation of the AwardService&#x27;s
+   * findAllForSelect method.
+   *
+   * @returns {Promise&lt;any&gt;} A promise that resolves to an array or object containing
+   *                         the awards in a format suitable for selection. The exact
+   *                         structure depends on the AwardService implementation.
+   */
+  @Get(&#x27;select&#x27;)
+  async findAllForSelect(): Promise&lt;any&gt; {
+    return await this.awardService.findAllForSelect();
+  }
+
+  /**
+   * Retrieves a specific award by its ID.
+   * 
+   * This endpoint fetches the details of a single award based on the provided ID.
+   * It uses the AwardService to fetch the award from the database.
+   *
+   * @param {Types.ObjectId} id - The unique identifier of the award to retrieve.
+   *                              This should be a valid MongoDB ObjectId.
+   * @returns {Promise&lt;Award&gt;} A promise that resolves to the Award object matching the provided ID.
+   *                           The exact structure of the Award object depends on the schema definition.
+   * @throws {NotFoundException} If no award is found with the given ID.
+   */
+  @Get(&#x27;:id&#x27;)
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  async findOne(@Param(&#x27;id&#x27;) id: Types.ObjectId): Promise&lt;Award&gt; {
+    return await this.awardService.findOne(id);
+  }
+
+  /**
+   * Updates an existing award in the system.
+   * 
+   * This endpoint allows for the modification of an award&#x27;s details based on the provided ID.
+   * It uses the AwardService to update the award in the database.
+   *
+   * @param {Types.ObjectId} id - The unique identifier of the award to be updated.
+   *                              This should be a valid MongoDB ObjectId.
+   * @param {UpdateAwardDto} updateAwardDto - Data transfer object containing the updated award details.
+   *                                          This includes any fields that need to be modified.
+   * @returns {Promise&lt;Award&gt;} A promise that resolves to the updated Award object.
+   *                           The returned object reflects the award&#x27;s state after the update.
+   * @throws {NotFoundException} If no award is found with the given ID.
+   */
+  @Patch(&#x27;:id&#x27;)
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  async update(@Param(&#x27;id&#x27;) id: Types.ObjectId, @Body() updateAwardDto: UpdateAwardDto): Promise&lt;Award&gt; {
+    return await this.awardService.update(id, updateAwardDto);
+  }
+
+  /**
+   * Removes an award from the system.
+   * 
+   * This endpoint deletes a specific award based on the provided ID.
+   * It uses the AwardService to remove the award from the database.
+   *
+   * @param {Types.ObjectId} id - The unique identifier of the award to be removed.
+   *                              This should be a valid MongoDB ObjectId.
+   * @returns {Promise&lt;{ success: boolean }&gt;} A promise that resolves to an object 
+   *                                          indicating the success of the operation.
+   *                                          The object has a single boolean property 
+   *                                          &#x27;success&#x27; which is true if the award 
+   *                                          was successfully removed.
+   * @throws {NotFoundException} If no award is found with the given ID.
+   */
+  @Delete(&#x27;:id&#x27;)
+  @ApiParam({ name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  async remove(@Param(&#x27;id&#x27;) id: Types.ObjectId): Promise&lt;{ success: boolean }&gt; {
+    await this.awardService.remove(id);
+    return { success: true };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'AwardController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

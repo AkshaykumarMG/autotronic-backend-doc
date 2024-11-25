@@ -1,0 +1,823 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CarConsumerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/car/queue/car-consumer.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#channelWrapper" >channelWrapper</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#logger" >logger</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#onModuleInit" >onModuleInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(carService: <a href="../injectables/CarService.html" target="_self">CarService</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, mailService: <a href="../injectables/MailService.html" target="_self">MailService</a>, awsS3Service: <a href="../injectables/AwsS3Service.html" target="_self">AwsS3Service</a>, filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>, alertPriceService: <a href="../injectables/AlertPriceService.html" target="_self">AlertPriceService</a>, redisService: <a href="../injectables/RedisService.html" target="_self">RedisService</a>, connectionDB: mongoose.Connection)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/modules/car/queue/car-consumer.service.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>carService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CarService.html" target="_self" >CarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mailService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MailService.html" target="_self" >MailService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>awsS3Service</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AwsS3Service.html" target="_self" >AwsS3Service</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>alertPriceService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertPriceService.html" target="_self" >AlertPriceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>redisService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RedisService.html" target="_self" >RedisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>connectionDB</td>
+                                                  
+                                                        <td>
+                                                                    <code>mongoose.Connection</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onModuleInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>onModuleInit</b></span>
+                        <a href="#onModuleInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onModuleInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/modules/car/queue/car-consumer.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="channelWrapper"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>channelWrapper</b></span>
+                        <a href="#channelWrapper"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ChannelWrapper</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/modules/car/queue/car-consumer.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logger"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>logger</b></span>
+                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Logger(CarConsumerService.name)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/modules/car/queue/car-consumer.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, OnModuleInit, Logger, Inject, forwardRef } from &#x27;@nestjs/common&#x27;;
+
+// amqp lib
+import { ConfirmChannel } from &#x27;amqplib&#x27;;
+import amqp, { ChannelWrapper } from &#x27;amqp-connection-manager&#x27;;
+
+// config and queue operations
+import { config } from &#x27;../../../utilities/config&#x27;;
+
+// used service
+import { CarService } from &#x27;../car.service&#x27;;
+import { FilterService } from &#x27;../../filter/filter.service&#x27;;
+import { AwsS3Service } from &#x27;../../../utilities/services/aws_s3/aws_s3.service&#x27;;
+import { RedisService } from &#x27;../../../utilities/services/redis/redis.service&#x27;;
+
+// relationship db 
+import { Store } from &#x27;../../store/schema/store.schema&#x27;;
+import { Filter, labelValue } from &#x27;../../filter/schema/filter.schema&#x27;;
+import { Media } from &#x27;../schema/car.schema&#x27;;
+import { UserService } from &#x27;../../user/user.service&#x27;;
+import { UserRole } from &#x27;../../user/schema/user.schema&#x27;;
+import { AlertPriceService } from &#x27;../../alert-price/alert-price.service&#x27;;
+
+// mail service
+import { MailService } from &#x27;../../../utilities/services/mail/mail.service&#x27;;
+
+// mongoose
+import { InjectConnection } from &#x27;@nestjs/mongoose&#x27;;
+import * as mongoose from &#x27;mongoose&#x27;;
+
+interface GetResponse {
+    mode: string,
+    data: any
+}
+
+@Injectable()
+export class CarConsumerService implements OnModuleInit {
+
+    private readonly channelWrapper: ChannelWrapper;
+    private readonly logger &#x3D; new Logger(CarConsumerService.name);
+
+    constructor(
+        private readonly carService: CarService,
+        private readonly userService: UserService,
+        private readonly mailService: MailService,
+        private readonly awsS3Service: AwsS3Service,
+        private readonly filterService: FilterService,
+        @Inject(forwardRef(() &#x3D;&gt; AlertPriceService))
+        private readonly alertPriceService: AlertPriceService,
+        @Inject(RedisService) private readonly redisService: RedisService,
+        @InjectConnection() private readonly connectionDB: mongoose.Connection
+    ) {
+        const connectionQueue &#x3D; amqp.connect([config.RABBITMQ_CAR_URL]);
+        this.channelWrapper &#x3D; connectionQueue.createChannel();
+    }
+
+    public async onModuleInit() {
+        try {
+            await this.channelWrapper.addSetup(async (channel: ConfirmChannel) &#x3D;&gt; {
+
+                await channel.assertQueue(config.QUEUE_ADVERTISEMENT_QUEUE_NAME, { durable: true });
+
+                await channel.consume(config.QUEUE_ADVERTISEMENT_QUEUE_NAME, async (message) &#x3D;&gt; {
+                    if (message) {
+                        const response: GetResponse &#x3D; JSON.parse(message.content.toString());
+                        // this.logger.log(&#x27;Received message:&#x27;, response.mode);
+                        // add advertisement
+                        if (response.mode &#x3D;&#x3D;&#x3D; config.QUEUE_ADVERTISEMENT_TOPIC_ADD_ADVERTISEMENT) {
+                            const transactionSession &#x3D; await this.connectionDB.startSession();
+                            transactionSession.startTransaction();
+                            try {
+                                // get data from payload
+                                const createCar &#x3D; response.data;
+
+                                // get filters to set title of the advertisement
+                                const filters &#x3D; await this.filterService.findAllForAdmin();
+                                const make &#x3D; (filters?.find((filter: Filter) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;make&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; createCar.make).label;
+                                const model &#x3D; (filters?.find((filter: any) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;model&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; createCar.model).label;
+                                const color &#x3D; (filters?.find((filter: any) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;color&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; createCar.color).label;
+                                const transmission &#x3D; (filters?.find((filter: any) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;transmission&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; createCar.transmission).label;
+                                let trim &#x3D; (filters?.find((filter: any) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;trim&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; createCar.trim).label;
+                                if(trim &#x3D;&#x3D;&#x3D; &#x27;Unknown&#x27;) {
+                                    trim &#x3D; &#x27;&#x27;;
+                                }
+                                createCar.name &#x3D; &#x60;${createCar.year} ${make} ${model} ${color} ${transmission} ${trim}&#x60;;
+
+                                // add car in database
+                                const carAdded &#x3D; await (await this.carService.createByQueue(createCar)).populate(&#x27;store&#x27;);
+
+                                // get user info
+                                const user &#x3D; await this.userService.findByID(createCar.createdBy);
+                                // save car location by user role
+                                if (user.role &#x3D;&#x3D; UserRole.Dealer || user.role &#x3D;&#x3D;&#x3D; UserRole.Admin || user.role &#x3D;&#x3D;&#x3D; UserRole.SuperAdmin) {
+                                    // update location of car &amp; get car details by id
+                                    const car &#x3D; await this.carService.refCarSchema().findById(carAdded._id).populate(&#x27;store&#x27;);
+                                    const store &#x3D; car.store as Store;
+                                    carAdded.location &#x3D; { type: &#x27;Point&#x27;, coordinates: [store.location.coordinates[0], store.location.coordinates[1]] as any };
+                                } else {
+                                    carAdded.location &#x3D; user.location;
+                                }
+                                carAdded.save();
+
+                                // get all filters - and increment by 1
+                                await Promise.allSettled(filters.map(async (filter: Filter) &#x3D;&gt; {
+                                    if (filter.name.value in createCar &amp;&amp; (filter.type &#x3D;&#x3D;&#x3D; &#x27;checkbox&#x27; || filter.type &#x3D;&#x3D;&#x3D; &#x27;textbox-list&#x27;)) {
+                                        return await this.filterService.updateFilterCountOnAdd(filter._id, createCar[filter.name.value]);
+                                    }
+                                    if (filter.name.value in createCar &amp;&amp; (filter.type &#x3D;&#x3D;&#x3D; &#x27;multi-select&#x27; || filter.type &#x3D;&#x3D;&#x3D; &#x27;multi-choice&#x27;)) {
+                                        createCar[filter.name.value].forEach(async (element: labelValue) &#x3D;&gt; {
+                                            return await this.filterService.updateFilterCountOnAdd(filter._id, element.value as string);
+                                        })
+                                    }
+                                }));
+
+                                // send mail to user
+                                const mailClient &#x3D; {
+                                    to: user.email,
+                                    from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+                                    templateId: &#x27;d-a760728bd92f4ad5a60603d55fe748d5&#x27;,
+                                    dynamicTemplateData: {
+                                        make, model, vin: carAdded.vin_number,
+                                        link: &#x60;${config.FRONTEND_URL}/user/car&#x60;,
+                                        title: carAdded.name,
+                                        store: (carAdded.store as Store).name
+                                    },
+                                    sendAt: Math.floor(+new Date() / 1000) + 10
+                                };
+                                // await this.mailService.send(mailClient);
+
+                                // complete transaction
+                                await transactionSession.commitTransaction();
+                            } catch (error) {
+                                console.log(&#x27;consumer add advertisement error&#x27;, JSON.stringify(error));
+                                await transactionSession.abortTransaction();
+                            } finally {
+                                await transactionSession.endSession();
+                                channel.ack(message);
+                            }
+                        } else if (response.mode &#x3D;&#x3D;&#x3D; config.QUEUE_ADVERTISEMENT_TOPIC_UPDATE_ADVERTISEMENT) {
+                            const transactionSession &#x3D; await this.connectionDB.startSession();
+                            transactionSession.startTransaction();
+                            try {
+                                // get car details by id
+                                const updateCarDto &#x3D; response.data;
+                                let car &#x3D; await this.carService.refCarSchema().findById(updateCarDto._id);
+
+                                // find all filters - decreased by 1
+                                const filters &#x3D; await this.filterService.findAllForAdmin();
+                                // convert in object from bson
+                                car &#x3D; JSON.parse(JSON.stringify(car));
+                                await Promise.allSettled(filters.map(async (filter: Filter) &#x3D;&gt; {
+                                    if (filter.name.value in car &amp;&amp; (filter.type &#x3D;&#x3D;&#x3D; &#x27;checkbox&#x27; || filter.type &#x3D;&#x3D;&#x3D; &#x27;textbox-list&#x27;)) {
+                                        if (car[filter.name.value] !&#x3D;&#x3D; updateCarDto[filter.name.value]) {
+                                            // decrease by old filter option
+                                            await this.filterService.updateFilterCountOnRemove(filter._id, car[filter.name.value]);
+                                            // increase by new filter option
+                                            await this.filterService.updateFilterCountOnAdd(filter._id, updateCarDto[filter.name.value]);
+                                        }
+                                    }
+                                    if (filter.name.value in car &amp;&amp; filter.type &#x3D;&#x3D;&#x3D; &#x27;multi-select&#x27;) {
+                                        // check is the any chnages in multi-sleect array
+                                        if (JSON.stringify(car[filter.name.value]) !&#x3D;&#x3D; JSON.stringify(updateCarDto[filter.name.value])) {
+                                            car[filter.name.value].forEach(async (element: labelValue) &#x3D;&gt; {
+                                                await this.filterService.updateFilterCountOnRemove(filter._id, element.value as string);
+                                            });
+                                            updateCarDto[filter.name.value].forEach(async (element: labelValue) &#x3D;&gt; {
+                                                await this.filterService.updateFilterCountOnAdd(filter._id, element.value as string);
+                                            });
+                                        }
+                                    }
+                                }));
+
+
+                                // update title of the advertisement
+                                const make &#x3D; (filters?.find((filter: Filter) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;make&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; updateCarDto.make).label;
+                                const model &#x3D; (filters?.find((filter: any) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;model&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; updateCarDto.model).label;
+                                const color &#x3D; (filters?.find((filter: any) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;color&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; updateCarDto.color).label;
+                                const transmission &#x3D; (filters?.find((filter: any) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;transmission&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; updateCarDto.transmission).label;
+                                const trim &#x3D; (filters?.find((filter: any) &#x3D;&gt; filter.name.value &#x3D;&#x3D;&#x3D; &#x27;trim&#x27;).data as labelValue[]).find((element: any) &#x3D;&gt; element.value &#x3D;&#x3D;&#x3D; updateCarDto.trim).label;
+                                updateCarDto.name &#x3D; &#x60;${updateCarDto.year} ${make} ${model} ${color} ${transmission} ${trim}&#x60;;
+
+                                // update car in db
+                                const updatedCar &#x3D; await (await this.carService.update(car._id, updateCarDto)).populate(&#x27;store&#x27;);
+
+                                // check price - if not match then add in price history
+                                if (updateCarDto.asking_price !&#x3D;&#x3D; car.asking_price) {
+                                    if (!updatedCar.price_history || updatedCar.price_history.length &#x3D;&#x3D; 0) {
+                                        updatedCar.price_history &#x3D; [updatedCar.asking_price, updateCarDto.asking_price];
+                                    } else {
+                                        updatedCar.price_history &#x3D; [...updatedCar.price_history, updateCarDto.asking_price];
+                                        // console.log(&#x27;send price queue from car: &#x27;, updatedCar._id);
+                                        // send price alert mail to all user who subscribe price alert for this advertisement
+                                        await this.alertPriceService.sendPriceAlertToQueue(updatedCar._id);
+                                    }
+                                }
+
+                                // check store or location is changed
+                                if (!car.location || updateCarDto.store !&#x3D; String(car.store._id)) {
+                                    updatedCar.location &#x3D; { type: &#x27;Point&#x27;, coordinates: [(updatedCar.store as Store).location.coordinates[0], (updatedCar.store as Store).location.coordinates[1]] };
+                                }
+
+                                // save updated changes in db
+                                updatedCar.save();
+
+                                // console.log(&#x27;update car: &#x27;, updateCarDto.store, updatedCar);
+                                await transactionSession.commitTransaction();
+                            } catch (error) {
+                                console.log(&#x27;consumer error&#x27;, JSON.stringify(error));
+                                await transactionSession.abortTransaction();
+                            } finally {
+                                await transactionSession.endSession();
+                                channel.ack(message);
+                            }
+                        } else if (response.mode &#x3D;&#x3D;&#x3D; config.QUEUE_ADVERTISEMENT_TOPIC_ADD_REMOVE_MEDIA) {
+                            const transactionSession &#x3D; await this.connectionDB.startSession();
+                            transactionSession.startTransaction();
+                            try {
+                                const createCarMediaDto &#x3D; response.data;
+                                if (createCarMediaDto.mode &#x3D;&#x3D;&#x3D; &#x27;add&#x27;) {
+                                    // add the media here
+                                    await this.carService.refCarSchema().findOneAndUpdate({ stock_number: createCarMediaDto.id }, { $push: { [createCarMediaDto.field]: createCarMediaDto.media } });
+                                }
+                                if (createCarMediaDto.mode &#x3D;&#x3D;&#x3D; &#x27;delete&#x27;) {
+                                    // remove the media here
+                                    await this.carService.refCarSchema().findByIdAndUpdate(createCarMediaDto.id, { $pull: { [createCarMediaDto.field]: { name: createCarMediaDto.media.name } } });
+                                    await this.awsS3Service.delete(createCarMediaDto.media.path + createCarMediaDto.media.name);
+                                }
+                                transactionSession.commitTransaction();
+                            } catch (error) {
+                                console.log(&#x27;consumer manage media error&#x27;, JSON.stringify(error));
+                                await transactionSession.abortTransaction();
+                            } finally {
+                                await transactionSession.endSession();
+                                channel.ack(message);
+                            }
+                        } else if (response.mode &#x3D;&#x3D;&#x3D; config.QUEUE_ADVERTISEMENT_TOPIC_UPDATE_POSITION_ADVERTISEMENT) {
+                            const transactionSession &#x3D; await this.connectionDB.startSession();
+                            transactionSession.startTransaction();
+                            try {
+                                const updateCarMediaPositionDto &#x3D; response.data;
+                                // update media postion
+                                await this.carService.updateCarMediaPosition(updateCarMediaPositionDto);
+                                transactionSession.commitTransaction();
+                            } catch (error) {
+                                console.log(&#x27;consumer error&#x27;, JSON.stringify(error));
+                                await transactionSession.abortTransaction();
+                            } finally {
+                                await transactionSession.endSession();
+                                channel.ack(message);
+                            }
+                        } else if (response.mode &#x3D;&#x3D;&#x3D; config.QUEUE_ADVERTISEMENT_TOPIC_REMOVE_ADVERTISEMENT) {
+                            const transactionSession &#x3D; await this.connectionDB.startSession();
+                            transactionSession.startTransaction();
+                            try {
+                                const data &#x3D; response.data;
+                                // get car details by id
+                                let car &#x3D; await this.carService.refCarSchema().findById(data.id);
+
+                                //remove media files
+                                // images
+                                await Promise.allSettled(car.images.map(async (element: Media) &#x3D;&gt; {
+                                    await this.awsS3Service.delete(element.path + element.name)
+                                }));
+                                // videos
+                                if (car.videos.length &gt; 0) {
+                                    await Promise.allSettled(car.videos.map(async (element: Media) &#x3D;&gt; {
+                                        await this.awsS3Service.delete(element.path + element.name)
+                                    }));
+                                }
+                                // deactive from list - not deleting from db
+                                // await this.carService.refCarSchema().findByIdAndUpdate(data.id, { $set: { active: false } });
+                                await this.carService.refCarSchema().findByIdAndDelete(data.id);
+
+                                // decrease car count in redis
+                                const getCarRedis &#x3D; await this.redisService.get(&#x27;all:car&#x27;);
+                                if (getCarRedis) {
+                                    await this.redisService.decrease(&#x27;all:car&#x27;);
+                                }
+
+                                // find all filters - decreased by 1
+                                const filters &#x3D; await this.filterService.findAllForAdmin();
+                                // convert in object from bson
+                                car &#x3D; JSON.parse(JSON.stringify(car));
+                                await Promise.allSettled(filters.map(async (filter: Filter) &#x3D;&gt; {
+                                    if (filter.name.value in car &amp;&amp; (filter.type &#x3D;&#x3D;&#x3D; &#x27;checkbox&#x27; || filter.type &#x3D;&#x3D;&#x3D; &#x27;textbox-list&#x27;)) {
+                                        const updatedFilter &#x3D; await this.filterService.updateFilterCountOnRemove(filter._id, car[filter.name.value]);
+                                        return updatedFilter;
+                                    }
+                                    if (filter.name.value in car &amp;&amp; filter.type &#x3D;&#x3D;&#x3D; &#x27;multi-select&#x27;) {
+                                        car[filter.name.value].forEach(async (element: labelValue) &#x3D;&gt; {
+                                            const updatedFilter &#x3D; await this.filterService.updateFilterCountOnRemove(filter._id, element.value as string);
+                                            return updatedFilter;
+                                        })
+                                    }
+                                }));
+                                await transactionSession.commitTransaction();
+                            } catch (error) {
+                                console.log(&#x27;consumer error&#x27;, JSON.stringify(error));
+                                await transactionSession.commitTransaction();
+                            } finally {
+                                await transactionSession.endSession();
+                                channel.ack(message);
+                            }
+                        } else {
+                            // not match data operation send empty response and remove message from queue
+                            channel.ack(message);
+                        }
+                    }
+                });
+            });
+            this.logger.log(&#x27;Consumer service started and listening for messages.&#x27;);
+        } catch (err) {
+            this.logger.error(&#x27;Error starting the consumer:&#x27;, err);
+        }
+    }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CarConsumerService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,717 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Media</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/car/schema/car.schema.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#date" 
+>
+                                            date
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#field" 
+>
+                                            field
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#name" 
+>
+                                            name
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#path" 
+>
+                                            path
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#position" 
+>
+                                            position
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#url" 
+>
+                                            url
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="date"></a>
+                                        <span class="name "><b>date</b>
+                                            <a href="#date">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>date:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="field"></a>
+                                        <span class="name "><b>field</b>
+                                            <a href="#field">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>field:         <code><a href="../miscellaneous/enumerations.html#MediaField" target="_self" >MediaField</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#MediaField" target="_self" >MediaField</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="name"></a>
+                                        <span class="name "><b>name</b>
+                                            <a href="#name">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="path"></a>
+                                        <span class="name "><b>path</b>
+                                            <a href="#path">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>path:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="position"></a>
+                                        <span class="name "><b>position</b>
+                                            <a href="#position">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>position:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="url"></a>
+                                        <span class="name "><b>url</b>
+                                            <a href="#url">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>url:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Prop, Schema, SchemaFactory } from &#x27;@nestjs/mongoose&#x27;;
+import mongoose, { HydratedDocument, SchemaTypes, Types } from &#x27;mongoose&#x27;;
+import { User } from &#x27;../../user/schema/user.schema&#x27;;
+import { Store } from &#x27;../../store/schema/store.schema&#x27;;
+
+export type CarDocument &#x3D; HydratedDocument&lt;Car&gt;;
+
+export enum VahicleCategory {
+  car &#x3D; &#x27;car&#x27;,
+  truck &#x3D; &#x27;truck&#x27;,
+  bus &#x3D; &#x27;bus&#x27;,
+  checkbox &#x3D; &#x27;checkbox&#x27;,
+  &#x27;commercial_vehicals&#x27; &#x3D; &#x27;commercial_vehicals&#x27;
+}
+
+export enum VahicleCondition {
+  new &#x3D; &#x27;new&#x27;,
+  used &#x3D; &#x27;used&#x27;,
+  damaged &#x3D; &#x27;damaged&#x27;
+}
+
+export enum VahicleStatus {
+  live &#x3D; &#x27;live&#x27;,
+  removed &#x3D; &#x27;removed&#x27;,
+  sold &#x3D; &#x27;sold&#x27;,
+  // pending &#x3D; &#x27;pending&#x27;
+}
+
+export enum VahiclePublish {
+  &#x27;euro_exoti_car&#x27; &#x3D; &#x27;euro_exoti_car&#x27;,
+  none &#x3D; &#x27;none&#x27;
+}
+
+export enum MediaField {
+  &#x27;image&#x27; &#x3D; &#x27;images&#x27;,
+  &#x27;video&#x27; &#x3D; &#x27;videos&#x27;
+}
+
+export enum UserType {
+  &#x27;dealer&#x27; &#x3D; &#x27;dealer&#x27;,
+  &#x27;private_person&#x27; &#x3D; &#x27;private_person&#x27;
+}
+
+export interface Media {
+  url: string,
+  name: string,
+  path: string,
+  field: MediaField,
+  position: number,
+  date: Date
+}
+
+export interface TaxesAndFees {
+  type: string,
+  value: number,
+  mode: string
+}
+
+export interface location {
+  type: string,
+  coordinates: Array&lt;number&gt;
+}
+
+const LocationSchme &#x3D; new mongoose.Schema({
+  type: {
+    type: String, // Don&#x27;t do &#x60;{ location: { type: String } }&#x60;
+    enum: [&#x27;Point&#x27;], // &#x27;location.type&#x27; must be &#x27;Point&#x27;
+    default: &#x27;Point&#x27;
+  },
+  coordinates: {
+    type: [Number],
+    default: [0, 0],
+    // index: &#x27;2d&#x27;
+  }
+}, { _id: false });
+
+@Schema({ timestamps: true, versionKey: false })
+/**
+ * Mongoose schema for a Car document.
+ * This schema represents a car&#x27;s details and attributes.
+ */
+@Schema({ timestamps: true, versionKey: false })
+export class Car {
+
+  // Unique identifier for the car document.
+  _id?: mongoose.Types.ObjectId;
+
+  // Name of the car.
+  @Prop({ type: String, required: true })
+  name?: string;
+
+  // User who created the car document.
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: User.name })
+  user?: User | Types.ObjectId;
+
+  // Store associated with the car.
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: Store.name })
+  store: Store | Types.ObjectId;
+
+  // Category of the car (e.g., car, truck, bus).
+  @Prop({ type: String, required: [true, &#x27;Category is required&#x27;], index: true, enum: VahicleCategory })
+  category: VahicleCategory;
+
+  // Make (company) of the car.
+  @Prop({ type: String, required: [true, &#x27;Make(Company) is required&#x27;], index: true })
+  make: string;
+
+  // Model of the car.
+  @Prop({ type: String, required: [true, &#x27;Model is required&#x27;], index: true })
+  model: string;
+
+  // Year of manufacture of the car.
+  @Prop({ type: Number, required: [true, &#x27;Condition is required&#x27;], index: true })
+  year: number;
+
+  // VIN (Vehicle Identification Number) of the car.
+  @Prop({ type: String, set: (value: string) &#x3D;&gt; value.toUpperCase() })
+  vin_number: string;
+
+  // Stock number of the car.
+  @Prop({
+    type: String,
+    required: function () { return !this.vin_number },
+    // set: (value: string) &#x3D;&gt; value.toUpperCase()
+  })
+  stock_number: string;
+
+  // Condition of the car (e.g., new, used, damaged).
+  @Prop({ type: String, required: [true, &#x27;Condition is required&#x27;], index: true, enum: VahicleCondition })
+  condition: VahicleCondition;
+
+  // Status of the car (e.g., live, removed, sold).
+  @Prop({ type: String, required: [true, &#x27;Status is required&#x27;], enum: VahicleStatus })
+  status: VahicleStatus;
+
+  // Type of seller (e.g., dealer, private person).
+  @Prop({ type: String, required: true, enum: UserType })
+  seller_type: UserType;
+
+  // Publish options for the car (e.g., euro_exoti_car, none).
+  @Prop({ type: String, enum: VahiclePublish, default: VahiclePublish.euro_exoti_car })
+  publish_to: VahiclePublish;
+
+  // Asking price of the car.
+  @Prop({ type: Number, required: [true, &#x27;Asking Price is required&#x27;] })
+  asking_price: number;
+
+  // Sales price of the car.
+  @Prop({ type: Number })
+  sales_price: number;
+
+  // MSRP (Manufacturer&#x27;s Suggested Retail Price) of the car.
+  @Prop({ type: Number })
+  msrp: number;
+
+  // Invoice price of the car.
+  @Prop({ type: Number })
+  invoice_price: number;
+
+  // Retail price of the car.
+  @Prop({ type: Number })
+  retail_price: number;
+
+  // Wholesale price of the car.
+  @Prop({ type: Number })
+  wholesale_price: number;
+
+  // Description of the car.
+  @Prop({ type: String, required: [true, &#x27;Description is required&#x27;] })
+  description: string;
+
+  // Warranty description of the car.
+  @Prop({ type: String, required: [true, &#x27;Warrenty Description is required&#x27;] })
+  warrenty_description: string;
+
+  // Odometer reading of the car.
+  @Prop({ type: Number, required: [true, &#x27;Odometer is required&#x27;] })
+  odometer: number;
+
+  // City fuel economy of the car.
+  @Prop({ type: Number })
+  city_fuel_economy: number;
+
+  // Highway fuel economy of the car.
+  @Prop({ type: Number }) 
+  highway_fuel_economy: number;
+
+  // In-stock date of the car.
+  @Prop({ type: Date, required: [true, &#x27;In Stock Date is required&#x27;] })
+  in_stock_date: Date;
+
+  // Images of the car.
+  @Prop({ type: Array&lt;Media&gt;, default: [] })
+  images?: Media[] &#x3D; []
+
+  // Videos of the car.
+  @Prop({ type: Array&lt;Media&gt;, default: [] })
+  videos?: Media[] &#x3D; []
+
+  // Location of the car.
+  @Prop({ type: LocationSchme, index: &#x27;2dsphere&#x27; })
+  location?: location;
+
+  // Video URL of the car.
+  @Prop({ type: String })
+  video_url: string;
+
+  // Carfax URL of the car.
+  @Prop({ type: String })
+  carafax: string;
+
+  // Window stickers of the car.
+  @Prop({ type: SchemaTypes.Mixed, of: String })
+  window_stickers: Object;
+
+  // Active status of the car.
+  @Prop({ type: Boolean, default: true, index: true })
+  active?: boolean;
+
+  // User who created the car document.
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: User.name, required: true })
+  createdBy?: User | Types.ObjectId;
+
+  // Number of views the car has received.
+  @Prop({ type: Number, default: 0 })
+  user_views?: number
+
+  // Taxes and fees associated with the car.
+  @Prop({ type: Array&lt;TaxesAndFees&gt;, required: true })
+  taxes_fees?: Array&lt;TaxesAndFees&gt;;
+
+  // Users who have favorited the car.
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: &#x27;User&#x27; }] })
+  favourite?: User[] | Types.ObjectId[];
+
+  // Price history of the car.
+  @Prop({ type: Array&lt;Number&gt; })
+  price_history?: Array&lt;number&gt;;
+}
+
+
+export const CarSchema &#x3D; SchemaFactory.createForClass(Car);
+
+CarSchema.index({ location: &quot;2dsphere&quot; });</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Media.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

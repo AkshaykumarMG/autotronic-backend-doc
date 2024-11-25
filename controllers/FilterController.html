@@ -1,0 +1,1185 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >FilterController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/filter/filter.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>filter</code>
+            </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForAdmin" >findAllForAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#resetFilterCount" >resetFilterCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateFilterSequence" >updateFilterSequence</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(createFilterDto: <a href="../classes/CreateFilterDto.html" target="_self">CreateFilterDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.SuperAdmin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/modules/filter/filter.controller.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new filter.</p>
+<p>This endpoint is protected and can only be accessed by users with SuperAdmin role.
+It requires authentication via cookie.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createFilterDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateFilterDto.html" target="_self" >CreateFilterDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data transfer object containing the filter details to be created.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Filter.html" target="_self" >Promise&lt;Filter&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The newly created filter object.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/modules/filter/filter.controller.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all filters.</p>
+<p>This endpoint fetches all available filters from the database.
+It&#39;s an unprotected route that can be accessed without authentication.</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true in this case).</li>
+<li>data: An array of Filter objects representing all the filters in the database.</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing:</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true in this case).</li>
+<li>data: An array of Filter objects representing all the filters in the database.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForAdmin"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForAdmin</b></span>
+                        <a href="#findAllForAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForAdmin()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;admin&#x27;)<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.SuperAdmin, UserRole.Admin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/modules/filter/filter.controller.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all filters for admin users.</p>
+<p>This endpoint is protected and can only be accessed by users with SuperAdmin or Admin roles.
+It requires authentication via cookie.</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true in this case).</li>
+<li>data: The result returned by the filterService.findAllForAdmin() method, typically containing filter information for admin users.</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing:</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true in this case).</li>
+<li>data: The result returned by the filterService.findAllForAdmin() method, typically containing filter information for admin users.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.SuperAdmin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/modules/filter/filter.controller.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single filter by its ID.</p>
+<p>This endpoint is protected and can only be accessed by users with SuperAdmin role.
+It requires authentication via cookie.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the filter to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Filter.html" target="_self" >Promise&lt;Filter&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the Filter object matching the provided ID.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.SuperAdmin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/modules/filter/filter.controller.ts:176</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a specific filter by its ID.</p>
+<p>This endpoint is protected and can only be accessed by users with SuperAdmin role.
+It requires authentication via cookie.</p>
+<ul>
+<li>success: A boolean value that is true if the filter was successfully deleted.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the filter to be deleted.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object indicating the success status of the operation.</p>
+<ul>
+<li>success: A boolean value that is true if the filter was successfully deleted.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetFilterCount"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>resetFilterCount</b></span>
+                        <a href="#resetFilterCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetFilterCount()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;reset/count&#x27;)<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.SuperAdmin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/modules/filter/filter.controller.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Resets the count for all filters.</p>
+<p>This endpoint is protected and can only be accessed by users with SuperAdmin role.
+It requires authentication via cookie.</p>
+<ul>
+<li>success: A boolean value that is true if the filter count reset was successful.</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object indicating the success status of the operation.</p>
+<ul>
+<li>success: A boolean value that is true if the filter count reset was successful.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: Types.ObjectId, updateFilterDto: <a href="../classes/UpdateFilterDto.html" target="_self">UpdateFilterDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.SuperAdmin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="155"
+                                    class="link-to-prism">src/modules/filter/filter.controller.ts:155</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates a specific filter by its ID.</p>
+<p>This endpoint is protected and can only be accessed by users with SuperAdmin role.
+It requires authentication via cookie.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the filter to update.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateFilterDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateFilterDto.html" target="_self" >UpdateFilterDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data transfer object containing the updated filter details.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the updated Filter object.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFilterSequence"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>updateFilterSequence</b></span>
+                        <a href="#updateFilterSequence"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateFilterSequence(updateFilterSequenceDto: UpdateFilterSquenceDto[])</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;sequence&#x27;)<br />@ApiCookieAuth()<br />@ApiBody({type: undefined})<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.SuperAdmin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/modules/filter/filter.controller.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the sequence of filters.</p>
+<p>This endpoint is protected and can only be accessed by users with SuperAdmin role.
+It requires authentication via cookie.</p>
+<ul>
+<li>success: A boolean value that is true if the filter sequence update was successful.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>updateFilterSequenceDto</td>
+                                            <td>
+                                                        <code>UpdateFilterSquenceDto[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An array of objects containing filter IDs and their new sequence numbers.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object indicating the success status of the operation.</p>
+<ul>
+<li>success: A boolean value that is true if the filter sequence update was successful.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from &#x27;@nestjs/common&#x27;;
+import { FilterService } from &#x27;./filter.service&#x27;;
+import { CreateFilterDto } from &#x27;./dto/create-filter.dto&#x27;;
+import { UpdateFilterDto } from &#x27;./dto/update-filter.dto&#x27;;
+import { UpdateFilterSquenceDto } from &#x27;./dto/update-filter-squence&#x27;;
+
+// mongoose
+import { Types } from &#x27;mongoose&#x27;;
+import { Filter } from &#x27;./schema/filter.schema&#x27;;
+
+// verify user by credential and role
+import { AuthGuard } from &#x27;../../utilities/guard/auth/auth.guard&#x27;;
+import { Roles } from &#x27;../user/role/role.decorator&#x27;;
+import { UserRole } from &#x27;../user/schema/user.schema&#x27;;
+import { RoleGuard } from &#x27;../../utilities/guard/role/role.guard&#x27;;
+
+// swagger cookie
+import { ApiBody, ApiCookieAuth, ApiParam } from &#x27;@nestjs/swagger&#x27;;
+
+@Controller(&#x27;filter&#x27;)
+export class FilterController {
+  constructor(private readonly filterService: FilterService) { }
+
+  /**
+   * Creates a new filter.
+   * 
+   * This endpoint is protected and can only be accessed by users with SuperAdmin role.
+   * It requires authentication via cookie.
+   * 
+   * @param {CreateFilterDto} createFilterDto - The data transfer object containing the filter details to be created.
+   * @returns {Promise&lt;Filter&gt;} The newly created filter object.
+   * @throws {UnauthorizedException} If the user is not authenticated or doesn&#x27;t have the required role.
+   */
+  @Post()
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.SuperAdmin)
+  async create(@Body() createFilterDto: CreateFilterDto): Promise&lt;Filter&gt; {
+    return await this.filterService.create(createFilterDto);
+  }
+
+  /**
+   * Retrieves all filters.
+   * 
+   * This endpoint fetches all available filters from the database.
+   * It&#x27;s an unprotected route that can be accessed without authentication.
+   * 
+   * @returns {Promise&lt;{success: boolean, data: Filter[]}&gt;} An object containing:
+   *   - success: A boolean indicating whether the operation was successful (always true in this case).
+   *   - data: An array of Filter objects representing all the filters in the database.
+   */
+  @Get()
+  async findAll(): Promise&lt;{ success: boolean; data: Filter[]; }&gt; {
+    const result &#x3D; await this.filterService.findAll();
+    return { success: true, data: result }
+  }
+
+  /**
+   * Retrieves all filters for admin users.
+   * 
+   * This endpoint is protected and can only be accessed by users with SuperAdmin or Admin roles.
+   * It requires authentication via cookie.
+   * 
+   * @returns {Promise&lt;{success: boolean, data: any}&gt;} An object containing:
+   *   - success: A boolean indicating whether the operation was successful (always true in this case).
+   *   - data: The result returned by the filterService.findAllForAdmin() method, typically containing filter information for admin users.
+   * @throws {UnauthorizedException} If the user is not authenticated or doesn&#x27;t have the required role.
+   */
+  @Get(&#x27;admin&#x27;)
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.SuperAdmin, UserRole.Admin)
+  async findAllForAdmin(): Promise&lt;{ success: boolean; data: any; }&gt; {
+    const result &#x3D; await this.filterService.findAllForAdmin();
+    return { success: true, data: result };
+  }
+
+  /**
+   * Resets the count for all filters.
+   * 
+   * This endpoint is protected and can only be accessed by users with SuperAdmin role.
+   * It requires authentication via cookie.
+   * 
+   * @returns {Promise&lt;{ success: boolean }&gt;} An object indicating the success status of the operation.
+   *   - success: A boolean value that is true if the filter count reset was successful.
+   * @throws {UnauthorizedException} If the user is not authenticated or doesn&#x27;t have the required role.
+   */
+  @Get(&#x27;reset/count&#x27;)
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.SuperAdmin)
+  async resetFilterCount(): Promise&lt;{ success: boolean; }&gt; {
+    await this.filterService.updateFilterCountReset();
+    return { success: true };
+  }
+
+  /**
+   * Retrieves a single filter by its ID.
+   * 
+   * This endpoint is protected and can only be accessed by users with SuperAdmin role.
+   * It requires authentication via cookie.
+   * 
+   * @param {Types.ObjectId} id - The unique identifier of the filter to retrieve.
+   * @returns {Promise&lt;Filter&gt;} A promise that resolves to the Filter object matching the provided ID.
+   * @throws {UnauthorizedException} If the user is not authenticated or doesn&#x27;t have the required role.
+   * @throws {NotFoundException} If no filter is found with the given ID.
+   */
+  @Get(&#x27;:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.SuperAdmin)
+  async findOne(@Param(&#x27;id&#x27;) id: Types.ObjectId): Promise&lt;Filter&gt; {
+    return await this.filterService.findOne(id);
+  }
+
+  /**
+   * Updates the sequence of filters.
+   * 
+   * This endpoint is protected and can only be accessed by users with SuperAdmin role.
+   * It requires authentication via cookie.
+   * 
+   * @param {UpdateFilterSquenceDto[]} updateFilterSequenceDto - An array of objects containing filter IDs and their new sequence numbers.
+   * @returns {Promise&lt;{ success: boolean }&gt;} An object indicating the success status of the operation.
+   *   - success: A boolean value that is true if the filter sequence update was successful.
+   * @throws {UnauthorizedException} If the user is not authenticated or doesn&#x27;t have the required role.
+   */
+  @Patch(&#x27;sequence&#x27;)
+  @ApiCookieAuth()
+  @ApiBody({ type: [UpdateFilterSquenceDto] })
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.SuperAdmin)
+  async updateFilterSequence(@Body() updateFilterSequenceDto: UpdateFilterSquenceDto[]): Promise&lt;{ success: boolean }&gt; {
+    await this.filterService.updateFilterSequence(updateFilterSequenceDto);
+    return { success: true }
+  }
+
+  /**
+   * Updates a specific filter by its ID.
+   * 
+   * This endpoint is protected and can only be accessed by users with SuperAdmin role.
+   * It requires authentication via cookie.
+   * 
+   * @param {Types.ObjectId} id - The unique identifier of the filter to update.
+   * @param {UpdateFilterDto} updateFilterDto - The data transfer object containing the updated filter details.
+   * @returns {Promise&lt;Filter&gt;} A promise that resolves to the updated Filter object.
+   * @throws {UnauthorizedException} If the user is not authenticated or doesn&#x27;t have the required role.
+   * @throws {NotFoundException} If no filter is found with the given ID.
+   */
+  @Patch(&#x27;:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.SuperAdmin)
+  async update(@Param(&#x27;id&#x27;) id: Types.ObjectId, @Body() updateFilterDto: UpdateFilterDto) {
+    return await this.filterService.update(id, updateFilterDto);
+  }
+
+  /**
+   * Deletes a specific filter by its ID.
+   * 
+   * This endpoint is protected and can only be accessed by users with SuperAdmin role.
+   * It requires authentication via cookie.
+   * 
+   * @param {Types.ObjectId} id - The unique identifier of the filter to be deleted.
+   * @returns {Promise&lt;{ success: boolean }&gt;} A promise that resolves to an object indicating the success status of the operation.
+   *   - success: A boolean value that is true if the filter was successfully deleted.
+   * @throws {UnauthorizedException} If the user is not authenticated or doesn&#x27;t have the required role.
+   * @throws {NotFoundException} If no filter is found with the given ID.
+   */
+  @Delete(&#x27;:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.SuperAdmin)
+  async remove(@Param(&#x27;id&#x27;) id: Types.ObjectId): Promise&lt;{ success: boolean }&gt; {
+    await this.filterService.remove(id);
+    return { success: true };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'FilterController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,2570 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >AuthenticationService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/authentication/authentication.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#changeUserPassword" >changeUserPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createAuthentication" >createAuthentication</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneByEmail" >findOneByEmail</a>
+                            </li>
+                            <li>
+                                <a href="#generateOTP" >generateOTP</a>
+                            </li>
+                            <li>
+                                <a href="#generatePassword" >generatePassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#registerUser" >registerUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#registerUserByAdmin" >registerUserByAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#reset3DaysOlderAuthentication" >reset3DaysOlderAuthentication</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#sendOTPONEmailForgetPassword" >sendOTPONEmailForgetPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#sendOTPONEmailSignUp" >sendOTPONEmailSignUp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateNotification" >updateNotification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateUnsetNotification" >updateUnsetNotification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ValidateUserSignIn" >ValidateUserSignIn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#verifyEmailWithOTP" >verifyEmailWithOTP</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#verifyEmailWithOTPForForgetPassword" >verifyEmailWithOTPForForgetPassword</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userSerice: <a href="../injectables/UserService.html" target="_self">UserService</a>, mailSerice: <a href="../injectables/MailService.html" target="_self">MailService</a>, authenticationSchema: <a href="../classes/Authentication.html" target="_self">Model&lt;Authentication&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/modules/authentication/authentication.service.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userSerice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mailSerice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MailService.html" target="_self" >MailService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authenticationSchema</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Authentication.html" target="_self" >Model&lt;Authentication&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeUserPassword"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>changeUserPassword</b></span>
+                        <a href="#changeUserPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeUserPassword(request: Request, forgetPasswordDTO: <a href="../classes/ForgetPasswordDTO.html" target="_self">ForgetPasswordDTO</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="409"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:409</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Changes the user&#39;s password after verifying their email and OTP for a forgot password request.</p>
+<p>This function performs the following steps:</p>
+<ol>
+<li>Verifies the user&#39;s email and OTP.</li>
+<li>If verification is successful, hashes the new password.</li>
+<li>Updates the user&#39;s password in the database.</li>
+<li>Removes the corresponding authentication record.</li>
+</ol>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Express Request object containing the HTTP request information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>forgetPasswordDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/ForgetPasswordDTO.html" target="_self" >ForgetPasswordDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the email, OTP, and new password.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves when the password is successfully changed.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createAuthentication"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>createAuthentication</b></span>
+                        <a href="#createAuthentication"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createAuthentication(authentication: <a href="../classes/Authentication.html" target="_self">Authentication</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new authentication record in the database.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                    This should be an instance of the Authentication class containing
+                    all necessary fields for creating an authentication record.
+
+     This document includes all fields from the input, plus any additional
+     fields added by the database (e.g., _id, createdAt, updatedAt).</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>authentication</td>
+                                            <td>
+                                                            <code><a href="../classes/Authentication.html" target="_self" >Authentication</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An object representing the authentication data to be stored.
+This should be an instance of the Authentication class containing
+all necessary fields for creating an authentication record.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the newly created authentication document.
+This document includes all fields from the input, plus any additional
+fields added by the database (e.g., _id, createdAt, updatedAt).</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="479"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:479</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single authentication record from the database by its ID.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">        This should be a MongoDB ObjectId.
+
+     or null if no document matches the given ID.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the authentication record to find.
+This should be a MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the found authentication document,
+or null if no document matches the given ID.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneByEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneByEmail</b></span>
+                        <a href="#findOneByEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneByEmail(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="492"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:492</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all authentication records associated with a given email address.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">           This should be a string containing a valid email address.
+
+     The array may be empty if no matching records are found.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>email</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The email address to search for in the authentication records.
+This should be a string containing a valid email address.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an array of authentication documents matching the provided email.
+The array may be empty if no matching records are found.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateOTP"></a>
+                    <span class="name">
+                        <span ><b>generateOTP</b></span>
+                        <a href="#generateOTP"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateOTP()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="290"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:290</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Generates a random 6-digit One-Time Password (OTP).</p>
+<p>This function creates an OTP by randomly selecting 6 digits from the string &#39;0123456789&#39;.
+Each digit is chosen independently, allowing for repetition.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A string representing the generated 6-digit OTP.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generatePassword"></a>
+                    <span class="name">
+                        <span ><b>generatePassword</b></span>
+                        <a href="#generatePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generatePassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="309"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:309</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Generates a random password of 10 characters.</p>
+<p>This function creates a password by randomly selecting characters from a predefined set of
+digits and letters. The resulting password is a mix of numbers and both uppercase and
+lowercase letters.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A string representing the generated 10-character password.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerUser"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>registerUser</b></span>
+                        <a href="#registerUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>registerUser(request: Request, registerDTO: <a href="../classes/CreateSignUpDTO.html" target="_self">CreateSignUpDTO</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="380"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:380</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Registers a new user after verifying their email and OTP.</p>
+<p>This function first verifies the user&#39;s email and OTP. If successful, it creates
+a new user account in the database and removes the corresponding authentication record.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                 including email and OTP.
+
+
+                     and the authentication record is deleted.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Express Request object containing the HTTP request information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>registerDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateSignUpDTO.html" target="_self" >CreateSignUpDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Data Transfer Object containing the user&#39;s registration information,
+including email and OTP.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves when the user is successfully registered
+and the authentication record is deleted.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerUserByAdmin"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>registerUserByAdmin</b></span>
+                        <a href="#registerUserByAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>registerUserByAdmin(createUserAdminDto: <a href="../classes/CreateUserAdminDto.html" target="_self">CreateUserAdminDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="439"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:439</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Registers a new user through an admin action.</p>
+<p>This function creates a new user account with admin-provided details, generates a random password,
+creates a key pair for the user, stores the user in the database, and sends an email with login credentials.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">   It includes fields such as email, phone, username, and role.
+
+     This typically includes the newly created user&#39;s details or a confirmation of success.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createUserAdminDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateUserAdminDto.html" target="_self" >CreateUserAdminDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Data Transfer Object containing the new user&#39;s details.
+It includes fields such as email, phone, username, and role.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the result of creating the user in the database.
+This typically includes the newly created user&#39;s details or a confirmation of success.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="562"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:562</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes an authentication record from the database.</p>
+<p>This function deletes an authentication document from the database based on its unique identifier.
+It&#39;s typically used when an authentication record is no longer needed, such as after a user logs out
+or when cleaning up expired authentication sessions.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">        This should be a MongoDB ObjectId.
+
+     or null if no document matches the given ID.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the authentication record to be removed.
+This should be a MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the deleted authentication document if found and removed,
+or null if no document matches the given ID.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reset3DaysOlderAuthentication"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>reset3DaysOlderAuthentication</b></span>
+                        <a href="#reset3DaysOlderAuthentication"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reset3DaysOlderAuthentication()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Resets authentication records older than 3 days.</p>
+<p>This function is scheduled to run every day at midnight using the @Cron decorator.
+It deletes all authentication records from the database that have not been updated
+in the last 3 days.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves when the deletion operation is complete.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendOTPONEmailForgetPassword"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>sendOTPONEmailForgetPassword</b></span>
+                        <a href="#sendOTPONEmailForgetPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sendOTPONEmailForgetPassword(request: Request, createSignUpDto: <a href="../classes/GetEmailDTO.html" target="_self">GetEmailDTO</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sends a One-Time Password (OTP) to the user&#39;s email for password reset.</p>
+<p>This function verifies the user&#39;s email, generates an OTP, saves it in the database,
+and sends an email containing the OTP for password reset purposes.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     the success status of the operation.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Express Request object containing headers and connection information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createSignUpDto</td>
+                                            <td>
+                                                            <code><a href="../classes/GetEmailDTO.html" target="_self" >GetEmailDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the email for password reset.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an object indicating
+the success status of the operation.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendOTPONEmailSignUp"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>sendOTPONEmailSignUp</b></span>
+                        <a href="#sendOTPONEmailSignUp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sendOTPONEmailSignUp(request: Request, createSignUpDto: <a href="../classes/GetEmailDTO.html" target="_self">GetEmailDTO</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sends a One-Time Password (OTP) to the user&#39;s email for sign-up verification.</p>
+<p>This function checks if the email is already registered, generates an OTP,
+saves the hashed OTP in the database, and sends an email with the OTP to the user.
+It also handles cleaning up any existing authentication records for the same email.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Express Request object containing headers and connection information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createSignUpDto</td>
+                                            <td>
+                                                            <code><a href="../classes/GetEmailDTO.html" target="_self" >GetEmailDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the email for sign-up.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves when the OTP is sent successfully.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: Types.ObjectId, updateAuthenticationDto: <a href="../classes/UpdateAuthenticationDto.html" target="_self">UpdateAuthenticationDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="510"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:510</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates an authentication record in the database.</p>
+<p>This function finds an authentication document by its ID and updates it with the provided data.
+It uses MongoDB&#39;s $set operator to update only the fields specified in the updateAuthenticationDto.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">        This should be a MongoDB ObjectId.
+                             This should be an instance of UpdateAuthenticationDto.
+
+     If no document is found with the given ID, it may return null.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the authentication record to update.
+This should be a MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateAuthenticationDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateAuthenticationDto.html" target="_self" >UpdateAuthenticationDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An object containing the fields to be updated.
+This should be an instance of UpdateAuthenticationDto.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the updated authentication document.
+If no document is found with the given ID, it may return null.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateNotification"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateNotification</b></span>
+                        <a href="#updateNotification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateNotification(id: Types.ObjectId, createNotificationTokenDto: <a href="../classes/CreateNotificationTokenDto.html" target="_self">CreateNotificationTokenDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="528"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:528</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the notification token for a specific authentication record.</p>
+<p>This function finds an authentication document by its ID and updates its
+notification token with the provided token from the DTO.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">        This should be a MongoDB ObjectId.
+                                It should have a &#39;token&#39; property with the new token value.
+
+     The function doesn&#39;t return the updated document.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the authentication record to update.
+This should be a MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createNotificationTokenDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateNotificationTokenDto.html" target="_self" >CreateNotificationTokenDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>A Data Transfer Object containing the new notification token.
+It should have a &#39;token&#39; property with the new token value.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves when the update operation is complete.
+The function doesn&#39;t return the updated document.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUnsetNotification"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateUnsetNotification</b></span>
+                        <a href="#updateUnsetNotification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateUnsetNotification(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="545"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:545</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes the notification token from a specific authentication record.</p>
+<p>This function finds an authentication document by its ID and removes the
+notification_token field from the document. It&#39;s typically used when a user
+logs out or when their notification preferences change.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">        This should be a MongoDB ObjectId.
+
+     The function doesn&#39;t return the updated document.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the authentication record to update.
+This should be a MongoDB ObjectId.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves when the update operation is complete.
+The function doesn&#39;t return the updated document.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ValidateUserSignIn"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>ValidateUserSignIn</b></span>
+                        <a href="#ValidateUserSignIn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ValidateUserSignIn(request: Request, createSignInDto: <a href="../classes/CreateSignInDto.html" target="_self">CreateSignInDto</a>, isadmin: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validates user sign-in credentials and manages authentication records.</p>
+<p>This function validates the user&#39;s sign-in credentials, checks for existing authentication
+records, and either updates an existing record or creates a new one. It also captures
+the user&#39;s IP address and user agent information for security purposes.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     including a token and authentication ID.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Express Request object containing headers and connection information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createSignInDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateSignInDto.html" target="_self" >CreateSignInDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing sign-in credentials.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>isadmin</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>A string indicating whether the sign-in attempt is for an admin user.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an object containing the validation result,
+including a token and authentication ID.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifyEmailWithOTP"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>verifyEmailWithOTP</b></span>
+                        <a href="#verifyEmailWithOTP"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifyEmailWithOTP(request: Request, verifySignUpDto: <a href="../classes/VerifySignUpDTO.html" target="_self">VerifySignUpDTO</a>, type?: <a href="../undefineds/AuthType.html" target="_self">AuthType</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="336"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:336</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifies the email and OTP combination for user authentication.</p>
+<p>This function checks if there&#39;s an existing authentication record matching
+the provided email and user agent. If found, it verifies the OTP against
+the stored hashed OTP. On successful verification, it updates the authentication
+type to &#39;signup&#39;.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Express Request object containing headers and connection information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>verifySignUpDto</td>
+                                            <td>
+                                                            <code><a href="../classes/VerifySignUpDTO.html" target="_self" >VerifySignUpDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the email and OTP for verification.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#AuthType" target="_self" >AuthType</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Optional parameter to specify the authentication type. Defaults to &#39;verify&#39; if not provided.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the authentication record if verification is successful.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifyEmailWithOTPForForgetPassword"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>verifyEmailWithOTPForForgetPassword</b></span>
+                        <a href="#verifyEmailWithOTPForForgetPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifyEmailWithOTPForForgetPassword(request: Request, verifySignUpDto: <a href="../classes/VerifySignUpDTO.html" target="_self">VerifySignUpDTO</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="259"
+                                    class="link-to-prism">src/modules/authentication/authentication.service.ts:259</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifies the email and OTP combination for the forget password process.</p>
+<p>This function checks if there&#39;s an existing authentication record matching
+the provided email, IP address, and user agent for a forget password request.
+If found, it verifies the OTP against the stored hashed OTP.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The Express Request object containing headers and connection information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>verifySignUpDto</td>
+                                            <td>
+                                                            <code><a href="../classes/VerifySignUpDTO.html" target="_self" >VerifySignUpDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the email and OTP for verification.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the authentication record if verification is successful.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { forwardRef, HttpException, HttpStatus, Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+import { CreateAuthenticationDto } from &#x27;./dto/create-authentication.dto&#x27;;
+import { UpdateAuthenticationDto } from &#x27;./dto/update-authentication.dto&#x27;;
+import { GetEmailDTO, ForgetPasswordDTO, CreateSignUpDTO, VerifySignUpDTO } from &#x27;./dto/create-signup.dto&#x27;;
+
+// mongoose
+import { AuthType, Authentication } from &#x27;./schema/authentication.schema&#x27;;
+import { Model, Types } from &#x27;mongoose&#x27;;
+import { InjectModel } from &#x27;@nestjs/mongoose&#x27;;
+
+// parse request for ip and user-agent
+import { Request } from &#x27;express&#x27;;
+
+// hashing otp and add user
+import * as bcrypt from &#x27;bcrypt&#x27;;
+import { UserService } from &#x27;../user/user.service&#x27;;
+import { CreateSignInDto } from &#x27;./dto/create-signin.dto&#x27;;
+import { CreateUserAdminDto } from &#x27;../user/dto/create-user-admin.dto&#x27;;
+
+// mail service
+import { MailService } from &#x27;../../utilities/services/mail/mail.service&#x27;;
+import { Cron, CronExpression } from &#x27;@nestjs/schedule&#x27;;
+
+// dayjs
+import * as dayjs from &#x27;dayjs&#x27;;
+import { CreateNotificationTokenDto } from &#x27;./dto/create-notification-token.dto&#x27;;
+
+@Injectable()
+export class AuthenticationService {
+
+  constructor(
+    @Inject(forwardRef(() &#x3D;&gt; UserService))
+    private readonly userSerice: UserService,
+    private readonly mailSerice: MailService,
+    @InjectModel(Authentication.name) private readonly authenticationSchema: Model&lt;Authentication&gt;
+  ) { }
+
+  /**
+   * Resets authentication records older than 3 days.
+   * 
+   * This function is scheduled to run every day at midnight using the @Cron decorator.
+   * It deletes all authentication records from the database that have not been updated
+   * in the last 3 days.
+   * 
+   * @returns A Promise that resolves when the deletion operation is complete.
+   */
+  @Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
+  async reset3DaysOlderAuthentication(): Promise&lt;void&gt; {
+    const threeDay &#x3D; dayjs().subtract(3, &#x27;days&#x27;).toDate();
+    await this.authenticationSchema.deleteMany({ updatedAt: { $lte: threeDay } });
+  }
+
+  /**
+   * Validates user sign-in credentials and manages authentication records.
+   * 
+   * This function validates the user&#x27;s sign-in credentials, checks for existing authentication
+   * records, and either updates an existing record or creates a new one. It also captures
+   * the user&#x27;s IP address and user agent information for security purposes.
+   *
+   * @param request - The Express Request object containing headers and connection information.
+   * @param createSignInDto - Data transfer object containing sign-in credentials.
+   * @param isadmin - A string indicating whether the sign-in attempt is for an admin user.
+   * 
+   * @returns A Promise that resolves to an object containing the validation result,
+   *          including a token and authentication ID.
+   */
+  async ValidateUserSignIn(request: Request, createSignInDto: CreateSignInDto, isadmin: string) {
+    // validate user and get token
+    const resultValidate &#x3D; await this.userSerice.validateUser(createSignInDto, isadmin);
+
+    // get ip 
+    // req.headers[&#x27;x-forwarded-for&#x27;] || &#x27;&#x27;).split(&#x27;,&#x27;).pop().trim() - fist address is always client original ip if multiple avaliable, other&#x27;s are proxy
+    const ip &#x3D; request.headers[&#x27;x-forwarded-for&#x27;] || request.socket.remoteAddress || null;
+    // get user-agent
+    const user_agent &#x3D; request.headers[&#x27;user-agent&#x27;];
+
+    // check old data is exist with email, ip and user-agent
+    const isExist &#x3D; await this.authenticationSchema.findOne({ email: createSignInDto.email.trim(), ip, user_agent });
+    // if exist then delete
+    if (isExist) {
+      await this.authenticationSchema.findByIdAndUpdate(isExist._id, { token: resultValidate.token });
+      // store auth id in response
+      resultValidate.auth &#x3D; String(isExist._id);
+    } else {
+      // add data for login
+      // referance of authentication to add in authentication
+      const authentication &#x3D; new Authentication();
+      authentication.email &#x3D; createSignInDto.email;
+      authentication.token &#x3D; resultValidate.token;
+      authentication.type &#x3D; AuthType.signin;
+      authentication.ip &#x3D; ip as string;
+      authentication.user_agent &#x3D; user_agent;
+      // authentication.refresh &#x3D; resultValidate.refresh;
+
+      // save auth data in db
+      const auth &#x3D; new this.authenticationSchema(authentication);
+      const authResult &#x3D; await auth.save();
+
+      // store auth id in response
+      resultValidate.auth &#x3D; String(authResult._id);
+    }
+
+    // return validate user
+    return resultValidate;
+  }
+
+  /**
+   * Creates a new authentication record in the database.
+   * 
+   * @param authentication - An object representing the authentication data to be stored.
+   *                         This should be an instance of the Authentication class containing
+   *                         all necessary fields for creating an authentication record.
+   * 
+   * @returns A Promise that resolves to the newly created authentication document.
+   *          This document includes all fields from the input, plus any additional
+   *          fields added by the database (e.g., _id, createdAt, updatedAt).
+   * 
+   * @throws {MongooseError} If there&#x27;s an error during the database operation.
+   */
+  async createAuthentication(authentication: Authentication) {
+    // save auth data in db
+    const auth &#x3D; new this.authenticationSchema(authentication);
+    return await auth.save();
+  }
+
+
+  /**
+   * Sends a One-Time Password (OTP) to the user&#x27;s email for sign-up verification.
+   * 
+   * This function checks if the email is already registered, generates an OTP,
+   * saves the hashed OTP in the database, and sends an email with the OTP to the user.
+   * It also handles cleaning up any existing authentication records for the same email.
+   *
+   * @param request - The Express Request object containing headers and connection information.
+   * @param createSignUpDto - Data transfer object containing the email for sign-up.
+   * 
+   * @throws {HttpException} If the email is already registered.
+   * 
+   * @returns {Promise&lt;void&gt;} A promise that resolves when the OTP is sent successfully.
+   */
+  async sendOTPONEmailSignUp(request: Request, createSignUpDto: GetEmailDTO): Promise&lt;void&gt; {
+      const userExist &#x3D; await this.userSerice.findOneByEMail(createSignUpDto.email.trim());
+      if (userExist) {
+        throw new HttpException(&#x27;Email already registred, kindly login!&#x27;, HttpStatus.FOUND);
+      }
+
+      // get ip
+      // req.headers[&#x27;x-forwarded-for&#x27;] || &#x27;&#x27;).split(&#x27;,&#x27;).pop().trim() - fist address is always client original ip if multiple avaliable, other&#x27;s are proxy
+      const ip &#x3D; request.headers[&#x27;x-forwarded-for&#x27;] || request.socket.remoteAddress || null;
+      // get user-agent
+      const user_agent &#x3D; request.headers[&#x27;user-agent&#x27;];
+
+      // check old data is exist with email, ip and user-agent
+      const isExist &#x3D; await this.authenticationSchema.findOne({ email: createSignUpDto.email.trim(), ip, user_agent });
+      // if exist then delete
+      if (isExist) {
+        // delete old data
+        await this.authenticationSchema.findByIdAndDelete(isExist._id);
+      }
+
+      // generate otp
+      const otp &#x3D; this.generateOTP();
+      // store hashed otp in db for security
+      const hashedOTP &#x3D; await bcrypt.hash(otp, 12);
+      // prepare db referance
+      const mailOTPData &#x3D; { email: createSignUpDto.email.trim(), otp: hashedOTP, type: AuthType.verify, ip, user_agent };
+      // save in db for future verification
+      const createdMailOTP &#x3D; new this.authenticationSchema(mailOTPData);
+      await createdMailOTP.save();
+
+      // send mail
+      const mail &#x3D; {
+        to: createSignUpDto.email.trim(),
+        // subject: &#x27;OTP for SignUp from Mechatronic Group&#x27;,
+        from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+        // text: &#x27;Hello&#x27;,
+        templateId: &#x27;d-0397d8d7925440a9948220924b291f1d&#x27;,
+        dynamicTemplateData: { code: otp },
+      };
+      await this.mailSerice.send(mail);
+    }
+
+  /**
+   * Sends a One-Time Password (OTP) to the user&#x27;s email for password reset.
+   * 
+   * This function verifies the user&#x27;s email, generates an OTP, saves it in the database,
+   * and sends an email containing the OTP for password reset purposes.
+   *
+   * @param request - The Express Request object containing headers and connection information.
+   * @param createSignUpDto - Data transfer object containing the email for password reset.
+   * 
+   * @throws {HttpException} If the email is not registered in the system.
+   * 
+   * @returns {Promise&lt;{ success: boolean }&gt;} A promise that resolves to an object indicating
+   *          the success status of the operation.
+   */
+  async sendOTPONEmailForgetPassword(request: Request, createSignUpDto: GetEmailDTO): Promise&lt;{ success: boolean; }&gt; {
+
+    // check old data is exist with email, ip and user-agent
+    const userExist &#x3D; await this.userSerice.findOneByEMail(createSignUpDto.email.trim());
+    if (!userExist) {
+      throw new HttpException(&#x27;Email not registred, kindly register!&#x27;, HttpStatus.FOUND);
+    }
+
+    // get ip
+    const ip &#x3D; request.headers[&#x27;x-forwarded-for&#x27;] || request.socket.remoteAddress || null;
+    // get user-agent
+    const user_agent &#x3D; request.headers[&#x27;user-agent&#x27;];
+
+    // check old data is exist with email, ip and user-agent
+    const isExist &#x3D; await this.authenticationSchema.findOne({ email: createSignUpDto.email.trim(), ip, user_agent, type: AuthType.forgotpassword });
+    // if exist then delete
+    if (isExist) {
+      // delete old data
+      await this.authenticationSchema.findByIdAndDelete(isExist._id);
+    }
+
+    // generate otp
+    const otp &#x3D; this.generateOTP().trim();
+    // store hashed otp in db for security
+    const hashedOTP &#x3D; await bcrypt.hash(otp, 12);
+    // prepare db referance
+    const mailOTPData &#x3D; { email: createSignUpDto.email.trim(), otp: hashedOTP, type: AuthType.forgotpassword, ip, user_agent };
+    // save in db for future verification
+    const createdMailOTP &#x3D; new this.authenticationSchema(mailOTPData);
+    await createdMailOTP.save();
+
+    // send mail
+    const mail &#x3D; {
+      to: createSignUpDto.email.trim(),
+      // subject: &#x27;OTP for SignUp from Mechatronic Group&#x27;,
+      from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+      // text: &#x27;Hello&#x27;,
+      templateId: &#x27;d-4e60ddb825d54d359e1c5465db683edf&#x27;,
+      dynamicTemplateData: { code: otp },
+    };
+    await this.mailSerice.send(mail);
+
+    return {
+      success: true
+    }
+  }
+
+  /**
+   * Verifies the email and OTP combination for the forget password process.
+   * 
+   * This function checks if there&#x27;s an existing authentication record matching
+   * the provided email, IP address, and user agent for a forget password request.
+   * If found, it verifies the OTP against the stored hashed OTP.
+   *
+   * @param request - The Express Request object containing headers and connection information.
+   * @param verifySignUpDto - Data transfer object containing the email and OTP for verification.
+   * 
+   * @returns A Promise that resolves to the authentication record if verification is successful.
+   * 
+   * @throws {HttpException} Throws an exception with status NOT_ACCEPTABLE if the OTP is invalid.
+   * @throws {HttpException} Throws an exception with status NOT_FOUND if no matching authentication record is found.
+   */
+  async verifyEmailWithOTPForForgetPassword(request: Request, verifySignUpDto: VerifySignUpDTO) {
+    // get ip
+    // req.headers[&#x27;x-forwarded-for&#x27;] || &#x27;&#x27;).split(&#x27;,&#x27;).pop().trim() - fist address is always client original ip if multiple avaliable, other&#x27;s are proxy
+    const ip &#x3D; request.headers[&#x27;x-forwarded-for&#x27;] || request.socket.remoteAddress || null;
+    // get user-agent
+    const user_agent &#x3D; request.headers[&#x27;user-agent&#x27;];
+
+    // check old data is exist with email, ip and user-agent
+    const isExist &#x3D; await this.authenticationSchema.find({ email: verifySignUpDto.email.trim(), ip, user_agent, type: AuthType.forgotpassword });
+    // if exist then check otp otherwise send error invalid data
+    if (isExist) {
+      // exist then verify otp with hash
+      const isOTPMatch &#x3D; await bcrypt.compare(verifySignUpDto.otp.trim(), isExist[isExist.length - 1].otp);
+      // not match then throw error
+      if (!isOTPMatch) {
+        throw new HttpException(&#x27;Invalid OTP&#x27;, HttpStatus.NOT_ACCEPTABLE);
+      }
+      // send response success
+      return isExist;
+    }
+    throw new HttpException(&#x27;Invalid Data&#x27;, HttpStatus.NOT_FOUND);
+  }
+
+  /**
+   * Generates a random 6-digit One-Time Password (OTP).
+   * 
+   * This function creates an OTP by randomly selecting 6 digits from the string &#x27;0123456789&#x27;.
+   * Each digit is chosen independently, allowing for repetition.
+   * 
+   * @returns {string} A string representing the generated 6-digit OTP.
+   */
+  generateOTP(): string {
+    const digits &#x3D; &#x27;0123456789&#x27;;
+    let OTP &#x3D; &#x27;&#x27;;
+    const len &#x3D; digits.length
+    for (let i &#x3D; 0; i &lt; 6; i++) {
+      OTP +&#x3D; digits[Math.floor(Math.random() * len)];
+    }
+    return OTP;
+  }
+
+  /**
+   * Generates a random password of 10 characters.
+   * 
+   * This function creates a password by randomly selecting characters from a predefined set of
+   * digits and letters. The resulting password is a mix of numbers and both uppercase and
+   * lowercase letters.
+   * 
+   * @returns {string} A string representing the generated 10-character password.
+   */
+  generatePassword(): string {
+    const digits &#x3D; &#x27;0123456789abcdefghijklmnopqrstuvwxyzAGHWODCNSUJXJDRLGEQ&#x27;;
+    let password &#x3D; &#x27;&#x27;;
+    const len &#x3D; digits.length
+    for (let i &#x3D; 0; i &lt; 10; i++) {
+      password +&#x3D; digits[Math.floor(Math.random() * len)];
+    }
+    return password;
+  }
+
+  /**
+ * Verifies the email and OTP combination for user authentication.
+ * 
+ * This function checks if there&#x27;s an existing authentication record matching
+ * the provided email and user agent. If found, it verifies the OTP against
+ * the stored hashed OTP. On successful verification, it updates the authentication
+ * type to &#x27;signup&#x27;.
+ *
+ * @param request - The Express Request object containing headers and connection information.
+ * @param verifySignUpDto - Data transfer object containing the email and OTP for verification.
+ * @param type - Optional parameter to specify the authentication type. Defaults to &#x27;verify&#x27; if not provided.
+ * 
+ * @returns A Promise that resolves to the authentication record if verification is successful.
+ * 
+ * @throws {HttpException} Throws an exception with status NOT_ACCEPTABLE if the OTP is invalid.
+ * @throws {HttpException} Throws an exception with status NOT_FOUND if no matching authentication record is found.
+ */
+  async verifyEmailWithOTP(request: Request, verifySignUpDto: VerifySignUpDTO, type?: AuthType) {
+
+    // get ip
+    // const ip &#x3D; request.headers[&#x27;x-forwarded-for&#x27;] || request.socket.remoteAddress || null;
+
+    // get user-agent
+    const user_agent &#x3D; request.headers[&#x27;user-agent&#x27;];
+
+    // check old data is exist with email, ip and user-agent
+    const isExist &#x3D; await this.authenticationSchema.findOne({ email: verifySignUpDto.email.trim(), user_agent, type: type ? type : AuthType.verify });
+    // if exist then check otp otherwise send error invalid data
+    if (isExist) {
+      // exist then verify otp with hash
+      const isOTPMatch &#x3D; await bcrypt.compare(verifySignUpDto.otp.trim(), isExist.otp);
+      // not match then throw error
+      if (!isOTPMatch) {
+        throw new HttpException(&#x27;Invalid OTP&#x27;, HttpStatus.NOT_ACCEPTABLE);
+      } else {
+        // if find then change mode verify to signup
+        isExist.type &#x3D; AuthType.signup;
+        await isExist.save();
+        // send response success
+        return isExist;
+      }
+    } else {
+      throw new HttpException(&#x27;Invalid Data&#x27;, HttpStatus.NOT_FOUND);
+    }
+  }
+
+  /**
+   * Registers a new user after verifying their email and OTP.
+   * 
+   * This function first verifies the user&#x27;s email and OTP. If successful, it creates
+   * a new user account in the database and removes the corresponding authentication record.
+   *
+   * @param request - The Express Request object containing the HTTP request information.
+   * @param registerDTO - The Data Transfer Object containing the user&#x27;s registration information,
+   *                      including email and OTP.
+   * 
+   * @throws {HttpException} Throws a NOT_FOUND exception if the verification fails.
+   * 
+   * @returns {Promise&lt;void&gt;} A promise that resolves when the user is successfully registered
+   *                          and the authentication record is deleted.
+   */
+  async registerUser(request: Request, registerDTO: CreateSignUpDTO): Promise&lt;void&gt; {
+    const verifyUser &#x3D; await this.verifyEmailWithOTP(request, { email: registerDTO.email.trim(), otp: registerDTO.otp.trim() }, AuthType.signup);
+    if (verifyUser) {
+      // make user active after verification
+      registerDTO.active &#x3D; true;
+  
+      // add user in db
+      await this.userSerice.create(registerDTO)
+      // delete auth after successfully registration
+      await this.authenticationSchema.findByIdAndDelete(verifyUser._id);
+    } else {
+      throw new HttpException(&#x27;Invalid Data&#x27;, HttpStatus.NOT_FOUND);
+    }
+  }
+
+  /**
+   * Changes the user&#x27;s password after verifying their email and OTP for a forgot password request.
+   * 
+   * This function performs the following steps:
+   * 1. Verifies the user&#x27;s email and OTP.
+   * 2. If verification is successful, hashes the new password.
+   * 3. Updates the user&#x27;s password in the database.
+   * 4. Removes the corresponding authentication record.
+   * 
+   * @param request - The Express Request object containing the HTTP request information.
+   * @param forgetPasswordDTO - Data transfer object containing the email, OTP, and new password.
+   * @throws {HttpException} Throws a NOT_FOUND exception if the verification fails.
+   * @returns {Promise&lt;void&gt;} A promise that resolves when the password is successfully changed.
+   */
+  async changeUserPassword(request: Request, forgetPasswordDTO: ForgetPasswordDTO): Promise&lt;void&gt; {
+    const verifyUser &#x3D; await this.verifyEmailWithOTP(request, { email: forgetPasswordDTO.email.trim(), otp: forgetPasswordDTO.otp.trim() }, AuthType.forgotpassword);
+    if (verifyUser) {
+      // store hashed password in db for security
+      const hashedPasword &#x3D; await bcrypt.hash(forgetPasswordDTO.password.trim(), 12);
+
+      // change user password in db
+      await this.userSerice.resetPassword(forgetPasswordDTO.email.trim(), hashedPasword);
+
+      // delete auth after successfully registration
+      await this.authenticationSchema.findByIdAndDelete(verifyUser._id);
+    } else {
+      throw new HttpException(&#x27;Invalid Data, Try again&#x27;, HttpStatus.NOT_FOUND);
+    }
+  }
+
+  /**
+   * Registers a new user through an admin action.
+   * 
+   * This function creates a new user account with admin-provided details, generates a random password,
+   * creates a key pair for the user, stores the user in the database, and sends an email with login credentials.
+   * 
+   * @param createUserAdminDto - The Data Transfer Object containing the new user&#x27;s details.
+   *        It includes fields such as email, phone, username, and role.
+   * 
+   * @returns A Promise that resolves to the result of creating the user in the database.
+   *          This typically includes the newly created user&#x27;s details or a confirmation of success.
+   * 
+   * @throws May throw an error if there&#x27;s a problem with user creation or email sending.
+   */
+  async registerUserByAdmin(createUserAdminDto: CreateUserAdminDto) {
+    // generate otp
+    const password &#x3D; this.generatePassword();
+    // prepare db referance
+    const mailOTPData &#x3D; {
+      email: createUserAdminDto.email.trim(),
+      password: password.trim(),
+      keys: await this.userSerice.generateKeyPair(),
+      phone: createUserAdminDto.phone,
+      active: true,
+      username: createUserAdminDto.username,
+      role: createUserAdminDto.role
+    };
+
+    // add user in db
+    const result &#x3D; await this.userSerice.sendCredentialFromAdmin(mailOTPData);
+
+    // send mail
+    const mail &#x3D; {
+      to: createUserAdminDto.email,
+      // subject: &#x27;OTP for SignUp from Mechatronic Group&#x27;,
+      from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+      // text: &#x27;Hello&#x27;,
+      templateId: &#x27;d-21d537c37b0c41cca54ad0655c445275&#x27;,
+      dynamicTemplateData: { password, email: createUserAdminDto.email },
+    };
+    await this.mailSerice.send(mail);
+
+    return result;
+  }
+
+  /**
+   * Retrieves a single authentication record from the database by its ID.
+   *
+   * @param id - The unique identifier of the authentication record to find.
+   *             This should be a MongoDB ObjectId.
+   *
+   * @returns A Promise that resolves to the found authentication document,
+   *          or null if no document matches the given ID.
+   */
+  async findOne(id: Types.ObjectId) {
+    return await this.authenticationSchema.findById(id);
+  }
+
+  /**
+   * Retrieves all authentication records associated with a given email address.
+   *
+   * @param email - The email address to search for in the authentication records.
+   *                This should be a string containing a valid email address.
+   *
+   * @returns A Promise that resolves to an array of authentication documents matching the provided email.
+   *          The array may be empty if no matching records are found.
+   */
+  async findOneByEmail(email: string) {
+    return await this.authenticationSchema.find({ email });
+  }
+
+  /**
+   * Updates an authentication record in the database.
+   * 
+   * This function finds an authentication document by its ID and updates it with the provided data.
+   * It uses MongoDB&#x27;s $set operator to update only the fields specified in the updateAuthenticationDto.
+   *
+   * @param id - The unique identifier of the authentication record to update.
+   *             This should be a MongoDB ObjectId.
+   * @param updateAuthenticationDto - An object containing the fields to be updated.
+   *                                  This should be an instance of UpdateAuthenticationDto.
+   * 
+   * @returns A Promise that resolves to the updated authentication document.
+   *          If no document is found with the given ID, it may return null.
+   */
+  async update(id: Types.ObjectId, updateAuthenticationDto: UpdateAuthenticationDto) {
+    return await this.authenticationSchema.findByIdAndUpdate(id, { $set: updateAuthenticationDto });
+  }
+
+  /**
+   * Updates the notification token for a specific authentication record.
+   * 
+   * This function finds an authentication document by its ID and updates its
+   * notification token with the provided token from the DTO.
+   *
+   * @param id - The unique identifier of the authentication record to update.
+   *             This should be a MongoDB ObjectId.
+   * @param createNotificationTokenDto - A Data Transfer Object containing the new notification token.
+   *                                     It should have a &#x27;token&#x27; property with the new token value.
+   * 
+   * @returns A Promise that resolves when the update operation is complete.
+   *          The function doesn&#x27;t return the updated document.
+   */
+  async updateNotification(id: Types.ObjectId, createNotificationTokenDto: CreateNotificationTokenDto) {
+    await this.authenticationSchema.findByIdAndUpdate(id, { $set: { notification_token: createNotificationTokenDto.token } });
+  }
+
+  /**
+   * Removes the notification token from a specific authentication record.
+   * 
+   * This function finds an authentication document by its ID and removes the 
+   * notification_token field from the document. It&#x27;s typically used when a user 
+   * logs out or when their notification preferences change.
+   *
+   * @param id - The unique identifier of the authentication record to update.
+   *             This should be a MongoDB ObjectId.
+   * 
+   * @returns A Promise that resolves when the update operation is complete.
+   *          The function doesn&#x27;t return the updated document.
+   */
+  async updateUnsetNotification(id: Types.ObjectId) {
+    await this.authenticationSchema.findByIdAndUpdate(id, { $unset: { notification_token: 1 }});
+  }
+
+  /**
+   * Removes an authentication record from the database.
+   * 
+   * This function deletes an authentication document from the database based on its unique identifier.
+   * It&#x27;s typically used when an authentication record is no longer needed, such as after a user logs out
+   * or when cleaning up expired authentication sessions.
+   *
+   * @param id - The unique identifier of the authentication record to be removed.
+   *             This should be a MongoDB ObjectId.
+   * 
+   * @returns A Promise that resolves to the deleted authentication document if found and removed,
+   *          or null if no document matches the given ID.
+   */
+  async remove(id: Types.ObjectId) {
+    return await this.authenticationSchema.findByIdAndDelete(id);
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthenticationService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

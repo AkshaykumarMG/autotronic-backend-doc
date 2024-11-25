@@ -1,0 +1,1175 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >FinanceHelpService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/finance-help/finance-help.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForAdmin" >findAllForAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                <a href="#getFinanceHelpStatusWithCount" >getFinanceHelpStatusWithCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateFinanceStatus" >updateFinanceStatus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, mailService: <a href="../injectables/MailService.html" target="_self">MailService</a>, notificationService: <a href="../injectables/NotificationService.html" target="_self">NotificationService</a>, authenticationService: <a href="../injectables/AuthenticationService.html" target="_self">AuthenticationService</a>, firebaseNotificationService: <a href="../injectables/FirebaseNotificationService.html" target="_self">FirebaseNotificationService</a>, vehicleFinanceApplicationSerice: <a href="../injectables/VehicleFinanceApplicationService.html" target="_self">VehicleFinanceApplicationService</a>, financeHelpSchema: <a href="../classes/FinanceHelp.html" target="_self">Model&lt;FinanceHelp&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/modules/finance-help/finance-help.service.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mailService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MailService.html" target="_self" >MailService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notificationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotificationService.html" target="_self" >NotificationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authenticationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthenticationService.html" target="_self" >AuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>firebaseNotificationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FirebaseNotificationService.html" target="_self" >FirebaseNotificationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>vehicleFinanceApplicationSerice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/VehicleFinanceApplicationService.html" target="_self" >VehicleFinanceApplicationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>financeHelpSchema</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/FinanceHelp.html" target="_self" >Model&lt;FinanceHelp&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(createFinanceHelpDto: <a href="../classes/CreateFinanceHelpDto.html" target="_self">CreateFinanceHelpDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/modules/finance-help/finance-help.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new finance help request and notifies super admins.</p>
+<p>This function performs the following steps:</p>
+<ol>
+<li>Fetches the vehicle finance application details.</li>
+<li>Retrieves the user information.</li>
+<li>Creates a new finance help entry with initial timeline.</li>
+<li>Finds all super admin users.</li>
+<li>Sends email notifications to all super admins.</li>
+<li>Sends push notifications and creates in-app notifications for super admins.</li>
+</ol>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createFinanceHelpDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateFinanceHelpDto.html" target="_self" >CreateFinanceHelpDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data transfer object containing information to create a finance help request.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Returns true if the finance help request is successfully created and notifications are sent.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForAdmin"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForAdmin</b></span>
+                        <a href="#findAllForAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForAdmin(status: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/modules/finance-help/finance-help.service.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves finance help records for admin users based on their role and specified criteria.</p>
+<p>This function handles different query scenarios for SuperAdmin and other admin roles.
+It supports pagination and filtering by status.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The structure is { data: FinanceHelp[], count: number }.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The status to filter finance help records. If not provided or invalid, all statuses are included.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The current user object containing role information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>0</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination (default: 0).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>10</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The number of records per page (default: 10).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing the matching finance help records and the total count.
+The structure is { data: FinanceHelp[], count: number }.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="174"
+                                    class="link-to-prism">src/modules/finance-help/finance-help.service.ts:174</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single finance help record by its ID.</p>
+<p>This function searches the database for a finance help document
+matching the provided ID and returns it.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the finance help record to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the found FinanceHelp document, or null if not found.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFinanceHelpStatusWithCount"></a>
+                    <span class="name">
+                        <span ><b>getFinanceHelpStatusWithCount</b></span>
+                        <a href="#getFinanceHelpStatusWithCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFinanceHelpStatusWithCount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/modules/finance-help/finance-help.service.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the count of finance help requests grouped by their status.</p>
+<p>This function aggregates the finance help documents in the database,
+grouping them by their status and calculating the count for each status.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     Each object contains:
+     - _id: The status of the finance help requests
+     - count: The number of finance help requests with that status</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;Array&lt;literal type&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an array of objects.
+Each object contains:</p>
+<ul>
+<li>_id: The status of the finance help requests</li>
+<li>count: The number of finance help requests with that status</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="227"
+                                    class="link-to-prism">src/modules/finance-help/finance-help.service.ts:227</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes a finance help record from the database.</p>
+<p>This function deletes a single finance help document from the database
+based on the provided ObjectId.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     includes information such as the number of documents deleted.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the finance help record to be removed.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the deletion result. The result typically
+includes information such as the number of documents deleted.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFinanceStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateFinanceStatus</b></span>
+                        <a href="#updateFinanceStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateFinanceStatus(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, manageFinanceHelpDto: <a href="../classes/ManageFinanceHelpDto.html" target="_self">ManageFinanceHelpDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="191"
+                                    class="link-to-prism">src/modules/finance-help/finance-help.service.ts:191</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the status of a finance help request and manages user assignments.</p>
+<p>This function performs the following actions:</p>
+<ol>
+<li>Validates the user&#39;s role for certain status changes.</li>
+<li>Updates the finance help status and assigns a user if applicable.</li>
+<li>Adds a new entry to the finance help timeline.</li>
+</ol>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The current user making the request, decorated with</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>manageFinanceHelpDto</td>
+                                            <td>
+                                                            <code><a href="../classes/ManageFinanceHelpDto.html" target="_self" >ManageFinanceHelpDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the update information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Returns an object indicating the success of the operation.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpException, HttpStatus, Injectable } from &#x27;@nestjs/common&#x27;;
+import { CreateFinanceHelpDto } from &#x27;./dto/create-finance-help.dto&#x27;;
+// import { UpdateFinanceHelpDto } from &#x27;./dto/update-finance-help.dto&#x27;;
+import { ManageFinanceHelpDto } from &#x27;./dto/manage-finance-help.dto&#x27;;
+
+// mongodb
+import { Model, Types } from &#x27;mongoose&#x27;;
+import { InjectModel } from &#x27;@nestjs/mongoose&#x27;;
+import { FinanceHelp, FinanceHelpStatus } from &#x27;./schema/finance-help.schema&#x27;;
+
+// custom service
+import { UserService } from &#x27;../user/user.service&#x27;;
+import { MailService } from &#x27;../../utilities/services/mail/mail.service&#x27;;
+import { VehicleFinanceApplicationService } from &#x27;../vehicle-finance-application/vehicle-finance-application.service&#x27;;
+import { AuthenticationService } from &#x27;../authentication/authentication.service&#x27;;
+import { FirebaseNotificationService } from &#x27;../../utilities/services/firebase/notification/firebase-notification.service&#x27;;
+
+// notification 
+import { NotificationService } from &#x27;../notification/notification.service&#x27;;
+import { Notification_Type } from &#x27;../notification/schema/notification.schema&#x27;;
+
+// authenticate user
+import { Authentication } from &#x27;../authentication/schema/authentication.schema&#x27;;
+import { CurrentUser, ICurrentUser } from &#x27;../user/decorator/current-user.decorator&#x27;;
+import { UserRole } from &#x27;../user/schema/user.schema&#x27;;
+
+@Injectable()
+export class FinanceHelpService {
+
+  constructor(
+    private readonly userService: UserService,
+    private readonly mailService: MailService,
+    private readonly notificationService: NotificationService,
+    private readonly authenticationService: AuthenticationService,
+    private readonly firebaseNotificationService: FirebaseNotificationService,
+    private readonly vehicleFinanceApplicationSerice: VehicleFinanceApplicationService,
+    @InjectModel(FinanceHelp.name) private readonly financeHelpSchema: Model&lt;FinanceHelp&gt;,
+  ) { }
+
+/**
+ * Creates a new finance help request and notifies super admins.
+ * 
+ * This function performs the following steps:
+ * 1. Fetches the vehicle finance application details.
+ * 2. Retrieves the user information.
+ * 3. Creates a new finance help entry with initial timeline.
+ * 4. Finds all super admin users.
+ * 5. Sends email notifications to all super admins.
+ * 6. Sends push notifications and creates in-app notifications for super admins.
+ * 
+ * @param createFinanceHelpDto - The data transfer object containing information to create a finance help request.
+ * @returns {Promise&lt;boolean&gt;} Returns true if the finance help request is successfully created and notifications are sent.
+ * @throws {Error} Throws an error if there&#x27;s a problem during the creation process or sending notifications.
+ */
+  async create(createFinanceHelpDto: CreateFinanceHelpDto): Promise&lt;boolean&gt; {
+
+    // fetch vehicle finance application detail
+    const vehicleFinanceApplication &#x3D; await this.vehicleFinanceApplicationSerice.findOne(createFinanceHelpDto.vehicle_finance_application as Types.ObjectId);
+
+    // fetch user information
+    const user &#x3D; await this.userService.findByID(vehicleFinanceApplication.user as Types.ObjectId);
+
+    // add finance help data
+    const createdFinanceHelp &#x3D; new this.financeHelpSchema(createFinanceHelpDto);
+    createdFinanceHelp.timeline &#x3D; [{
+      status: FinanceHelpStatus.not_assign,
+      note: &#x60;${user.username} requested for finance help&#x60;,
+      user: vehicleFinanceApplication.user as Types.ObjectId,
+    }];
+    await createdFinanceHelp.save();
+
+    // find all super admin and send notifications
+    const superAdminUsers &#x3D; await this.userService.findAllBySuperAdminStatus();
+
+    // send mail to each super admin
+    for (const element of superAdminUsers) {
+      // send mail to super admin
+      const mailAdmin &#x3D; {
+        to: element.email,
+        from: &#x27;akshay@mechatronic-group.com&#x27;,
+        subject: &#x27;New Message: Finance Help Request&#x27;,
+        templateId: &#x27;d-6077cb411d1945e1bb519efb512ab03b&#x27;,
+      };
+      await this.mailService.send(mailAdmin);
+
+      // send notifications
+      const pushTokens &#x3D; (await this.authenticationService.findOneByEmail(element.email)).map((auth: Authentication) &#x3D;&gt; { return auth.notification_token });
+      if (pushTokens &amp;&amp; pushTokens.length &gt; 0) {
+        await this.firebaseNotificationService.sendingNotificationMultipler(pushTokens, &#x27;New Finance Help&#x27;, &#x60;${user.username} requested for finance help&#x60;, { type: Notification_Type.finance_help });
+        await this.notificationService.create({
+          title: &#x27;New Finance Help&#x27;,
+          description: &#x60;${user.username} requested for finance help&#x60;,
+          from: user._id,
+          to: element._id,
+          type: Notification_Type.finance_help
+        });
+      }
+    }
+
+    return true;
+  }
+
+  /**
+   * Retrieves finance help records for admin users based on their role and specified criteria.
+   * 
+   * This function handles different query scenarios for SuperAdmin and other admin roles.
+   * It supports pagination and filtering by status.
+   * 
+   * @param status - The status to filter finance help records. If not provided or invalid, all statuses are included.
+   * @param user - The current user object containing role information.
+   * @param page - The page number for pagination (default: 0).
+   * @param limit - The number of records per page (default: 10).
+   * @returns An object containing the matching finance help records and the total count.
+   *          The structure is { data: FinanceHelp[], count: number }.
+   */
+  async findAllForAdmin(status: any, user: ICurrentUser, page: number &#x3D; 0, limit: number &#x3D; 10) {
+    const financeHelpStatus &#x3D; Object.values(FinanceHelpStatus);
+    status &#x3D; status &amp;&amp; financeHelpStatus.includes(status) ? { status } : {};
+    if (user.role &#x3D;&#x3D;&#x3D; UserRole.SuperAdmin) {
+      const count &#x3D; await this.financeHelpSchema.countDocuments();
+      const financeHelp &#x3D; await this.financeHelpSchema.find(status)
+        .populate(&#x27;vehicle_finance_application&#x27;)
+        .populate(&#x27;timeline.user&#x27;, { _id: 0, store: 0, favourite: 0, active: 0, createdAt: 0, updatedAt: 0 })
+        .limit(limit).skip(page * limit).exec();
+      return { data: financeHelp, count };
+    }
+    const count &#x3D; await this.financeHelpSchema.countDocuments({ assign_user: user._id });
+    if (Object.keys(status).length &#x3D;&#x3D;&#x3D; 0) {
+      const financeHelp &#x3D; await this.financeHelpSchema.find({ assign_user: user._id })
+        .populate(&#x27;vehicle_finance_application&#x27;)
+        .populate(&#x27;timeline.user&#x27;, { _id: 0, store: 0, favourite: 0, active: 0, createdAt: 0, updatedAt: 0 })
+        .limit(limit).skip(page * limit).exec();
+      return { data: financeHelp, count };
+    } else {
+      const financeHelp &#x3D; await this.financeHelpSchema.find({ assign_user: user._id, ...status })
+        .populate(&#x27;vehicle_finance_application&#x27;)
+        .populate(&#x27;timeline.user&#x27;, { _id: 0, store: 0, favourite: 0, active: 0, createdAt: 0, updatedAt: 0 })
+        .limit(limit).skip(page * limit).exec();
+      return { data: financeHelp, count };
+    }
+  }
+
+  /**
+   * Retrieves the count of finance help requests grouped by their status.
+   * 
+   * This function aggregates the finance help documents in the database,
+   * grouping them by their status and calculating the count for each status.
+   * 
+   * @returns {Promise&lt;Array&lt;{ _id: string, count: number }&gt;&gt;} A promise that resolves to an array of objects.
+   *          Each object contains:
+   *          - _id: The status of the finance help requests
+   *          - count: The number of finance help requests with that status
+   */
+  getFinanceHelpStatusWithCount(): Promise&lt;Array&lt;{ _id: string; count: number; }&gt;&gt; {
+    return this.financeHelpSchema.aggregate([
+      {
+        $group: {
+          _id: &#x27;$status&#x27;,
+          count: { $sum: 1 }
+        }
+      }
+    ])
+  }
+
+  /**
+   * Retrieves a single finance help record by its ID.
+   * 
+   * This function searches the database for a finance help document
+   * matching the provided ID and returns it.
+   *
+   * @param id - The ObjectId of the finance help record to retrieve.
+   * @returns A Promise that resolves to the found FinanceHelp document, or null if not found.
+   */
+  async findOne(id: Types.ObjectId) {
+    return await this.financeHelpSchema.findById(id);
+  }
+
+  /**
+   * Updates the status of a finance help request and manages user assignments.
+   * 
+   * This function performs the following actions:
+   * 1. Validates the user&#x27;s role for certain status changes.
+   * 2. Updates the finance help status and assigns a user if applicable.
+   * 3. Adds a new entry to the finance help timeline.
+   * 
+   * @param user - The current user making the request, decorated with @CurrentUser().
+   * @param manageFinanceHelpDto - Data transfer object containing the update information.
+   * @throws {HttpException} Throws an Unauthorized exception if a non-SuperAdmin user attempts to assign the finance help.
+   * @returns {Promise&lt;{ success: boolean }&gt;} Returns an object indicating the success of the operation.
+   */
+  async updateFinanceStatus(@CurrentUser() user: ICurrentUser, manageFinanceHelpDto: ManageFinanceHelpDto): Promise&lt;{ success: boolean; }&gt; {
+
+    // check user role and status validation for other role -  asign role only valid for super admin
+    if ([FinanceHelpStatus.assign].includes(manageFinanceHelpDto.status) &amp;&amp; user.role !&#x3D;&#x3D; UserRole.SuperAdmin) {
+      throw new HttpException(&#x27;Unauthorized: Invalid Status!&#x27;, HttpStatus.UNAUTHORIZED);
+    }
+
+    if ([FinanceHelpStatus.assign].includes(manageFinanceHelpDto.status) &amp;&amp; user.role &#x3D;&#x3D;&#x3D; UserRole.SuperAdmin) {
+      await this.financeHelpSchema.updateOne(
+        { _id: manageFinanceHelpDto.vehicle_finance_application },
+        { $set: { status: FinanceHelpStatus.assign, assign_user: manageFinanceHelpDto.assign_user } })
+        .exec();
+    }
+
+    // add timeline in finance app
+    const timeline &#x3D; {
+      status: manageFinanceHelpDto.status,
+      note: manageFinanceHelpDto.note,
+      user: user._id,
+    };
+    await this.financeHelpSchema.updateOne({ _id: manageFinanceHelpDto.vehicle_finance_application }, { $push: { timeline }, status: manageFinanceHelpDto.status }).exec();
+
+    return { success: true };
+  }
+
+
+  /**
+   * Removes a finance help record from the database.
+   * 
+   * This function deletes a single finance help document from the database
+   * based on the provided ObjectId.
+   *
+   * @param id - The ObjectId of the finance help record to be removed.
+   * @returns A Promise that resolves to the deletion result. The result typically
+   *          includes information such as the number of documents deleted.
+   */
+  async remove(id: Types.ObjectId) {
+    return await this.financeHelpSchema.deleteOne({ _id: id }).exec();
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'FinanceHelpService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

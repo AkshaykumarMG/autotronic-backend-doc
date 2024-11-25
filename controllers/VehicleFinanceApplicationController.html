@@ -1,0 +1,1163 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >VehicleFinanceApplicationController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/vehicle-finance-application/vehicle-finance-application.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>vehicle-finance-application</code>
+            </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createApplicationDirectResult" >createApplicationDirectResult</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createApplicationResult" >createApplicationResult</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createWithUserRegistration" >createWithUserRegistration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateSub" >updateSub</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(createVehicleFinanceApplicationDto: <a href="../classes/CreateVehicleFinanceApplicationDto.html" target="_self">CreateVehicleFinanceApplicationDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.Person, UserRole.Dealer)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/modules/vehicle-finance-application/vehicle-finance-application.controller.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new vehicle finance application.</p>
+<p>This endpoint is protected and requires authentication. It can only be accessed by users with
+the Person or Dealer role.</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful.</li>
+<li>message: A string message confirming the creation of the application.</li>
+<li>data: The created vehicle finance application data.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createVehicleFinanceApplicationDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateVehicleFinanceApplicationDto.html" target="_self" >CreateVehicleFinanceApplicationDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The DTO containing the details for creating a new vehicle finance application.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing:</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful.</li>
+<li>message: A string message confirming the creation of the application.</li>
+<li>data: The created vehicle finance application data.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createApplicationDirectResult"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>createApplicationDirectResult</b></span>
+                        <a href="#createApplicationDirectResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createApplicationDirectResult(createDirectResultDto: <a href="../classes/CreateDirectResultDto.html" target="_self">CreateDirectResultDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;result&#x27;)<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.Dealer, UserRole.Person)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/modules/vehicle-finance-application/vehicle-finance-application.controller.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a direct result for a vehicle finance application.</p>
+<p>This endpoint is protected and requires authentication. It can only be accessed by users with
+the Dealer or Person role.</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true).</li>
+<li>data: The created direct result data.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createDirectResultDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateDirectResultDto.html" target="_self" >CreateDirectResultDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The DTO containing the details for creating a direct result.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing:</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true).</li>
+<li>data: The created direct result data.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createApplicationResult"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>createApplicationResult</b></span>
+                        <a href="#createApplicationResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createApplicationResult(createSubVehicleFinanceApplicationDto: <a href="../classes/CreateSubVehicleFinanceApplicationDto.html" target="_self">CreateSubVehicleFinanceApplicationDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;admin/result&#x27;)<br />@ApiCookieAuth()<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.Admin, UserRole.SuperAdmin)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/modules/vehicle-finance-application/vehicle-finance-application.controller.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a finance application result for administrators.</p>
+<p>This endpoint is protected and requires authentication. It can only be accessed by users with
+the Admin or SuperAdmin role.</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true).</li>
+<li>data: The created finance application result data.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createSubVehicleFinanceApplicationDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateSubVehicleFinanceApplicationDto.html" target="_self" >CreateSubVehicleFinanceApplicationDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The DTO containing the details for creating a sub-vehicle finance application result.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing:</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true).</li>
+<li>data: The created finance application result data.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createWithUserRegistration"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>createWithUserRegistration</b></span>
+                        <a href="#createWithUserRegistration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createWithUserRegistration(request: Request, createUserVehicleFinanceApplicationDto: <a href="../classes/CreateUserVehicleFinanceApplicationDto.html" target="_self">CreateUserVehicleFinanceApplicationDto</a>, response: Response)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;user&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/modules/vehicle-finance-application/vehicle-finance-application.controller.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new vehicle finance application with user registration.</p>
+<p>This function handles the creation of a vehicle finance application along with user registration.
+It sets authentication data in cookies and returns the created application details.</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful.</li>
+<li>data: The created user and vehicle finance application data.</li>
+<li>vehicalAppID: The ID of the created vehicle finance application.</li>
+<li>result: Additional result data from the creation process.</li>
+<li>message: A success message confirming the creation of the application.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The incoming request object.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createUserVehicleFinanceApplicationDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateUserVehicleFinanceApplicationDto.html" target="_self" >CreateUserVehicleFinanceApplicationDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>DTO containing user and vehicle finance application details.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>response</td>
+                                            <td>
+                                                        <code>Response</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The outgoing response object, used to set cookies.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing:</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful.</li>
+<li>data: The created user and vehicle finance application data.</li>
+<li>vehicalAppID: The ID of the created vehicle finance application.</li>
+<li>result: Additional result data from the creation process.</li>
+<li>message: A success message confirming the creation of the application.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: Types.ObjectId, updateOtherFieldVehicleDto: <a href="../classes/UpdateOtherFieldVehicleDto.html" target="_self">UpdateOtherFieldVehicleDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.Person, UserRole.Dealer)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/modules/vehicle-finance-application/vehicle-finance-application.controller.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates a vehicle finance application.</p>
+<p>This endpoint is protected and requires authentication. It can only be accessed by users with
+the Person or Dealer role. The function updates an existing vehicle finance application with
+the provided data.</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true).</li>
+<li>message: A string confirming the successful update of the application.</li>
+<li>data: The updated vehicle finance application data.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ID of the vehicle finance application to update.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateOtherFieldVehicleDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateOtherFieldVehicleDto.html" target="_self" >UpdateOtherFieldVehicleDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The DTO containing the updated fields for the vehicle finance application.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing:</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true).</li>
+<li>message: A string confirming the successful update of the application.</li>
+<li>data: The updated vehicle finance application data.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSub"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>updateSub</b></span>
+                        <a href="#updateSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateSub(id: Types.ObjectId, createSubVehicleFinanceApplicationDto: <a href="../classes/CreateSubVehicleFinanceApplicationDto.html" target="_self">CreateSubVehicleFinanceApplicationDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;sub/:id&#x27;)<br />@ApiCookieAuth()<br />@ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27;})<br />@UseGuards(AuthGuard, RoleGuard)<br />@Roles(UserRole.Person, UserRole.Dealer)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/modules/vehicle-finance-application/vehicle-finance-application.controller.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates a sub-vehicle finance application.</p>
+<p>This endpoint is protected and requires authentication. It can only be accessed by users with
+the Person or Dealer role. The function creates a sub-vehicle finance application for an existing
+vehicle finance application.</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true).</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ID of the existing vehicle finance application to update.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createSubVehicleFinanceApplicationDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateSubVehicleFinanceApplicationDto.html" target="_self" >CreateSubVehicleFinanceApplicationDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The DTO containing the details for creating a sub-vehicle finance application.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing:</p>
+<ul>
+<li>success: A boolean indicating whether the operation was successful (always true).</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Res, Req } from &#x27;@nestjs/common&#x27;;
+import { VehicleFinanceApplicationService } from &#x27;./vehicle-finance-application.service&#x27;;
+import { CreateVehicleFinanceApplicationDto } from &#x27;./dto/create-vehicle-finance-application.dto&#x27;;
+import { CreateDirectResultDto } from &#x27;./dto/create-direct-result.dto&#x27;;
+// import { UpdateVehicleFinanceApplicationDto } from &#x27;./dto/update-vehicle-finance-application.dto&#x27;;
+import { CreateSubVehicleFinanceApplicationDto, CreateUserVehicleFinanceApplicationDto } from &#x27;./dto/create-user-with-vehicle-finance-application.dto&#x27;;
+
+// mongoose
+import { Types } from &#x27;mongoose&#x27;;
+
+// verify user by credential and role
+import { AuthGuard } from &#x27;../../utilities/guard/auth/auth.guard&#x27;;
+import { Roles } from &#x27;../user/role/role.decorator&#x27;;
+import { UserRole } from &#x27;../user/schema/user.schema&#x27;;
+import { RoleGuard } from &#x27;../../utilities/guard/role/role.guard&#x27;;
+
+// find credential
+import { config } from &#x27;../../utilities/config&#x27;;
+
+// attach cookie with response
+import { Request, Response } from &#x27;express&#x27;;
+import { UpdateOtherFieldVehicleDto } from &#x27;./dto/update-other-field-vehicle-application.dto&#x27;;
+
+// swagger cookie
+import { ApiCookieAuth, ApiParam } from &#x27;@nestjs/swagger&#x27;;
+
+@Controller(&#x27;vehicle-finance-application&#x27;)
+export class VehicleFinanceApplicationController {
+  constructor(private readonly vehicleFinanceApplicationService: VehicleFinanceApplicationService) { }
+
+  /**
+   * Creates a new vehicle finance application.
+   * 
+   * This endpoint is protected and requires authentication. It can only be accessed by users with
+   * the Person or Dealer role.
+   *
+   * @param {CreateVehicleFinanceApplicationDto} createVehicleFinanceApplicationDto - The DTO containing the details for creating a new vehicle finance application.
+   * @returns {Promise&lt;{ success: boolean; message: string; data: any }&gt;} An object containing:
+   *   - success: A boolean indicating whether the operation was successful.
+   *   - message: A string message confirming the creation of the application.
+   *   - data: The created vehicle finance application data.
+   */
+  @Post()
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.Person, UserRole.Dealer)
+  async create(@Body() createVehicleFinanceApplicationDto: CreateVehicleFinanceApplicationDto): Promise&lt;{ success: boolean; message: string; data: any; }&gt; {
+    const result &#x3D; await this.vehicleFinanceApplicationService.create(createVehicleFinanceApplicationDto);
+    return { success: true, message: &#x27;Vehicle finance application created successfully&#x27;, data: result };
+  }
+
+  /**
+   * Creates a direct result for a vehicle finance application.
+   * 
+   * This endpoint is protected and requires authentication. It can only be accessed by users with
+   * the Dealer or Person role.
+   *
+   * @param {CreateDirectResultDto} createDirectResultDto - The DTO containing the details for creating a direct result.
+   * @returns {Promise&lt;{ success: boolean; data: any }&gt;} An object containing:
+   *   - success: A boolean indicating whether the operation was successful (always true).
+   *   - data: The created direct result data.
+   */
+  @Post(&#x27;result&#x27;)
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.Dealer, UserRole.Person)
+  async createApplicationDirectResult(@Body() createDirectResultDto: CreateDirectResultDto): Promise&lt;{ success: boolean; data: any; }&gt; {
+    const result &#x3D; await this.vehicleFinanceApplicationService.createDirectResult(createDirectResultDto);
+    return { success: true, data: result };
+  }
+
+  /**
+   * Creates a finance application result for administrators.
+   * 
+   * This endpoint is protected and requires authentication. It can only be accessed by users with
+   * the Admin or SuperAdmin role.
+   *
+   * @param {CreateSubVehicleFinanceApplicationDto} createSubVehicleFinanceApplicationDto - The DTO containing the details for creating a sub-vehicle finance application result.
+   * @returns {Promise&lt;{ success: boolean; data: any }&gt;} An object containing:
+   *   - success: A boolean indicating whether the operation was successful (always true).
+   *   - data: The created finance application result data.
+   */
+  @Post(&#x27;admin/result&#x27;)
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.Admin, UserRole.SuperAdmin)
+  async createApplicationResult(@Body() createSubVehicleFinanceApplicationDto: CreateSubVehicleFinanceApplicationDto): Promise&lt;{ success: boolean; data: any; }&gt; {
+    const result &#x3D; await this.vehicleFinanceApplicationService.createFinanceApplicationResult(createSubVehicleFinanceApplicationDto);
+    return { success: true, data: result };
+  }
+
+  /**
+   * Creates a new vehicle finance application with user registration.
+   * 
+   * This function handles the creation of a vehicle finance application along with user registration.
+   * It sets authentication data in cookies and returns the created application details.
+   *
+   * @param {Request} request - The incoming request object.
+   * @param {CreateUserVehicleFinanceApplicationDto} createUserVehicleFinanceApplicationDto - DTO containing user and vehicle finance application details.
+   * @param {Response} response - The outgoing response object, used to set cookies.
+   * @returns {Promise&lt;{success: boolean, data: any, vehicalAppID: string, result: any, message: string}&gt;} An object containing:
+   *   - success: A boolean indicating whether the operation was successful.
+   *   - data: The created user and vehicle finance application data.
+   *   - vehicalAppID: The ID of the created vehicle finance application.
+   *   - result: Additional result data from the creation process.
+   *   - message: A success message confirming the creation of the application.
+   */
+  @Post(&#x27;user&#x27;)
+  async createWithUserRegistration(@Req() request: Request, @Body() createUserVehicleFinanceApplicationDto: CreateUserVehicleFinanceApplicationDto, @Res({ passthrough: true }) response: Response): Promise&lt;{ success: boolean; data: any; vehicalAppID: Types.ObjectId; result: any; message: string; }&gt; {
+    const result &#x3D; await this.vehicleFinanceApplicationService.createWithUserRegistration(request, createUserVehicleFinanceApplicationDto);
+    // set token and id in cookie
+    response.cookie(&#x27;data&#x27;, { token: result.token, identifier: result.data.identifier, auth: result.auth }, {
+      expires: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
+      sameSite: &#x27;strict&#x27;,
+      domain: config.COOKIE_DOMAIN,
+      httpOnly: true,
+      secure: true
+    });
+    return { success: true, data: result.data, vehicalAppID: result.vehicleAppID, result: result.result, message: &#x27;Vehicle finance application created successfully&#x27; };
+  }
+
+  // @Get()
+  // findAll() {
+  //   return this.vehicleFinanceApplicationService.findAll();
+  // }
+
+  // @Get(&#x27;:id&#x27;)
+  // findOne(@Param(&#x27;id&#x27;) id: string) {
+  //   return this.vehicleFinanceApplicationService.findOne(+id);
+  // }
+
+  /**
+   * Updates a vehicle finance application.
+   * 
+   * This endpoint is protected and requires authentication. It can only be accessed by users with
+   * the Person or Dealer role. The function updates an existing vehicle finance application with
+   * the provided data.
+   *
+   * @param {Types.ObjectId} id - The ID of the vehicle finance application to update.
+   * @param {UpdateOtherFieldVehicleDto} updateOtherFieldVehicleDto - The DTO containing the updated fields for the vehicle finance application.
+   * @returns {Promise&lt;{ success: boolean; message: string; data: any }&gt;} An object containing:
+   *   - success: A boolean indicating whether the operation was successful (always true).
+   *   - message: A string confirming the successful update of the application.
+   *   - data: The updated vehicle finance application data.
+   */
+  @Patch(&#x27;:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.Person, UserRole.Dealer)
+  async update(@Param(&#x27;id&#x27;) id: Types.ObjectId, @Body() updateOtherFieldVehicleDto: UpdateOtherFieldVehicleDto): Promise&lt;{ success: boolean; message: string; data: any; }&gt; {
+    const result &#x3D; await this.vehicleFinanceApplicationService.update(id, updateOtherFieldVehicleDto);
+    return { success: true, message: &#x27;Vehicle finance application updated successfully&#x27;, data: result };
+  }
+
+  /**
+   * Updates a sub-vehicle finance application.
+   * 
+   * This endpoint is protected and requires authentication. It can only be accessed by users with
+   * the Person or Dealer role. The function creates a sub-vehicle finance application for an existing
+   * vehicle finance application.
+   *
+   * @param {Types.ObjectId} id - The ID of the existing vehicle finance application to update.
+   * @param {CreateSubVehicleFinanceApplicationDto} createSubVehicleFinanceApplicationDto - The DTO containing the details for creating a sub-vehicle finance application.
+   * @returns {Promise&lt;{ success: boolean }&gt;} An object containing:
+   *   - success: A boolean indicating whether the operation was successful (always true).
+   */
+  @Patch(&#x27;sub/:id&#x27;)
+  @ApiCookieAuth()
+  @ApiParam({name: &#x27;id&#x27;, required: true, type: &#x27;string&#x27; })
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles(UserRole.Person, UserRole.Dealer)
+  async updateSub(@Param(&#x27;id&#x27;) id: Types.ObjectId, @Body() createSubVehicleFinanceApplicationDto: CreateSubVehicleFinanceApplicationDto): Promise&lt;{ success: boolean; }&gt; {
+    await this.vehicleFinanceApplicationService.createSubVehicleFinanceApplication(id, createSubVehicleFinanceApplicationDto);
+    return { success: true };
+  }
+
+  // @Delete(&#x27;:id&#x27;)
+  // remove(@Param(&#x27;id&#x27;) id: string) {
+  //   return this.vehicleFinanceApplicationService.remove(+id);
+  // }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'VehicleFinanceApplicationController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

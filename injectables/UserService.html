@@ -1,0 +1,4110 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >UserService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/user/user.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#changePassword" >changePassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createJWTToken" >createJWTToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllByAdminStatus" >findAllByAdminStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllByIDandEmail" >findAllByIDandEmail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllBySuperAdminStatus" >findAllBySuperAdminStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllStoreForAdmin" >findAllStoreForAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByID" >findByID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByIDWithID" >findByIDWithID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByIDWithStores" >findByIDWithStores</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneByEMail" >findOneByEMail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneByPhone" >findOneByPhone</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneForVerify" >findOneForVerify</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneWithStore" >findOneWithStore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findUserFavouriteVehicles" >findUserFavouriteVehicles</a>
+                            </li>
+                            <li>
+                                <a href="#findUsersByStoreID" >findUsersByStoreID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#generateKeyPair" >generateKeyPair</a>
+                            </li>
+                            <li>
+                                <a href="#getRoleCodeByRoleName" >getRoleCodeByRoleName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#manageFavoriteUserAdvertisement" >manageFavoriteUserAdvertisement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#resetPassword" >resetPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#sendCredentialFromAdmin" >sendCredentialFromAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateStore" >updateStore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateUserAddress" >updateUserAddress</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateUserAdminStore" >updateUserAdminStore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateUserStoreOperation" >updateUserStoreOperation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#validateUser" >validateUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#verifyJWTToken" >verifyJWTToken</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(carService: <a href="../injectables/CarService.html" target="_self">CarService</a>, mailService: <a href="../injectables/MailService.html" target="_self">MailService</a>, storeService: <a href="../injectables/StoreService.html" target="_self">StoreService</a>, userSchema: <a href="../classes/User.html" target="_self">Model&lt;User&gt;</a>, notificationService: <a href="../injectables/NotificationService.html" target="_self">NotificationService</a>, authenticationService: <a href="../injectables/AuthenticationService.html" target="_self">AuthenticationService</a>, redisService: <a href="../injectables/RedisService.html" target="_self">RedisService</a>, firebaseNotificationService: <a href="../injectables/FirebaseNotificationService.html" target="_self">FirebaseNotificationService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/modules/user/user.service.ts:58</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>carService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CarService.html" target="_self" >CarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mailService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MailService.html" target="_self" >MailService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>storeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StoreService.html" target="_self" >StoreService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userSchema</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/User.html" target="_self" >Model&lt;User&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notificationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotificationService.html" target="_self" >NotificationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authenticationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthenticationService.html" target="_self" >AuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>redisService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RedisService.html" target="_self" >RedisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>firebaseNotificationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FirebaseNotificationService.html" target="_self" >FirebaseNotificationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changePassword"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>changePassword</b></span>
+                        <a href="#changePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changePassword(id: Types.ObjectId, changePasswordDto: <a href="../classes/ChangePasswordDto.html" target="_self">ChangePasswordDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="796"
+                                    class="link-to-prism">src/modules/user/user.service.ts:796</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates a user&#39;s password by their ID.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the user whose password needs to be updated.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>changePasswordDto</td>
+                                            <td>
+                                                            <code><a href="../classes/ChangePasswordDto.html" target="_self" >ChangePasswordDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An object containing the old and new passwords.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the updated user document.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(createUserDto: <a href="../classes/CreateUserDto.html" target="_self">CreateUserDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">src/modules/user/user.service.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new user in the database and updates the user count in Redis.</p>
+<p>This function generates a key pair for the user, saves the user data to the database,
+and updates the total user count in Redis.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createUserDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateUserDto.html" target="_self" >CreateUserDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data transfer object containing the user information to be created.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/User.html" target="_self" >Promise&lt;User&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the newly created user object.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createJWTToken"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>createJWTToken</b></span>
+                        <a href="#createJWTToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createJWTToken(store: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank">object</a>, body: JwtPayload, life: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="252"
+                                    class="link-to-prism">src/modules/user/user.service.ts:252</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a JWT (JSON Web Token) using the provided store information and payload.</p>
+<p>This function generates a private key from the store object, then creates and signs
+a JWT with the given payload and expiration time.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>store</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>An object containing the store information, expected to be in JWK format.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                        <code>JwtPayload</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The payload to be included in the JWT.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>life</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;24h&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The expiration time for the token. Defaults to &#39;24h&#39;.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the signed JWT string.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="302"
+                                    class="link-to-prism">src/modules/user/user.service.ts:302</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a paginated list of users from the database.</p>
+<p>This function queries the user schema to fetch users, excluding their password and store information.
+It supports pagination through &#39;page&#39; and &#39;limit&#39; parameters.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>0</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination. Defaults to 0 (first page).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>10</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of users to return per page. Defaults to 10.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an array of user documents, with password and store fields excluded.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllByAdminStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllByAdminStatus</b></span>
+                        <a href="#findAllByAdminStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllByAdminStatus()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="391"
+                                    class="link-to-prism">src/modules/user/user.service.ts:391</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all users with &#39;Admin&#39; role from the database.</p>
+<p>This function queries the user schema to find all users who have the role of &#39;Admin&#39;.
+It selects only the username, email, and store fields for each matching user.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     Each object in the array contains the username, email, and store information of an admin user.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/User.html" target="_self" >Promise&lt;Array&lt;Partial&lt;User&gt;&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an array of partial user objects.
+Each object in the array contains the username, email, and store information of an admin user.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllByIDandEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllByIDandEmail</b></span>
+                        <a href="#findAllByIDandEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllByIDandEmail()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="316"
+                                    class="link-to-prism">src/modules/user/user.service.ts:316</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all users with roles of either Dealer or Person, returning only their ID and email.</p>
+<p>This function queries the user schema to fetch a lean version of user documents
+that have a role of either Dealer or Person. It selects only the &#39;_id&#39; and &#39;email&#39; fields
+for each matching user.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     each containing the &#39;_id&#39; and &#39;email&#39; of a matching user.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;Array&lt;literal type&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an array of objects,
+each containing the &#39;_id&#39; and &#39;email&#39; of a matching user.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllBySuperAdminStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllBySuperAdminStatus</b></span>
+                        <a href="#findAllBySuperAdminStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllBySuperAdminStatus()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="421"
+                                    class="link-to-prism">src/modules/user/user.service.ts:421</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all users with &#39;SuperAdmin&#39; role from the database.</p>
+<p>This function queries the user schema to find all users who have the role of &#39;SuperAdmin&#39;.
+It&#39;s useful for operations that need to list or process all super administrators in the system.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     Each document represents a user with the &#39;SuperAdmin&#39; role.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/User.html" target="_self" >Promise&lt;User[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to an array of User documents.
+Each document represents a user with the &#39;SuperAdmin&#39; role.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllStoreForAdmin"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllStoreForAdmin</b></span>
+                        <a href="#findAllStoreForAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllStoreForAdmin(id: Types.ObjectId, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="408"
+                                    class="link-to-prism">src/modules/user/user.service.ts:408</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a paginated list of stores associated with an admin user.</p>
+<p>This function finds an admin user by their ID and returns a paginated list of stores
+they are associated with. It uses MongoDB&#39;s pagination features to limit the number
+of results and skip records based on the page number.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     Each document contains only the store field of the user document.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the admin user whose stores are to be retrieved.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>0</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination. Defaults to 0 (first page).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>10</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of stores to return per page. Defaults to 10.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to a paginated list of store documents associated with the admin user.
+Each document contains only the store field of the user document.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByID"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByID</b></span>
+                        <a href="#findByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByID(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="482"
+                                    class="link-to-prism">src/modules/user/user.service.ts:482</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a user from the database by their ID.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the user to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the user document if found, or null if no user matches the ID.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByIDWithID"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByIDWithID</b></span>
+                        <a href="#findByIDWithID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByIDWithID(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="496"
+                                    class="link-to-prism">src/modules/user/user.service.ts:496</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a user from the database by their ID, returning only the _id field.</p>
+<p>This function is useful when you need to confirm a user&#39;s existence or retrieve
+just their ID for further operations, without fetching unnecessary data.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     If no user is found with the given ID, the Promise resolves to null.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the user to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to a partial user document containing only the _id field.
+If no user is found with the given ID, the Promise resolves to null.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByIDWithStores"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByIDWithStores</b></span>
+                        <a href="#findByIDWithStores"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByIDWithStores(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="510"
+                                    class="link-to-prism">src/modules/user/user.service.ts:510</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a user by their ID and populates their associated stores with selected fields.</p>
+<p>This function finds a user by their unique identifier and populates the &#39;store&#39; field
+with specific store information (id, name, logo, alias, and status).</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     If no user is found, the Promise resolves to null.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The MongoDB ObjectId of the user to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the user document with populated store information.
+If no user is found, the Promise resolves to null.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="330"
+                                    class="link-to-prism">src/modules/user/user.service.ts:330</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single user from the database by their ID.</p>
+<p>This function queries the user schema to find a user with the specified ID.
+It excludes the password and store fields from the returned user document.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     If no user is found with the given ID, the Promise resolves to null.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the user to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the user document, if found, with password and store fields excluded.
+If no user is found with the given ID, the Promise resolves to null.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneByEMail"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneByEMail</b></span>
+                        <a href="#findOneByEMail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneByEMail(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="366"
+                                    class="link-to-prism">src/modules/user/user.service.ts:366</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a user from the database based on their email address.</p>
+<p>This function searches the user schema for a single user with the specified email address.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>email</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The email address of the user to find.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the user document if found, or null if no user matches the email.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneByPhone"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneByPhone</b></span>
+                        <a href="#findOneByPhone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneByPhone(phone: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="378"
+                                    class="link-to-prism">src/modules/user/user.service.ts:378</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a user from the database based on their phone number.</p>
+<p>This function searches the user schema for a single user with the specified phone number.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>phone</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The phone number of the user to find.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the user document if found, or null if no user matches the phone number.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneForVerify"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneForVerify</b></span>
+                        <a href="#findOneForVerify"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneForVerify(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="354"
+                                    class="link-to-prism">src/modules/user/user.service.ts:354</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a user from the database by their ID, including the &#39;keys&#39; field.
+This function is specifically used for user verification purposes.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     If no user is found with the given ID, the Promise resolves to null.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the user to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the user document, if found, including the &#39;keys&#39; field.
+If no user is found with the given ID, the Promise resolves to null.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneWithStore"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneWithStore</b></span>
+                        <a href="#findOneWithStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneWithStore(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="342"
+                                    class="link-to-prism">src/modules/user/user.service.ts:342</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a user from the database by their ID, including their store information but excluding the password.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The returned document includes the user&#39;s store information.
+     If no user is found with the given ID, the Promise resolves to null.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the user to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the user document, if found, with the password field excluded.
+The returned document includes the user&#39;s store information.
+If no user is found with the given ID, the Promise resolves to null.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findUserFavouriteVehicles"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findUserFavouriteVehicles</b></span>
+                        <a href="#findUserFavouriteVehicles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findUserFavouriteVehicles(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="441"
+                                    class="link-to-prism">src/modules/user/user.service.ts:441</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the favourite vehicles for a user based on their email.</p>
+<p>This function performs an aggregation on the user schema to fetch the user&#39;s favourite vehicles.
+It joins the user&#39;s favourite vehicle IDs with the cars collection, sorts the images by position,
+and projects specific fields. The result is then transformed to include only essential vehicle information
+along with the URL of the image with the lowest position number.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     - _id: The unique identifier of the vehicle
+     - name: The name of the vehicle
+     - vin_number: The VIN (Vehicle Identification Number) of the vehicle
+     - asking_price: The asking price of the vehicle
+     - image: The URL of the vehicle&#39;s image with the lowest position number</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>email</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The email address of the user whose favourite vehicles are to be retrieved.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an array of favourite vehicle objects. Each object contains:</p>
+<ul>
+<li>_id: The unique identifier of the vehicle</li>
+<li>name: The name of the vehicle</li>
+<li>vin_number: The VIN (Vehicle Identification Number) of the vehicle</li>
+<li>asking_price: The asking price of the vehicle</li>
+<li>image: The URL of the vehicle&#39;s image with the lowest position number</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findUsersByStoreID"></a>
+                    <span class="name">
+                        <span ><b>findUsersByStoreID</b></span>
+                        <a href="#findUsersByStoreID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findUsersByStoreID(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="522"
+                                    class="link-to-prism">src/modules/user/user.service.ts:522</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The <code>findUsersByStoreID</code> function retrieves all users associated with a specific store.
+It uses the Mongoose <code>find</code> method to query the <code>userSchema</code> collection, filtering the results
+based on the store ID provided as a parameter.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the store for which the users need to be retrieved.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Mongoose Query object that can be executed to fetch the users associated with the specified store.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateKeyPair"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>generateKeyPair</b></span>
+                        <a href="#generateKeyPair"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateKeyPair()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">src/modules/user/user.service.ts:230</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Generates a new RSA key pair and exports the private key as a JWK.</p>
+<p>This function creates a new RSA-256 key pair with a modulus length of 4096 bits.
+It then exports the private key to JWK (JSON Web Key) format.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;jose.JWK&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves to the private key in JWK format.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRoleCodeByRoleName"></a>
+                    <span class="name">
+                        <span ><b>getRoleCodeByRoleName</b></span>
+                        <a href="#getRoleCodeByRoleName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRoleCodeByRoleName(role: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">src/modules/user/user.service.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The function <code>getRoleCodeByRoleName</code> returns a role code based on the input role name in
+TypeScript.
+the corresponding role code. The role name should be provided as a string.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>role</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The <code>getRoleCodeByRoleName</code> function takes a role name as input and returns
+the corresponding role code. The role name should be provided as a string.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>&quot;as&quot; | &quot;an&quot; | &quot;dlr&quot; | &quot;pp&quot;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>the role code based on the role name provided as input.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="manageFavoriteUserAdvertisement"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>manageFavoriteUserAdvertisement</b></span>
+                        <a href="#manageFavoriteUserAdvertisement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>manageFavoriteUserAdvertisement(id: Types.ObjectId, manageUserFavouriteDto: <a href="../classes/ManageUserFavouriteDto.html" target="_self">ManageUserFavouriteDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="834"
+                                    class="link-to-prism">src/modules/user/user.service.ts:834</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Manages the favorite status of an advertisement for a user.
+This function adds or removes an advertisement from a user&#39;s favorites list
+and updates the corresponding favorite status in the car service.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the user whose favorites list is being modified.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>manageUserFavouriteDto</td>
+                                            <td>
+                                                            <code><a href="../classes/ManageUserFavouriteDto.html" target="_self" >ManageUserFavouriteDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An object containing the advertisement ID and the operation mode (&#39;add&#39; or &#39;remove&#39;).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves when the favorite status has been updated in both the user schema and car service.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="855"
+                                    class="link-to-prism">src/modules/user/user.service.ts:855</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes a user from the database and updates the user count in Redis.</p>
+<p>This function deletes a user from the database based on their ID. If the user is successfully
+deleted, it also decrements the user count stored in Redis (if it exists).</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The MongoDB ObjectId of the user to be removed.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the deleted user document, or null if no user was found with the given ID.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetPassword"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>resetPassword</b></span>
+                        <a href="#resetPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetPassword(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="569"
+                                    class="link-to-prism">src/modules/user/user.service.ts:569</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Resets the password for a user identified by their email address.</p>
+<p>This function finds a user by their email and updates their password in the database.
+It&#39;s typically used in password reset flows where a user has requested to change their password.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>email</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The email address of the user whose password is to be reset.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>password</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The new password to set for the user. This should be the hashed version of the password.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the updated user document, or null if no user is found with the given email.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendCredentialFromAdmin"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>sendCredentialFromAdmin</b></span>
+                        <a href="#sendCredentialFromAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sendCredentialFromAdmin(createUserAdminDto: <a href="../classes/CreateUserAdminDto.html" target="_self">CreateUserAdminDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/modules/user/user.service.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sends credentials for a new user created by an admin.
+This function checks if the user already exists, creates a new user if not,
+and updates the user count in Redis.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createUserAdminDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateUserAdminDto.html" target="_self" >CreateUserAdminDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data transfer object containing the new user&#39;s information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object indicating the success status of the operation.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: Types.ObjectId, updateUserDto: <a href="../classes/UpdateUserDto.html" target="_self">UpdateUserDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="555"
+                                    class="link-to-prism">src/modules/user/user.service.ts:555</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates a user&#39;s information in the database.</p>
+<p>This function finds a user by their ID and updates their information
+based on the provided update data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the user to be updated.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateUserDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateUserDto.html" target="_self" >UpdateUserDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An object containing the fields to be updated and their new values.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the updated user document.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateStore"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateStore</b></span>
+                        <a href="#updateStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateStore(id: Types.ObjectId, storeID: Types.ObjectId, mode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="535"
+                                    class="link-to-prism">src/modules/user/user.service.ts:535</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the store association for a user.
+This function either adds or removes a store from a user&#39;s list of associated stores.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the user whose store associations are being updated.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>storeID</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the store to be added or removed.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>mode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;push&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The operation mode. &#39;push&#39; to add a store, any other value to remove. Defaults to &#39;push&#39;.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves when the update operation is complete.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUserAddress"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateUserAddress</b></span>
+                        <a href="#updateUserAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateUserAddress(id: Types.ObjectId, createAddressDTO: <a href="../classes/CreateAddressDTO.html" target="_self">CreateAddressDTO</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="820"
+                                    class="link-to-prism">src/modules/user/user.service.ts:820</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the address and location of a user in the database.</p>
+<p>This function takes a user&#39;s ID and new address details, updates the user&#39;s
+address in the database, and sets their location using geographical coordinates.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                      This should include &#39;lng&#39; and &#39;lat&#39; properties for coordinates.
+     indicating whether the update operation was successful.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The MongoDB ObjectId of the user whose address is being updated.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>createAddressDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateAddressDTO.html" target="_self" >CreateAddressDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An object containing the new address details for the user.
+This should include &#39;lng&#39; and &#39;lat&#39; properties for coordinates.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an object with a &#39;success&#39; boolean property,
+indicating whether the update operation was successful.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUserAdminStore"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateUserAdminStore</b></span>
+                        <a href="#updateUserAdminStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateUserAdminStore(sender: Types.ObjectId, setUserAdminPermissionDto: <a href="../classes/SetUserAdminPermissionDto.html" target="_self">SetUserAdminPermissionDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="585"
+                                    class="link-to-prism">src/modules/user/user.service.ts:585</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the store assignments for an admin user and handles related operations.</p>
+<p>This function processes store assignments for an admin user, including adding or removing stores,
+updating store statuses, sending notifications, and creating timeline entries. It handles both
+assigning new stores and removing existing store assignments.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">                               to be assigned or removed, and other related details.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sender</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ObjectId of the user initiating the update (typically a SuperAdmin).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>setUserAdminPermissionDto</td>
+                                            <td>
+                                                            <code><a href="../classes/SetUserAdminPermissionDto.html" target="_self" >SetUserAdminPermissionDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>A data transfer object containing information about the stores
+to be assigned or removed, and other related details.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves when all operations are completed.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUserStoreOperation"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateUserStoreOperation</b></span>
+                        <a href="#updateUserStoreOperation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateUserStoreOperation(sender: Types.ObjectId, setStorePermissionDto: <a href="../classes/SetStorePermissionDto.html" target="_self">SetStorePermissionDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="684"
+                                    class="link-to-prism">src/modules/user/user.service.ts:684</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates a user&#39;s store operation permissions.</p>
+<p>This function adds or removes a store from a user&#39;s list based on the mode provided.
+It also sends notifications and updates the store&#39;s status.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sender</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the user who is performing the operation.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>setStorePermissionDto</td>
+                                            <td>
+                                                            <code><a href="../classes/SetStorePermissionDto.html" target="_self" >SetStorePermissionDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An object containing the store ID, users, and mode of operation.</li>
+</ul>
+<p>This function adds or removes a store from a user&#39;s list based on the mode provided.
+It also sends notifications and updates the store&#39;s status.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>A Promise that resolves when the operation is complete.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateUser"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>validateUser</b></span>
+                        <a href="#validateUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateUser(createSignInDto: <a href="../classes/CreateSignInDto.html" target="_self">CreateSignInDto</a>, mode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/modules/user/user.service.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validates a user&#39;s credentials and generates a JWT token upon successful authentication.</p>
+<p>This function checks if the user exists, verifies their role based on the mode (client or admin),
+compares the provided password with the stored hash, and checks if the account is active.
+If all checks pass, it generates and returns a JWT token along with user information.</p>
+<ul>
+<li>success: A boolean indicating whether the authentication was successful.</li>
+<li>token: The generated JWT token.</li>
+<li>auth: An empty string (placeholder for additional authentication info).</li>
+<li>store: The user&#39;s associated store information.</li>
+<li>data: An object with user details (identifier, email, username, and role type).</li>
+<li>If the user doesn&#39;t exist (NOT_FOUND).</li>
+<li>If the credentials are invalid (NOT_ACCEPTABLE).</li>
+<li>If the account is blocked (NOT_FOUND).</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createSignInDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateSignInDto.html" target="_self" >CreateSignInDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The DTO containing the user&#39;s sign-in credentials (email and password).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>mode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;client&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The authentication mode, either &#39;client&#39; or &#39;admin&#39;. Defaults to &#39;client&#39;.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing:</p>
+<ul>
+<li>success: A boolean indicating whether the authentication was successful.</li>
+<li>token: The generated JWT token.</li>
+<li>auth: An empty string (placeholder for additional authentication info).</li>
+<li>store: The user&#39;s associated store information.</li>
+<li>data: An object with user details (identifier, email, username, and role type).</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifyJWTToken"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>verifyJWTToken</b></span>
+                        <a href="#verifyJWTToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifyJWTToken(store: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank">object</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="278"
+                                    class="link-to-prism">src/modules/user/user.service.ts:278</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifies a JWT token using the provided store information.</p>
+<p>This function attempts to verify a JWT token using a private key generated from the store object.
+If the token is valid, it returns the verification result. If the token has expired, it returns
+the expiration error code. For any other errors, it throws an Unauthorized exception.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     or the string &#39;ERR_JWT_EXPIRED&#39; if the token has expired.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>store</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An object containing the store information, expected to be in JWK format.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The JWT token string to be verified.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to either the verification result from jose.jwtVerify,
+or the string &#39;ERR_JWT_EXPIRED&#39; if the token has expired.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpException, HttpStatus, Inject, Injectable, forwardRef } from &#x27;@nestjs/common&#x27;;
+import { CreateUserDto } from &#x27;./dto/create-user.dto&#x27;;
+import { UpdateUserDto } from &#x27;./dto/update-user.dto&#x27;;
+import { CreateSignInDto } from &#x27;../authentication/dto/create-signin.dto&#x27;;
+import { ChangePasswordDto } from &#x27;./dto/change-password.dto&#x27;;
+
+// config
+import { config } from &#x27;../../utilities/config&#x27;;
+
+// compare hashing passord 
+import * as bcrypt from &#x27;bcrypt&#x27;;
+
+// token
+import * as jose from &#x27;jose&#x27;;
+
+// mongoose
+import { User, UserRole } from &#x27;./schema/user.schema&#x27;;
+import mongoose, { Model, Types } from &#x27;mongoose&#x27;;
+import { InjectModel } from &#x27;@nestjs/mongoose&#x27;;
+
+// jwt token
+import { JwtPayload } from &#x27;jsonwebtoken&#x27;;
+import { CreateUserAdminDto } from &#x27;./dto/create-user-admin.dto&#x27;;
+
+// custom services
+import { RedisService } from &#x27;../../utilities/services/redis/redis.service&#x27;;
+// import { AwsS3Service } from &#x27;../../utilities/services/aws_s3/aws_s3.service&#x27;;
+import { SetUserAdminPermissionDto, StoreMode, UserAdminStoreDTO } from &#x27;./dto/set-user-admin-permission.dto&#x27;;
+
+// notification service
+import { FirebaseNotificationService } from &#x27;../../utilities/services/firebase/notification/firebase-notification.service&#x27;;
+import { Authentication } from &#x27;../authentication/schema/authentication.schema&#x27;;
+
+// add notification in db
+import { NotificationService } from &#x27;../notification/notification.service&#x27;;
+import { Notification_Type } from &#x27;../notification/schema/notification.schema&#x27;;
+import { StoreService } from &#x27;../store/store.service&#x27;;
+import { AuthenticationService } from &#x27;../authentication/authentication.service&#x27;;
+import { StoreStatus, TimelineRole } from &#x27;../store/schema/store.schema&#x27;;
+
+// email send service
+import { MailService } from &#x27;../../utilities/services/mail/mail.service&#x27;;
+
+// set permission
+import { SetStorePermissionDto, UserStoreDTO } from &#x27;./dto/set-store-permission.dto&#x27;;
+
+// user address
+import { CreateAddressDTO } from &#x27;./dto/create-address.dto&#x27;;
+
+// user favourite
+// import { ManageUserAwardDto } from &#x27;../award/dto/manage-user-award.dto&#x27;;
+import { ManageUserFavouriteDto } from &#x27;./dto/manage-user-favourite.dto&#x27;;
+
+// manage car favourite
+import { CarService } from &#x27;./../car/car.service&#x27;;
+
+@Injectable()
+export class UserService {
+
+  constructor(
+    @Inject(forwardRef(() &#x3D;&gt; CarService))
+    private readonly carService: CarService,
+    private readonly mailService: MailService,
+    private readonly storeService: StoreService,
+    @InjectModel(User.name) private readonly userSchema: Model&lt;User&gt;,
+    private readonly notificationService: NotificationService,
+    @Inject(forwardRef(() &#x3D;&gt; AuthenticationService))
+    private readonly authenticationService: AuthenticationService,
+    @Inject(RedisService) private readonly redisService: RedisService,
+    private readonly firebaseNotificationService: FirebaseNotificationService,
+  ) { }
+
+  /**
+ * Validates a user&#x27;s credentials and generates a JWT token upon successful authentication.
+ * 
+ * This function checks if the user exists, verifies their role based on the mode (client or admin),
+ * compares the provided password with the stored hash, and checks if the account is active.
+ * If all checks pass, it generates and returns a JWT token along with user information.
+ *
+ * @param createSignInDto - The DTO containing the user&#x27;s sign-in credentials (email and password).
+ * @param mode - The authentication mode, either &#x27;client&#x27; or &#x27;admin&#x27;. Defaults to &#x27;client&#x27;.
+ * @returns An object containing:
+ *   - success: A boolean indicating whether the authentication was successful.
+ *   - token: The generated JWT token.
+ *   - auth: An empty string (placeholder for additional authentication info).
+ *   - store: The user&#x27;s associated store information.
+ *   - data: An object with user details (identifier, email, username, and role type).
+ * @throws HttpException
+ *   - If the user doesn&#x27;t exist (NOT_FOUND).
+ *   - If the credentials are invalid (NOT_ACCEPTABLE).
+ *   - If the account is blocked (NOT_FOUND).
+ */
+  async validateUser(createSignInDto: CreateSignInDto, mode: string &#x3D; &#x27;client&#x27;) {
+    // check user is exist 
+    const userExist &#x3D; await this.userSchema.findOne({ email: createSignInDto.email.trim() }).select([&#x27;+keys&#x27;, &#x27;+password&#x27;]);
+    if (userExist) {
+      // check request from client and user is dealer or person
+      if (mode &#x3D;&#x3D;&#x3D; &#x27;client&#x27; &amp;&amp; ![UserRole.Dealer, UserRole.Person].includes(userExist.role)) {
+        throw new HttpException(&#x27;Invalid Credentials!&#x27;, HttpStatus.NOT_ACCEPTABLE);
+      }
+      // check request from admin and user is superadmin or admin
+      if (mode &#x3D;&#x3D;&#x3D; &#x27;admin&#x27; &amp;&amp; ![UserRole.SuperAdmin, UserRole.Admin].includes(userExist.role)) {
+        throw new HttpException(&#x27;Invalid Credentials!&#x27;, HttpStatus.NOT_ACCEPTABLE);
+      }
+      // compare password by hash bcrypt
+      const isMatch &#x3D; await bcrypt.compare(createSignInDto.password.trim(), userExist.password);
+      // check password is match with hash
+      if (isMatch) {
+        // check user is active
+        if (!userExist.active) {
+          throw new HttpException(&#x27;Account Blocked!&#x27;, HttpStatus.NOT_FOUND);
+        }
+
+        // store data in token
+        const data &#x3D; {
+          identifier: userExist._id,
+          email: userExist.email,
+          username: userExist.username,
+        };
+
+        return {
+          success: true,
+          token: await this.createJWTToken(userExist.keys, data),
+          // refresh: await this.createJWTToken(userExist.keys, data, &#x27;2d&#x27;),
+          auth: &#x27;&#x27;,
+          store: userExist.store,
+          data: {
+            identifier: userExist._id,
+            email: userExist.email,
+            username: userExist.username,
+            type: this.getRoleCodeByRoleName(userExist.role)
+          }
+        };
+      } else {
+        throw new HttpException(&#x27;Invalid Credentials!&#x27;, HttpStatus.NOT_ACCEPTABLE);
+      }
+    } else {
+      throw new HttpException(&#x27;Invalid Credentials!&#x27;, HttpStatus.NOT_FOUND);
+    }
+  }
+
+  /**
+   * The function &#x60;getRoleCodeByRoleName&#x60; returns a role code based on the input role name in
+   * TypeScript.
+   * @param {string} role - The &#x60;getRoleCodeByRoleName&#x60; function takes a role name as input and returns
+   * the corresponding role code. The role name should be provided as a string.
+   * @returns the role code based on the role name provided as input.
+   */
+  getRoleCodeByRoleName(role: string) {
+    switch (role) {
+      case &#x27;superadmin&#x27;:
+        return &#x27;as&#x27;;
+      case &#x27;admin&#x27;:
+        return &#x27;an&#x27;;
+      case &#x27;dealer&#x27;:
+        return &#x27;dlr&#x27;;
+      default:
+        return &#x27;pp&#x27;;
+    }
+  }
+
+  /**
+   * Creates a new user in the database and updates the user count in Redis.
+   *
+   * This function generates a key pair for the user, saves the user data to the database,
+   * and updates the total user count in Redis.
+   *
+   * @param {CreateUserDto} createUserDto - The data transfer object containing the user information to be created.
+   * @returns {Promise&lt;User&gt;} A promise that resolves to the newly created user object.
+   */
+  async create(createUserDto: CreateUserDto): Promise&lt;User&gt; {
+    // create indivisual store for every user
+    createUserDto.keys &#x3D; await this.generateKeyPair();
+    const newUser &#x3D; new this.userSchema(createUserDto);
+    // add user in database
+    const result &#x3D; await newUser.save();
+
+    // increment user count in redis
+    const getUserRedis &#x3D; await this.redisService.get(&#x27;all:user&#x27;);
+    if (getUserRedis) {
+      await this.redisService.increase(&#x27;all:user&#x27;);
+    } else {
+      this.redisService.set(&quot;all:user&quot;, 1)
+    }
+    return result;
+  }
+
+  /**
+   * Sends credentials for a new user created by an admin.
+   * This function checks if the user already exists, creates a new user if not,
+   * and updates the user count in Redis.
+   *
+   * @param createUserAdminDto - The data transfer object containing the new user&#x27;s information.
+   * @throws {HttpException} If the email is already registered.
+   * @returns An object indicating the success status of the operation.
+   */
+  async sendCredentialFromAdmin(createUserAdminDto: CreateUserAdminDto) {
+
+    const userExist &#x3D; await this.findOneByEMail(createUserAdminDto.email);
+    if (userExist) {
+      throw new HttpException(&#x27;Email already registred, kindly login!&#x27;, HttpStatus.FOUND);
+    }
+
+    // save in db for future verification
+    const createdMailOTP &#x3D; new this.userSchema(createUserAdminDto);
+    await createdMailOTP.save();
+
+    // increment user count in redis
+    const getUserRedis &#x3D; await this.redisService.get(&#x27;all:user&#x27;);
+    if (getUserRedis) {
+      await this.redisService.increase(&#x27;all:user&#x27;);
+    } else {
+      this.redisService.set(&quot;all:user&quot;, 1)
+    }
+
+    // return data
+    return {
+      success: true
+    }
+  }
+
+  /**
+   * Generates a new RSA key pair and exports the private key as a JWK.
+   * 
+   * This function creates a new RSA-256 key pair with a modulus length of 4096 bits.
+   * It then exports the private key to JWK (JSON Web Key) format.
+   * 
+   * @returns {Promise&lt;jose.JWK&gt;} A promise that resolves to the private key in JWK format.
+   */
+  async generateKeyPair(): Promise&lt;jose.JWK&gt; {
+    const { publicKey, privateKey } &#x3D; await jose.generateKeyPair(&#x27;RS256&#x27;, { modulusLength: 4096 });
+    // const privateString &#x3D; await jose.exportPKCS8(privateKey);
+    // const publicString &#x3D; await jose.exportSPKI(publicKey);
+
+    const privateJwk &#x3D; await jose.exportJWK(privateKey)
+    // const publicJwk &#x3D; await jose.exportJWK(publicKey);
+    // console.log(&#x27;jwk:&#x27;, privateJwk, publicJwk)
+    return privateJwk;
+  }
+
+  /**
+   * Creates a JWT (JSON Web Token) using the provided store information and payload.
+   * 
+   * This function generates a private key from the store object, then creates and signs
+   * a JWT with the given payload and expiration time.
+   * 
+   * @param store - An object containing the store information, expected to be in JWK format.
+   * @param body - The payload to be included in the JWT.
+   * @param life - The expiration time for the token. Defaults to &#x27;24h&#x27;.
+   * @returns A Promise that resolves to the signed JWT string.
+   */
+  async createJWTToken(store: object, body: JwtPayload, life: string &#x3D; &#x27;24h&#x27;) {
+  
+    // generate private key from store
+    const rsaPrivateKey &#x3D; await jose.importJWK(store as jose.JWK, &#x27;RS256&#x27;);
+  
+    return await new jose.SignJWT(body)
+      .setProtectedHeader({ alg: &#x27;RS256&#x27;, typ: &#x27;JWT&#x27; })
+      .setIssuedAt()
+      .setIssuer(config.BACKEND_URL)
+      .setExpirationTime(life)
+      .sign(rsaPrivateKey);
+  }
+
+  /**
+   * Verifies a JWT token using the provided store information.
+   * 
+   * This function attempts to verify a JWT token using a private key generated from the store object.
+   * If the token is valid, it returns the verification result. If the token has expired, it returns
+   * the expiration error code. For any other errors, it throws an Unauthorized exception.
+   *
+   * @param store - An object containing the store information, expected to be in JWK format.
+   * @param token - The JWT token string to be verified.
+   * @returns A Promise that resolves to either the verification result from jose.jwtVerify,
+   *          or the string &#x27;ERR_JWT_EXPIRED&#x27; if the token has expired.
+   * @throws {HttpException} Throws an Unauthorized exception for any verification error other than expiration.
+   */
+  async verifyJWTToken(store: object, token: string) {
+    try {
+      // generate private key from store
+      const rsaPrivateKey &#x3D; await jose.importJWK(store as jose.JWK, &#x27;RS256&#x27;);
+      return await jose.jwtVerify(token, rsaPrivateKey);
+    } catch (error) {
+      // if token expire then set message that it&#x27;s expire and verify in guard by refresh
+      if (error.code &#x3D;&#x3D;&#x3D; &#x27;ERR_JWT_EXPIRED&#x27;) {
+        return error.code;
+      }
+      throw new HttpException(&#x27;Unauthorized&#x27;, HttpStatus.UNAUTHORIZED);
+    }
+  }
+
+  /**
+   * Retrieves a paginated list of users from the database.
+   * 
+   * This function queries the user schema to fetch users, excluding their password and store information.
+   * It supports pagination through &#x27;page&#x27; and &#x27;limit&#x27; parameters.
+   *
+   * @param page - The page number for pagination. Defaults to 0 (first page).
+   * @param limit - The maximum number of users to return per page. Defaults to 10.
+   * @returns A Promise that resolves to an array of user documents, with password and store fields excluded.
+   */
+  async findAll(page: number &#x3D; 0, limit: number &#x3D; 10) {
+    return await this.userSchema.find().limit(limit).skip(page * limit).select([&#x27;-password&#x27;, &#x27;-store&#x27;]);
+  }
+
+  /**
+   * Retrieves all users with roles of either Dealer or Person, returning only their ID and email.
+   * 
+   * This function queries the user schema to fetch a lean version of user documents
+   * that have a role of either Dealer or Person. It selects only the &#x27;_id&#x27; and &#x27;email&#x27; fields
+   * for each matching user.
+   *
+   * @returns {Promise&lt;Array&lt;{_id: Types.ObjectId, email: string}&gt;&gt;} A promise that resolves to an array of objects,
+   *          each containing the &#x27;_id&#x27; and &#x27;email&#x27; of a matching user.
+   */
+  async findAllByIDandEmail(): Promise&lt;Array&lt;{ _id: Types.ObjectId; email: string; }&gt;&gt; {
+    return await this.userSchema.find({ role: { $in: [UserRole.Dealer, UserRole.Person] } }, {}, { lean: true }).select([&#x27;_id&#x27;, &#x27;email&#x27;]).exec();
+  }
+
+  /**
+   * Retrieves a single user from the database by their ID.
+   * 
+   * This function queries the user schema to find a user with the specified ID.
+   * It excludes the password and store fields from the returned user document.
+   *
+   * @param id - The ObjectId of the user to retrieve.
+   * @returns A Promise that resolves to the user document, if found, with password and store fields excluded.
+   *          If no user is found with the given ID, the Promise resolves to null.
+   */
+  async findOne(id: Types.ObjectId) {
+    return await this.userSchema.findById(id).select([&#x27;-password&#x27;, &#x27;-store&#x27;]).exec();
+  }
+
+  /**
+   * Retrieves a user from the database by their ID, including their store information but excluding the password.
+   *
+   * @param id - The ObjectId of the user to retrieve.
+   * @returns A Promise that resolves to the user document, if found, with the password field excluded.
+   *          The returned document includes the user&#x27;s store information.
+   *          If no user is found with the given ID, the Promise resolves to null.
+   */
+  async findOneWithStore(id: Types.ObjectId) {
+    return await this.userSchema.findById(id).select([&#x27;-password&#x27;]).exec();
+  }
+
+  /**
+   * Retrieves a user from the database by their ID, including the &#x27;keys&#x27; field.
+   * This function is specifically used for user verification purposes.
+   *
+   * @param id - The ObjectId of the user to retrieve.
+   * @returns A Promise that resolves to the user document, if found, including the &#x27;keys&#x27; field.
+   *          If no user is found with the given ID, the Promise resolves to null.
+   */
+  async findOneForVerify(id: Types.ObjectId) {
+    return await this.userSchema.findById(id).select([&#x27;+keys&#x27;]).exec();
+  }
+
+  /**
+   * Retrieves a user from the database based on their email address.
+   *
+   * This function searches the user schema for a single user with the specified email address.
+   *
+   * @param email - The email address of the user to find.
+   * @returns A Promise that resolves to the user document if found, or null if no user matches the email.
+   */
+  async findOneByEMail(email: string) {
+    return await this.userSchema.findOne({ email }).exec();
+  }
+
+  /**
+   * Retrieves a user from the database based on their phone number.
+   *
+   * This function searches the user schema for a single user with the specified phone number.
+   *
+   * @param phone - The phone number of the user to find.
+   * @returns A Promise that resolves to the user document if found, or null if no user matches the phone number.
+   */
+  async findOneByPhone(phone: number) {
+    return await this.userSchema.findOne({ phone }).exec();
+  }
+
+  /**
+   * Retrieves all users with &#x27;Admin&#x27; role from the database.
+   * 
+   * This function queries the user schema to find all users who have the role of &#x27;Admin&#x27;.
+   * It selects only the username, email, and store fields for each matching user.
+   * 
+   * @returns {Promise&lt;Array&lt;Partial&lt;User&gt;&gt;&gt;} A promise that resolves to an array of partial user objects.
+   *          Each object in the array contains the username, email, and store information of an admin user.
+   */
+  async findAllByAdminStatus(): Promise&lt;Array&lt;Partial&lt;User&gt;&gt;&gt; {
+    return await this.userSchema.find({ role: UserRole.Admin }).select({ username: 1, email: 1, store: 1 }).exec();
+  }
+
+  /**
+   * Retrieves a paginated list of stores associated with an admin user.
+   *
+   * This function finds an admin user by their ID and returns a paginated list of stores
+   * they are associated with. It uses MongoDB&#x27;s pagination features to limit the number
+   * of results and skip records based on the page number.
+   *
+   * @param id - The ObjectId of the admin user whose stores are to be retrieved.
+   * @param page - The page number for pagination. Defaults to 0 (first page).
+   * @param limit - The maximum number of stores to return per page. Defaults to 10.
+   * @returns A Promise that resolves to a paginated list of store documents associated with the admin user.
+   *          Each document contains only the store field of the user document.
+   */
+  async findAllStoreForAdmin(id: Types.ObjectId, page: number &#x3D; 0, limit: number &#x3D; 10) {
+    return await this.userSchema.findById(id).select({ store: 1 }).limit(limit).skip(page * limit).exec();
+  }
+
+  /**
+   * Retrieves all users with &#x27;SuperAdmin&#x27; role from the database.
+   * 
+   * This function queries the user schema to find all users who have the role of &#x27;SuperAdmin&#x27;.
+   * It&#x27;s useful for operations that need to list or process all super administrators in the system.
+   * 
+   * @returns {Promise&lt;User[]&gt;} A promise that resolves to an array of User documents.
+   *          Each document represents a user with the &#x27;SuperAdmin&#x27; role.
+   */
+  async findAllBySuperAdminStatus(): Promise&lt;User[]&gt; {
+    return await this.userSchema.find({ role: UserRole.SuperAdmin }).exec();
+  }
+
+  /**
+   * Retrieves the favourite vehicles for a user based on their email.
+   * 
+   * This function performs an aggregation on the user schema to fetch the user&#x27;s favourite vehicles.
+   * It joins the user&#x27;s favourite vehicle IDs with the cars collection, sorts the images by position,
+   * and projects specific fields. The result is then transformed to include only essential vehicle information
+   * along with the URL of the image with the lowest position number.
+   *
+   * @param email - The email address of the user whose favourite vehicles are to be retrieved.
+   * @returns A Promise that resolves to an array of favourite vehicle objects. Each object contains:
+   *          - _id: The unique identifier of the vehicle
+   *          - name: The name of the vehicle
+   *          - vin_number: The VIN (Vehicle Identification Number) of the vehicle
+   *          - asking_price: The asking price of the vehicle
+   *          - image: The URL of the vehicle&#x27;s image with the lowest position number
+   */
+  async findUserFavouriteVehicles(email: string) {
+    const data &#x3D; await this.userSchema.aggregate([
+      { $match: { email } },
+      {
+        $lookup: {
+          from: &quot;cars&quot;,
+          localField: &quot;favourite&quot;,
+          foreignField: &quot;_id&quot;,
+          as: &quot;favourite&quot;,
+          pipeline: [
+            { $sort: { &#x27;images.position&#x27;: 1 } },
+            { $project: { &#x27;images.url&#x27;: 1, name: 1, vin_number: 1, _id: 1, asking_price: 1, &#x27;images.position&#x27;: 1 } },
+          ],
+        },
+      },
+      {
+        $project: {
+          favourite: 1,
+          _id: 0
+        }
+      }
+    ])
+      .exec();
+    return data[0].favourite.map((item: any) &#x3D;&gt; {
+      const min &#x3D; Math.min(...item.images.map((image: any) &#x3D;&gt; image.position));
+      return {
+        _id: item._id,
+        name: item.name,
+        vin_number: item.vin_number,
+        asking_price: item.asking_price,
+        image: item.images.find((pos: any) &#x3D;&gt; pos.position &#x3D;&#x3D;&#x3D; min).url
+      }
+    });
+  }
+
+  /**
+   * Retrieves a user from the database by their ID.
+   *
+   * @param id - The ObjectId of the user to retrieve.
+   * @returns A Promise that resolves to the user document if found, or null if no user matches the ID.
+   */
+  async findByID(id: Types.ObjectId) {
+    return await this.userSchema.findById(id);
+  }
+
+  /**
+   * Retrieves a user from the database by their ID, returning only the _id field.
+   * 
+   * This function is useful when you need to confirm a user&#x27;s existence or retrieve
+   * just their ID for further operations, without fetching unnecessary data.
+   *
+   * @param id - The ObjectId of the user to retrieve.
+   * @returns A Promise that resolves to a partial user document containing only the _id field.
+   *          If no user is found with the given ID, the Promise resolves to null.
+   */
+  async findByIDWithID(id: Types.ObjectId) {
+    return await this.userSchema.findById(id).select({ _id: 1 });
+  }
+
+  /**
+   * Retrieves a user by their ID and populates their associated stores with selected fields.
+   * 
+   * This function finds a user by their unique identifier and populates the &#x27;store&#x27; field
+   * with specific store information (id, name, logo, alias, and status).
+   *
+   * @param id - The MongoDB ObjectId of the user to retrieve.
+   * @returns A Promise that resolves to the user document with populated store information.
+   *          If no user is found, the Promise resolves to null.
+   */
+  async findByIDWithStores(id: Types.ObjectId) {
+    return await this.userSchema.findById(id).populate(&#x27;store&#x27;, { _id: 1, name: 1, logo: 1, alias: 1, status: 1 });
+  }
+
+  /**
+ * The &#x60;findUsersByStoreID&#x60; function retrieves all users associated with a specific store.
+ * It uses the Mongoose &#x60;find&#x60; method to query the &#x60;userSchema&#x60; collection, filtering the results
+ * based on the store ID provided as a parameter.
+ *
+ * @param id - The unique identifier of the store for which the users need to be retrieved.
+ * @returns A Mongoose Query object that can be executed to fetch the users associated with the specified store.
+ */
+  findUsersByStoreID(id: Types.ObjectId) {
+    return this.userSchema.find({ store: { $in: [id] }, role: UserRole.Admin });
+  }
+
+  /**
+   * Updates the store association for a user.
+   * This function either adds or removes a store from a user&#x27;s list of associated stores.
+   *
+   * @param id - The ObjectId of the user whose store associations are being updated.
+   * @param storeID - The ObjectId of the store to be added or removed.
+   * @param mode - The operation mode. &#x27;push&#x27; to add a store, any other value to remove. Defaults to &#x27;push&#x27;.
+   * @returns A Promise that resolves when the update operation is complete.
+   */
+  async updateStore(id: Types.ObjectId, storeID: Types.ObjectId, mode: string &#x3D; &#x27;push&#x27;) {
+    if (mode &#x3D;&#x3D;&#x3D; &#x27;push&#x27;) {
+      // add store
+      await this.userSchema.findOneAndUpdate({ _id: id }, { $push: { store: { _id: storeID } } });
+    } else {
+      // remove store
+      await this.userSchema.findOneAndUpdate({ _id: id }, { $pull: { store: { _id: storeID } } });
+    }
+  }
+
+  /**
+   * Updates a user&#x27;s information in the database.
+   * 
+   * This function finds a user by their ID and updates their information
+   * based on the provided update data.
+   *
+   * @param id - The ObjectId of the user to be updated.
+   * @param updateUserDto - An object containing the fields to be updated and their new values.
+   * @returns A Promise that resolves to the updated user document.
+   */
+  async update(id: Types.ObjectId, updateUserDto: UpdateUserDto) {
+    return this.userSchema.findByIdAndUpdate(id, { $set: updateUserDto });
+  }
+
+  /**
+   * Resets the password for a user identified by their email address.
+   *
+   * This function finds a user by their email and updates their password in the database.
+   * It&#x27;s typically used in password reset flows where a user has requested to change their password.
+   *
+   * @param email - The email address of the user whose password is to be reset.
+   * @param password - The new password to set for the user. This should be the hashed version of the password.
+   * @returns A Promise that resolves to the updated user document, or null if no user is found with the given email.
+   */
+  async resetPassword(email: string, password: string) {
+    return this.userSchema.findOneAndUpdate({ email }, { $set: { password } });
+  }
+
+  /**
+   * Updates the store assignments for an admin user and handles related operations.
+   * 
+   * This function processes store assignments for an admin user, including adding or removing stores,
+   * updating store statuses, sending notifications, and creating timeline entries. It handles both
+   * assigning new stores and removing existing store assignments.
+   *
+   * @param sender - The ObjectId of the user initiating the update (typically a SuperAdmin).
+   * @param setUserAdminPermissionDto - A data transfer object containing information about the stores
+   *                                    to be assigned or removed, and other related details.
+   * @returns {Promise&lt;void&gt;} A promise that resolves when all operations are completed.
+   */
+  async updateUserAdminStore(sender: Types.ObjectId, setUserAdminPermissionDto: SetUserAdminPermissionDto): Promise&lt;void&gt; {
+    setUserAdminPermissionDto.store.forEach(async (store: UserAdminStoreDTO) &#x3D;&gt; {
+      if (store.mode &#x3D;&#x3D;&#x3D; StoreMode.add) {
+        // add store in user
+        await this.userSchema.findByIdAndUpdate(setUserAdminPermissionDto.id, { $addToSet: { &#x27;store&#x27;: store._id } });
+
+        // change status from not_assign to assign
+        await this.storeService.updateStoreStatus(new mongoose.Types.ObjectId(store._id), StoreStatus.assign);
+
+        // send notification &amp; store - fetch both user information
+        const userReceiver &#x3D; await this.findByID(setUserAdminPermissionDto.id as unknown as Types.ObjectId);
+        const userSender &#x3D; await this.findByID(sender);
+
+        // send mail
+        const mailAdmin &#x3D; {
+          to: userReceiver.email,
+          from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account 
+          templateId: &#x27;d-6077cb411d1945e1bb519efb512ab03b&#x27;,
+        };
+        await this.mailService.send(mailAdmin);
+
+        // add timeline in store
+        const storeDetail &#x3D; await this.storeService.findOne(store._id as unknown as Types.ObjectId);
+        await this.storeService.addStoreTimeline(new mongoose.Types.ObjectId(store._id), {
+          description: &#x60;Super Admin assigned a ${storeDetail.name} store to verify.&#x60;,
+          user: sender as any,
+          role: TimelineRole.manager,
+          note: setUserAdminPermissionDto.note
+        });
+
+        // send notification
+        const pushTokens &#x3D; (await this.authenticationService.findOneByEmail(userReceiver.email)).map((auth: Authentication) &#x3D;&gt; { return auth.notification_token }).filter(token &#x3D;&gt; token);
+        if (pushTokens &amp;&amp; pushTokens.length &gt; 0) {
+          await this.firebaseNotificationService.sendingNotificationMultipler(pushTokens, &#x27;Assign Store&#x27;, &#x60;${userSender.username} assigned a ${storeDetail.name} store to verify.&#x60;, { type: Notification_Type.store });
+          await this.notificationService.create({
+            title: &#x27;Assign Store&#x27;,
+            description: &#x60;${userSender.username} assigned a ${storeDetail.name} store to verify.&#x60;,
+            from: userSender._id,
+            to: userReceiver._id,
+            type: Notification_Type.store
+          });
+        }
+
+      } else {
+        // remove store from user
+        await this.userSchema.findByIdAndUpdate(setUserAdminPermissionDto.id, { $pull: { &#x27;store&#x27;: store._id } });
+
+        // change status from assign to not_assign
+        // await this.storeService.updateStoreStatus(new mongoose.Types.ObjectId(store._id), StoreStatus.not_assign);
+
+        // send notification &amp; store - fetch both user information
+        const userReceiver &#x3D; await this.findByID(setUserAdminPermissionDto.id as unknown as Types.ObjectId);
+        const userSender &#x3D; await this.findByID(sender);
+
+        // send mail
+        const mailAdmin &#x3D; {
+          to: userReceiver.email,
+          from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+          templateId: &#x27;d-6077cb411d1945e1bb519efb512ab03b&#x27;,
+        };
+        await this.mailService.send(mailAdmin);
+
+        // add timeline in store
+        const storeDetail &#x3D; await this.storeService.findOne(store._id as unknown as Types.ObjectId);
+        await this.storeService.addStoreTimeline(new mongoose.Types.ObjectId(store._id), {
+          description: &#x60;Super Admin removed assigned a ${storeDetail.name} store.&#x60;,
+          user: sender as any,
+          role: TimelineRole.manager,
+          note: setUserAdminPermissionDto.note
+        });
+
+        // send notification
+        const pushTokens &#x3D; (await this.authenticationService.findOneByEmail(userReceiver.email)).map((auth: Authentication) &#x3D;&gt; { return auth.notification_token }).filter(token &#x3D;&gt; token);
+        if (pushTokens &amp;&amp; pushTokens.length &gt; 0) {
+          await this.firebaseNotificationService.sendingNotificationMultipler(pushTokens, &#x27;Assign Store&#x27;, &#x60;${userSender.username} remove assigned a ${storeDetail.name} store.&#x60;, { type: Notification_Type.store });
+          await this.notificationService.create({
+            title: &#x27;Assign Store&#x27;,
+            description: &#x60;${userSender.username} remove assigned a ${storeDetail.name} store.&#x60;,
+            from: userSender._id,
+            to: userReceiver._id,
+            type: Notification_Type.store
+          });
+        }
+      }
+    })
+  }
+
+
+  /**
+ * Updates a user&#x27;s store operation permissions.
+ *
+ * @param sender - The unique identifier of the user who is performing the operation.
+ * @param setStorePermissionDto - An object containing the store ID, users, and mode of operation.
+ *
+ * This function adds or removes a store from a user&#x27;s list based on the mode provided.
+ * It also sends notifications and updates the store&#x27;s status.
+ *
+ * @returns {Promise&lt;void&gt;} - A Promise that resolves when the operation is complete.
+ */
+  async updateUserStoreOperation(sender: Types.ObjectId, setStorePermissionDto: SetStorePermissionDto): Promise&lt;void&gt; {
+    // check how many users has to manage the store operations
+    const totalRecords &#x3D; setStorePermissionDto.users.length - 1;
+
+    // add and remove from user srore list by mode - add or remove
+    setStorePermissionDto.users.forEach(async (user: UserStoreDTO, index: number) &#x3D;&gt; {
+      if (user.mode &#x3D;&#x3D;&#x3D; StoreMode.add) {
+        // add store in user
+        await this.userSchema.findByIdAndUpdate(user.user, { $addToSet: { &#x27;store&#x27;: setStorePermissionDto.store } });
+
+        // send notification &amp; store - fetch both user information
+        const userReceiver &#x3D; await this.findByID(user.user as unknown as Types.ObjectId);
+        const userSender &#x3D; await this.findByID(sender);
+
+        // send mail
+        const mailAdmin &#x3D; {
+          to: userReceiver.email,
+          from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account 
+          templateId: &#x27;d-6077cb411d1945e1bb519efb512ab03b&#x27;,
+        };
+        await this.mailService.send(mailAdmin);
+
+        // add timeline in store
+        const storeDetail &#x3D; await this.storeService.findOne(setStorePermissionDto.store);
+        await this.storeService.addStoreTimeline(setStorePermissionDto.store, {
+          description: &#x60;Super Admin assigned a ${storeDetail.name} store to verify.&#x60;,
+          user: sender as any,
+          role: TimelineRole.manager,
+          note: setStorePermissionDto.note
+        });
+
+        // send notification
+        const pushTokens &#x3D; (await this.authenticationService.findOneByEmail(userReceiver.email)).map((auth: Authentication) &#x3D;&gt; { return auth.notification_token }).filter(token &#x3D;&gt; token);
+        if (pushTokens &amp;&amp; pushTokens.length &gt; 0) {
+          await this.firebaseNotificationService.sendingNotificationMultipler(pushTokens, &#x27;Assign Store&#x27;, &#x60;${userSender.username} assigned a ${storeDetail.name} store to verify.&#x60;, { type: Notification_Type.store });
+          await this.notificationService.create({
+            title: &#x27;Assign Store&#x27;,
+            description: &#x60;${userSender.username} assigned a ${storeDetail.name} store to verify.&#x60;,
+            from: userSender._id,
+            to: userReceiver._id,
+            type: Notification_Type.store
+          });
+        }
+        // console.log(&#x27;store users: &#x27;, pushTokens, userSender._id, userReceiver._id);
+      } else {
+        // remove store from user
+        await this.userSchema.findByIdAndUpdate(user.user, { $pull: { &#x27;store&#x27;: setStorePermissionDto.store } });
+
+        // send notification &amp; store - fetch both user information
+        const userReceiver &#x3D; await this.findByID(user.user);
+        const userSender &#x3D; await this.findByID(sender);
+
+        // send mail
+        const mailAdmin &#x3D; {
+          to: userReceiver.email,
+          from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+          templateId: &#x27;d-6077cb411d1945e1bb519efb512ab03b&#x27;,
+        };
+        // await this.mailService.send(mailAdmin);
+
+        // add timeline in store
+        const storeDetail &#x3D; await this.storeService.findOne(setStorePermissionDto.store);
+        await this.storeService.addStoreTimeline(setStorePermissionDto.store, {
+          description: &#x60;Super Admin removed assigned a ${storeDetail.name} store.&#x60;,
+          user: sender as any,
+          role: TimelineRole.manager,
+          note: setStorePermissionDto.note
+        });
+
+        // send notification
+        const pushTokens &#x3D; (await this.authenticationService.findOneByEmail(userReceiver.email)).map((auth: Authentication) &#x3D;&gt; { return auth.notification_token }).filter(token &#x3D;&gt; token);
+        if (pushTokens &amp;&amp; pushTokens.length &gt; 0) {
+          await this.firebaseNotificationService.sendingNotificationMultipler(pushTokens, &#x27;Assign Store&#x27;, &#x60;${userSender.username} remove assigned a ${storeDetail.name} store.&#x60;, { type: Notification_Type.store });
+          await this.notificationService.create({
+            title: &#x27;Assign Store&#x27;,
+            description: &#x60;${userSender.username} remove assigned a ${storeDetail.name} store.&#x60;,
+            from: userSender._id,
+            to: userReceiver._id,
+            type: Notification_Type.store
+          });
+        }
+      }
+
+      // check status at last, because for multiple user there will be same status
+      if (totalRecords &#x3D;&#x3D;&#x3D; index) {
+        const stores &#x3D; await this.findUsersByStoreID(setStorePermissionDto.store);
+        // console.log(&#x27;store finding: &#x27;, stores, setStorePermissionDto);
+        if (stores.length &gt; 0) {
+          const store &#x3D; await this.storeService.findOne(setStorePermissionDto.store);
+          if (store.status &#x3D;&#x3D;&#x3D; StoreStatus.not_assign) {
+            // change status from not_assign to assign
+            await this.storeService.updateStoreStatus(setStorePermissionDto.store, StoreStatus.assign);
+          } else {
+            // change status as previous
+            await this.storeService.updateStoreStatus(setStorePermissionDto.store, store.status as StoreStatus);
+          }
+        } else {
+          // change status from not_assign to assign
+          await this.storeService.updateStoreStatus(setStorePermissionDto.store, StoreStatus.not_assign);
+        }
+      }
+    });
+  }
+
+  /**
+ * Updates a user&#x27;s password by their ID.
+ *
+ * @param id - The unique identifier of the user whose password needs to be updated.
+ * @param changePasswordDto - An object containing the old and new passwords.
+ * @returns A Promise that resolves to the updated user document.
+ * @throws HttpException - If the old password provided does not match the user&#x27;s current password.
+ */
+  async changePassword(id: Types.ObjectId, changePasswordDto: ChangePasswordDto) {
+    // find user by id
+    const user &#x3D; await this.userSchema.findById(id).select([&#x27;+password&#x27;]);
+    // compare password by hash bcrypt
+    const isMatch &#x3D; await bcrypt.compare(changePasswordDto.old_password, user.password);
+    if (isMatch) {
+      const password &#x3D; await bcrypt.hash(changePasswordDto.new_password, 12);
+      return this.userSchema.findByIdAndUpdate(id, { $set: { password } });
+    }
+    throw new HttpException(&#x27;Old password is wrong&#x27;, HttpStatus.NOT_FOUND);
+  }
+
+  /**
+   * Updates the address and location of a user in the database.
+   * 
+   * This function takes a user&#x27;s ID and new address details, updates the user&#x27;s
+   * address in the database, and sets their location using geographical coordinates.
+   *
+   * @param id - The MongoDB ObjectId of the user whose address is being updated.
+   * @param createAddressDTO - An object containing the new address details for the user.
+   *                           This should include &#x27;lng&#x27; and &#x27;lat&#x27; properties for coordinates.
+   * @returns A Promise that resolves to an object with a &#x27;success&#x27; boolean property,
+   *          indicating whether the update operation was successful.
+   */
+  async updateUserAddress(id: Types.ObjectId, createAddressDTO: CreateAddressDTO) {
+    await this.userSchema.findByIdAndUpdate(id, { $set: { address: createAddressDTO, location: { type: &#x27;Point&#x27;, coordinates: [createAddressDTO.lng, createAddressDTO.lat] } } });
+    return { success: true };
+  }
+
+  /**
+   * Manages the favorite status of an advertisement for a user.
+   * This function adds or removes an advertisement from a user&#x27;s favorites list
+   * and updates the corresponding favorite status in the car service.
+   *
+   * @param id - The ObjectId of the user whose favorites list is being modified.
+   * @param manageUserFavouriteDto - An object containing the advertisement ID and the operation mode (&#x27;add&#x27; or &#x27;remove&#x27;).
+   * @returns A Promise that resolves when the favorite status has been updated in both the user schema and car service.
+   */
+  async manageFavoriteUserAdvertisement(id: Types.ObjectId, manageUserFavouriteDto: ManageUserFavouriteDto) {
+    if (manageUserFavouriteDto.mode &#x3D;&#x3D;&#x3D; &#x27;add&#x27;) {
+      // add in favorite
+      await this.userSchema.findByIdAndUpdate(id, { $addToSet: { favourite: manageUserFavouriteDto.id } });
+    } else {
+      // remove from favorite
+      await this.userSchema.findByIdAndUpdate(id, { $pull: { favourite: manageUserFavouriteDto.id } });
+    }
+    // manage favourite user in car
+    await this.carService.manageFavoriteAdvertisement(manageUserFavouriteDto.id, id, manageUserFavouriteDto.mode);
+  }
+
+  /**
+   * Removes a user from the database and updates the user count in Redis.
+   * 
+   * This function deletes a user from the database based on their ID. If the user is successfully
+   * deleted, it also decrements the user count stored in Redis (if it exists).
+   *
+   * @param id - The MongoDB ObjectId of the user to be removed.
+   * @returns A Promise that resolves to the deleted user document, or null if no user was found with the given ID.
+   */
+  async remove(id: Types.ObjectId) {
+    const result &#x3D; await this.userSchema.findByIdAndDelete(id);
+    // increment user count in redis
+    const getUserRedis &#x3D; await this.redisService.get(&#x27;all:user&#x27;);
+    if (getUserRedis) {
+      await this.redisService.decrease(&#x27;all:user&#x27;);
+    }
+    return result;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

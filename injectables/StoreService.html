@@ -1,0 +1,2507 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back-auto-tronic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">back-auto-tronic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >StoreService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/store/store.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#addStoreTimeline" >addStoreTimeline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForAdmin" >findAllForAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForDealer" >findAllForDealer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForSelect" >findAllForSelect</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForUser" >findAllForUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForUserByRegionAndStatus" >findAllForUserByRegionAndStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneByAlias" >findOneByAlias</a>
+                            </li>
+                            <li>
+                                <a href="#getStoreStatusByTitle" >getStoreStatusByTitle</a>
+                            </li>
+                            <li>
+                                <a href="#getStoreStatusWithCount" >getStoreStatusWithCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#manageStoreStatusForAdmin" >manageStoreStatusForAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#manageStoreStatusForUser" >manageStoreStatusForUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateAddAndRemoveAward" >updateAddAndRemoveAward</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateStoreStatus" >updateStoreStatus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, mailService: <a href="../injectables/MailService.html" target="_self">MailService</a>, awsS3Service: <a href="../injectables/AwsS3Service.html" target="_self">AwsS3Service</a>, notificationService: <a href="../injectables/NotificationService.html" target="_self">NotificationService</a>, storeSchema: <a href="../classes/Store.html" target="_self">Model&lt;Store&gt;</a>, authenticationService: <a href="../injectables/AuthenticationService.html" target="_self">AuthenticationService</a>, firebaseNotificationService: <a href="../injectables/FirebaseNotificationService.html" target="_self">FirebaseNotificationService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/modules/store/store.service.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mailService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MailService.html" target="_self" >MailService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>awsS3Service</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AwsS3Service.html" target="_self" >AwsS3Service</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notificationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotificationService.html" target="_self" >NotificationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>storeSchema</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Store.html" target="_self" >Model&lt;Store&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authenticationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthenticationService.html" target="_self" >AuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>firebaseNotificationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FirebaseNotificationService.html" target="_self" >FirebaseNotificationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addStoreTimeline"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>addStoreTimeline</b></span>
+                        <a href="#addStoreTimeline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addStoreTimeline(id: Types.ObjectId, data: <a href="../interfaces/Timeline.html" target="_self">Timeline</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="469"
+                                    class="link-to-prism">src/modules/store/store.service.ts:469</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The function <code>addStoreTimeline</code> asynchronously adds a timeline data to a store document in a
+MongoDB collection.
+unique identifier for a document in a MongoDB database.
+timeline data that you want to add to a store document in the database. This data typically
+includes information such as events, activities, or updates related to the store.
+operation on the <code>storeSchema</code> collection. It is updating the document with the specified <code>_id</code> by
+pushing the <code>data</code> object into the <code>timeline</code> array field.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The <code>id</code> parameter is of type <code>Types.ObjectId</code>, which is typically used to represent a
+unique identifier for a document in a MongoDB database.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Timeline.html" target="_self" >Timeline</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The <code>data</code> parameter in the <code>addStoreTimeline</code> function represents the
+timeline data that you want to add to a store document in the database. This data typically
+includes information such as events, activities, or updates related to the store.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The <code>addStoreTimeline</code> function is returning the result of the <code>findOneAndUpdate</code>
+operation on the <code>storeSchema</code> collection. It is updating the document with the specified <code>_id</code> by
+pushing the <code>data</code> object into the <code>timeline</code> array field.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(createStoreDto: <a href="../classes/CreateStoreDto.html" target="_self">CreateStoreDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/modules/store/store.service.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The function creates a new store, adds it to the system, sends emails to users and super admins,
+and handles errors related to duplicate keys.
+contains the data needed to create a new store in the system. It likely includes information such
+as the store name, email, phone number, license number, address, and user details associated with
+the store. This data is used to create</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createStoreDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateStoreDto.html" target="_self" >CreateStoreDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The <code>createStoreDto</code> parameter in the <code>create</code> function
+contains the data needed to create a new store in the system. It likely includes information such
+as the store name, email, phone number, license number, address, and user details associated with
+the store. This data is used to create</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForAdmin"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForAdmin</b></span>
+                        <a href="#findAllForAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForAdmin(status: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="335"
+                                    class="link-to-prism">src/modules/store/store.service.ts:335</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The <code>findAllForAdmin</code> method retrieves all store records for an admin user, based on the provided
+status and pagination parameters. It handles different scenarios for super admins and regular
+admins.</p>
+<p>this function provides a flexible way for administrators to retrieve stores based on their role,
+desired status, and pagination parameters. It ensures that super admins have access to all stores,
+while admins can only access stores associated with their assigned region or other criteria.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The status of the stores to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The user object representing the admin user.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>0</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>10</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The number of records to retrieve per page.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An object containing the retrieved store records and the total count of store records.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForDealer"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForDealer</b></span>
+                        <a href="#findAllForDealer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForDealer(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="374"
+                                    class="link-to-prism">src/modules/store/store.service.ts:374</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>This function retrieves all stores associated with a specific dealer.
+It filters the store documents based on the dealer&#39;s ID and the roles in the timeline.
+It then populates the &#39;user&#39;, &#39;timeline.user&#39;, and &#39;remote_services&#39; fields of the store documents.
+Finally, it filters the timeline to only include entries with roles &#39;dealer&#39; or &#39;agent&#39;.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The ID of the dealer for which to retrieve the stores.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an array of Store documents, each with filtered timeline entries.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForSelect"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForSelect</b></span>
+                        <a href="#findAllForSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForSelect(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="315"
+                                    class="link-to-prism">src/modules/store/store.service.ts:315</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a paginated list of stores with selected fields for dropdown or selection purposes.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     The stores are sorted by creation date in descending order.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>0</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The page number for pagination. Defaults to 0.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>10</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>The maximum number of stores to return per page. Defaults to 10.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an array of store documents, each containing only the name, _id, and alias fields.
+The stores are sorted by creation date in descending order.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForUser"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForUser</b></span>
+                        <a href="#findAllForUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForUser(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="290"
+                                    class="link-to-prism">src/modules/store/store.service.ts:290</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all stores associated with the current user.</p>
+<p>This function finds all store documents in the database where the user field
+matches the current user&#39;s ID. It also populates the &#39;remote_services&#39; field
+with the &#39;alias&#39; and &#39;name&#39; properties of the associated remote services.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">     with populated &#39;remote_services&#39; field containing &#39;alias&#39; and &#39;name&#39; properties.</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The current user object, decorated with</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an array of Store documents associated with the user,
+with populated &#39;remote_services&#39; field containing &#39;alias&#39; and &#39;name&#39; properties.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForUserByRegionAndStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllForUserByRegionAndStatus</b></span>
+                        <a href="#findAllForUserByRegionAndStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForUserByRegionAndStatus(searchRegionStatusDto: <a href="../classes/SearchRegionStatusDto.html" target="_self">SearchRegionStatusDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="303"
+                                    class="link-to-prism">src/modules/store/store.service.ts:303</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>This function finds all records for a user based on a specified region and status.
+object (DTO) that contains information about the region and status to be used for searching in the
+database. It likely has the following structure:
+<code>storeSchema</code> collection that match the provided <code>status</code> and <code>region</code> criteria specified in the
+<code>searchRegionStatusDto</code> object.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>searchRegionStatusDto</td>
+                                            <td>
+                                                            <code><a href="../classes/SearchRegionStatusDto.html" target="_self" >SearchRegionStatusDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>SearchRegionStatusDto is a data transfer
+object (DTO) that contains information about the region and status to be used for searching in the
+database. It likely has the following structure:</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>This function is returning a promise that will resolve to an array of documents from the
+<code>storeSchema</code> collection that match the provided <code>status</code> and <code>region</code> criteria specified in the
+<code>searchRegionStatusDto</code> object.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="391"
+                                    class="link-to-prism">src/modules/store/store.service.ts:391</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single store document from the database by its ID.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the store to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the Store document if found, or null if not found.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneByAlias"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneByAlias</b></span>
+                        <a href="#findOneByAlias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneByAlias(alias: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="402"
+                                    class="link-to-prism">src/modules/store/store.service.ts:402</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a single store document from the database by its alias.
+This function also populates the &#39;remote_services&#39; and &#39;award&#39; fields of the store document.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>alias</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique alias of the store to retrieve.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the populated Store document if found, or null if not found.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStoreStatusByTitle"></a>
+                    <span class="name">
+                        <span ><b>getStoreStatusByTitle</b></span>
+                        <a href="#getStoreStatusByTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStoreStatusByTitle(status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="264"
+                                    class="link-to-prism">src/modules/store/store.service.ts:264</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>This function converts a store status string to a human-readable format.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The store status string to be converted.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>&quot;action required&quot; | &quot;rejected&quot; | &quot;In Process&quot; | &quot;verified&quot; | &quot;in process&quot;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A human-readable string representation of the store status.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStoreStatusWithCount"></a>
+                    <span class="name">
+                        <span ><b>getStoreStatusWithCount</b></span>
+                        <a href="#getStoreStatusWithCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStoreStatusWithCount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="414"
+                                    class="link-to-prism">src/modules/store/store.service.ts:414</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The function <code>getStoreStatusWithCount</code> uses the aggregate method to group store documents by
+status and count the occurrences of each status.
+storeSchema collection grouped by the &#39;status&#39; field. It returns an array of objects where each
+object represents a unique &#39;status&#39; value along with the count of occurrences of that status in
+the collection.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The <code>getStoreStatusWithCount()</code> function is returning the aggregated result of the
+storeSchema collection grouped by the &#39;status&#39; field. It returns an array of objects where each
+object represents a unique &#39;status&#39; value along with the count of occurrences of that status in
+the collection.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="manageStoreStatusForAdmin"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>manageStoreStatusForAdmin</b></span>
+                        <a href="#manageStoreStatusForAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>manageStoreStatusForAdmin(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, manageUserStatusDto: <a href="../classes/ManageUserStatusDto.html" target="_self">ManageUserStatusDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="208"
+                                    class="link-to-prism">src/modules/store/store.service.ts:208</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>This function manages the store status for an admin user. It checks the validity of the status,
+adds a timeline entry, sends a notification, and updates the store status in the database.</p>
+<p>and any additional notes.</p>
+<p>operation was successful.</p>
+<p>match the previous status of the store.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The admin user object.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>manageUserStatusDto</td>
+                                            <td>
+                                                            <code><a href="../classes/ManageUserStatusDto.html" target="_self" >ManageUserStatusDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data transfer object (DTO) containing the store ID, new status,
+and any additional notes.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an object with a &#39;success&#39; property indicating whether the
+operation was successful.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="manageStoreStatusForUser"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>manageStoreStatusForUser</b></span>
+                        <a href="#manageStoreStatusForUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>manageStoreStatusForUser(user: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, manageUserStatusDto: <a href="../classes/ManageUserStatusDto.html" target="_self">ManageUserStatusDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="146"
+                                    class="link-to-prism">src/modules/store/store.service.ts:146</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>This function manages the store status for a user with admin or super admin role.
+It checks the user&#39;s role, updates the store status, adds a timeline entry, sends an email,
+and sends a notification.</p>
+<p>and any additional notes.</p>
+<p>operation was successful.</p>
+<p>super admin.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The user object representing the admin or super admin user.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>manageUserStatusDto</td>
+                                            <td>
+                                                            <code><a href="../classes/ManageUserStatusDto.html" target="_self" >ManageUserStatusDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data transfer object (DTO) containing the store ID, new status,
+and any additional notes.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to an object with a &#39;success&#39; property indicating whether the
+operation was successful.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(id: Types.ObjectId)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="499"
+                                    class="link-to-prism">src/modules/store/store.service.ts:499</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes a store from the database.</p>
+<p>This function deletes a store document from the database based on its unique identifier.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier (ObjectId) of the store to be removed.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the deleted store document, or null if no document was found and deleted.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: Types.ObjectId, updateStoreDto: <a href="../classes/UpdateStoreDto.html" target="_self">UpdateStoreDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="433"
+                                    class="link-to-prism">src/modules/store/store.service.ts:433</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates a store&#39;s information in the database.
+If a new logo is provided, it will delete the old logo from AWS S3 storage.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the store to be updated.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateStoreDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateStoreDto.html" target="_self" >UpdateStoreDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing the updated store information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the updated store document.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateAddAndRemoveAward"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateAddAndRemoveAward</b></span>
+                        <a href="#updateAddAndRemoveAward"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateAddAndRemoveAward(manageUserAwardDto: <a href="../classes/ManageUserAwardDto.html" target="_self">ManageUserAwardDto</a>, mode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="483"
+                                    class="link-to-prism">src/modules/store/store.service.ts:483</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the awards for a store by either adding or removing an award.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>manageUserAwardDto</td>
+                                            <td>
+                                                            <code><a href="../classes/ManageUserAwardDto.html" target="_self" >ManageUserAwardDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Data transfer object containing store and award information.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>mode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;push&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Determines whether to add (&#39;push&#39;) or remove the award. Defaults to &#39;push&#39;.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves when the operation is complete.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateStoreStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateStoreStatus</b></span>
+                        <a href="#updateStoreStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateStoreStatus(id: Types.ObjectId, status: <a href="../undefineds/StoreStatus.html" target="_self">StoreStatus</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="453"
+                                    class="link-to-prism">src/modules/store/store.service.ts:453</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the status of a store in the database.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>Types.ObjectId</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The unique identifier of the store to be updated.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#StoreStatus" target="_self" >StoreStatus</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The new status to be assigned to the store.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A Promise that resolves to the updated store document, or null if no document was found and updated.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpException, HttpStatus, Inject, Injectable, forwardRef } from &#x27;@nestjs/common&#x27;;
+import { CreateStoreDto } from &#x27;./dto/create-store.dto&#x27;;
+import { UpdateStoreDto } from &#x27;./dto/update-store.dto&#x27;;
+import { ManageUserAwardDto } from &#x27;../award/dto/manage-user-award.dto&#x27;;
+import { ManageUserStatusDto } from &#x27;./dto/manage-user-status.dto&#x27;;
+
+// mongoose
+import mongoose, { Model, Types } from &#x27;mongoose&#x27;;
+import { InjectModel } from &#x27;@nestjs/mongoose&#x27;;
+import { Store, StoreStatus, Timeline, TimelineRole } from &#x27;./schema/store.schema&#x27;;
+
+// media storage serice
+import { AwsS3Service } from &#x27;../../utilities/services/aws_s3/aws_s3.service&#x27;;
+
+// find user as per store
+import { UserService } from &#x27;../user/user.service&#x27;;
+import { CurrentUser, ICurrentUser } from &#x27;../user/decorator/current-user.decorator&#x27;;
+
+// mail service
+import { MailService } from &#x27;../../utilities/services/mail/mail.service&#x27;;
+import { User, UserRole } from &#x27;../user/schema/user.schema&#x27;;
+import { SearchRegionStatusDto } from &#x27;./dto/search-region-status.dto&#x27;;
+
+// notification service
+import { FirebaseNotificationService } from &#x27;../../utilities/services/firebase/notification/firebase-notification.service&#x27;;
+import { AuthenticationService } from &#x27;../authentication/authentication.service&#x27;;
+import { Authentication } from &#x27;../authentication/schema/authentication.schema&#x27;;
+
+// add notification in db
+import { NotificationService } from &#x27;../notification/notification.service&#x27;;
+import { Notification_Type } from &#x27;../notification/schema/notification.schema&#x27;;
+
+@Injectable()
+export class StoreService {
+
+  constructor(
+    @Inject(forwardRef(() &#x3D;&gt; UserService))
+    private readonly userService: UserService,
+    private readonly mailService: MailService,
+    private readonly awsS3Service: AwsS3Service,
+    private readonly notificationService: NotificationService,
+    @InjectModel(Store.name) private readonly storeSchema: Model&lt;Store&gt;,
+    @Inject(forwardRef(() &#x3D;&gt; AuthenticationService))
+    private readonly authenticationService: AuthenticationService,
+    private readonly firebaseNotificationService: FirebaseNotificationService,
+  ) { }
+
+  /**
+   * The function creates a new store, adds it to the system, sends emails to users and super admins,
+   * and handles errors related to duplicate keys.
+   * @param {CreateStoreDto} createStoreDto - The &#x60;createStoreDto&#x60; parameter in the &#x60;create&#x60; function
+   * contains the data needed to create a new store in the system. It likely includes information such
+   * as the store name, email, phone number, license number, address, and user details associated with
+   * the store. This data is used to create
+   */
+  async create(createStoreDto: CreateStoreDto) {
+    try {
+      // add store in system
+      const newStore &#x3D; new this.storeSchema(createStoreDto);
+      // add first timeline for store
+      newStore.timeline.push({
+        description: &#x60;${createStoreDto.name} requested to add store.&#x60;,
+        role: TimelineRole.dealer,
+        user: new mongoose.Types.ObjectId(createStoreDto.user as Types.ObjectId) as any
+      });
+      // save record in db
+      await newStore.save();
+      // add store in user account
+      await this.userService.updateStore(createStoreDto.user as Types.ObjectId, newStore._id);
+
+      // find user data for mail
+      const user &#x3D; await this.userService.findByID(createStoreDto.user as Types.ObjectId);
+
+      // send mail to user
+      const mailClient &#x3D; {
+        to: user.email,
+        from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+        templateId: &#x27;d-e5c7aeca052945d79831773d020eff79&#x27;,
+        dynamicTemplateData: {
+          username: user.username,
+          name: createStoreDto.name,
+          email: createStoreDto.email,
+          phone: &#x60;+1${createStoreDto.phone}&#x60;,
+          license: createStoreDto.license_number,
+          address: &#x60;${createStoreDto.address.unit} ${createStoreDto.address.street}, ${createStoreDto.address.city} ${createStoreDto.address.state} ${createStoreDto.address.postal_code}&#x60;
+        },
+      };
+      await this.mailService.send(mailClient);
+
+      // send mail to super admins
+      const users &#x3D; await this.userService.findAllBySuperAdminStatus();
+      // send mail to each super admin
+      for (const element of users) {
+        // users.forEach(async (element: User) &#x3D;&gt; {
+        // send mail to super admin
+        const mailAdmin &#x3D; {
+          to: element.email,
+          from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account
+          templateId: &#x27;d-13d61beeca2c4c4db85bb4dbde8693ca&#x27;,
+          dynamicTemplateData: {
+            username: user.username,
+            name: createStoreDto.name,
+            email: createStoreDto.email,
+            phone: &#x60;+1${createStoreDto.phone}&#x60;,
+            license: createStoreDto.license_number,
+            address: &#x60;${createStoreDto.address.unit} ${createStoreDto.address.street}, ${createStoreDto.address.city} ${createStoreDto.address.state} ${createStoreDto.address.postal_code}&#x60;
+          },
+        };
+        await this.mailService.send(mailAdmin);
+
+        const pushTokens &#x3D; (await this.authenticationService.findOneByEmail(element.email)).map((auth: Authentication) &#x3D;&gt; { return auth.notification_token });
+        if (pushTokens &amp;&amp; pushTokens.length &gt; 0) {
+          await this.firebaseNotificationService.sendingNotificationMultipler(pushTokens, &#x27;New Store&#x27;, &#x60;${createStoreDto.name} requested to verify and add store.&#x60;, { type: Notification_Type.store });
+          await this.notificationService.create({
+            title: &#x27;New Store&#x27;,
+            description: &#x60;${createStoreDto.name} requested to verify and add store.&#x60;,
+            from: user._id,
+            to: element._id,
+            type: Notification_Type.store
+          });
+        }
+      }
+      // });
+    } catch (error) {
+      if (error.message.includes(&#x27;duplicate key error&#x27;)) {
+        throw new HttpException(&#x60;Alias should be unique. ${createStoreDto.alias} alias is already exist.&#x60;, HttpStatus.NOT_ACCEPTABLE);
+      }
+    }
+  }
+
+  /**
+ * This function manages the store status for a user with admin or super admin role.
+ * It checks the user&#x27;s role, updates the store status, adds a timeline entry, sends an email,
+ * and sends a notification.
+ * 
+ * @param user - The user object representing the admin or super admin user.
+ * @param manageUserStatusDto - The data transfer object (DTO) containing the store ID, new status,
+ * and any additional notes.
+ * 
+ * @returns A Promise that resolves to an object with a &#x27;success&#x27; property indicating whether the
+ * operation was successful.
+ * 
+ * @throws An HttpException with a status of 401 (Unauthorized) if the user&#x27;s role is not admin or
+ * super admin.
+ */
+  async manageStoreStatusForUser(@CurrentUser() user: ICurrentUser, manageUserStatusDto: ManageUserStatusDto) {
+
+    // check user role is admin or super admin, if not then thorow error
+    if (![UserRole.SuperAdmin, UserRole.Admin].includes(user.role)) {
+      throw new HttpException(&#x27;Unauthorized&#x27;, HttpStatus.UNAUTHORIZED);
+    }
+
+    // change status from not_assign to assign
+    await this.updateStoreStatus(manageUserStatusDto.store, manageUserStatusDto.status);
+
+    // find store
+    const store &#x3D; await this.storeSchema.findById(manageUserStatusDto.store).populate(&#x27;user&#x27;, { email: 1 });
+
+    // add timeline in store
+    await this.addStoreTimeline(manageUserStatusDto.store, {
+      description: &#x60;Agent update ${this.getStoreStatusByTitle(manageUserStatusDto.status)} status to your store.&#x60;,
+      user: user._id as any,
+      role: TimelineRole.agent,
+      note: manageUserStatusDto.note
+    });
+
+    // send mail ro dealer
+    const mailAdmin &#x3D; {
+      to: (store.user as User).email,
+      from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account 
+      templateId: &#x27;d-6077cb411d1945e1bb519efb512ab03b&#x27;,
+    };
+    await this.mailService.send(mailAdmin);
+
+    // send notification
+    const pushTokens &#x3D; (await this.authenticationService.findOneByEmail((store.user as User).email)).map((auth: Authentication) &#x3D;&gt; { return auth.notification_token }).filter(token &#x3D;&gt; token);
+    if (pushTokens &amp;&amp; pushTokens.length &gt; 0) {
+      await this.firebaseNotificationService.sendingNotificationMultipler(pushTokens,
+        &#x27;Store Status&#x27;,
+        &#x60;Agent update ${this.getStoreStatusByTitle(manageUserStatusDto.status)} status of your ${store.name} store.&#x60;,
+        { type: Notification_Type.store });
+      await this.notificationService.create({
+        title: &#x27;Store Status&#x27;,
+        description: &#x60;Agent update ${this.getStoreStatusByTitle(manageUserStatusDto.status)} status of your ${store.name} store.&#x60;,
+        from: user._id,
+        to: (store.user as User)._id,
+        type: Notification_Type.store
+      });
+    }
+
+    return { success: true };
+  }
+
+  /**
+ * This function manages the store status for an admin user. It checks the validity of the status,
+ * adds a timeline entry, sends a notification, and updates the store status in the database.
+ * 
+ * @param user - The admin user object.
+ * @param manageUserStatusDto - The data transfer object (DTO) containing the store ID, new status,
+ * and any additional notes.
+ * 
+ * @returns A Promise that resolves to an object with a &#x27;success&#x27; property indicating whether the
+ * operation was successful.
+ * 
+ * @throws An HttpException with a status of 401 (Unauthorized) if the status is invalid or does not
+ * match the previous status of the store.
+ */
+  async manageStoreStatusForAdmin(@CurrentUser() user: ICurrentUser, manageUserStatusDto: ManageUserStatusDto) {
+
+    // find store
+    const store &#x3D; await this.storeSchema.findById(manageUserStatusDto.store).populate(&#x27;user&#x27;, { email: 1 });
+
+    // check status is valid from delaer side &amp; check it&#x27;s match with previous status
+    if ([StoreStatus.assign, StoreStatus.not_assign, StoreStatus.verified].includes(manageUserStatusDto.status) || store.status !&#x3D;&#x3D; manageUserStatusDto.status) {
+      throw new HttpException(&#x27;Unauthorized: Invalid Satus!&#x27;, HttpStatus.UNAUTHORIZED);
+    }
+
+    // add timeline in store
+    await this.addStoreTimeline(manageUserStatusDto.store, {
+      description: &#x60;${user.username} give response to admin for ${store.name} store.&#x60;,
+      user: user._id as any,
+      role: TimelineRole.dealer,
+      note: manageUserStatusDto.note
+    });
+
+    // send mail ro dealer
+    const mailAdmin &#x3D; {
+      to: (store.user as User).email,
+      from: &#x27;akshay@mechatronic-group.com&#x27;, // Fill it with your validated email on SendGrid account 
+      templateId: &#x27;d-6077cb411d1945e1bb519efb512ab03b&#x27;,
+    };
+    await this.mailService.send(mailAdmin);
+
+    // find last responsed admin for dealer     
+    const userTimeline &#x3D; store.timeline[store.timeline.length - 1].user;
+    const userNotification &#x3D; await this.userService.findByIDWithStores(userTimeline as unknown as Types.ObjectId);
+
+    // send notification
+    const pushTokens &#x3D; (await this.authenticationService.findOneByEmail(userNotification.email)).map((auth: Authentication) &#x3D;&gt; { return auth.notification_token }).filter(token &#x3D;&gt; token);
+    if (pushTokens &amp;&amp; pushTokens.length &gt; 0) {
+      await this.firebaseNotificationService.sendingNotificationMultipler(pushTokens,
+        &#x27;Store Status&#x27;,
+        &#x60;${user.username} give response to admin for ${store.name} store.&#x60;,
+        { type: Notification_Type.store });
+      await this.notificationService.create({
+        title: &#x27;Store Status&#x27;,
+        description: &#x60;${user.username} give response to admin for ${store.name} store.&#x60;,
+        from: (store.user as User)._id,
+        to: userNotification._id,
+        type: Notification_Type.store
+      });
+    }
+
+    return { success: true };
+  }
+
+
+  /**
+ * This function converts a store status string to a human-readable format.
+ * @param status - The store status string to be converted.
+ * @returns A human-readable string representation of the store status.
+ * @throws No error.
+ */
+  getStoreStatusByTitle(status: string) {
+    switch (status) {
+      case &#x27;action_required&#x27;:
+        return &#x27;action required&#x27;;
+      case &#x27;rejected&#x27;:
+        return &#x27;rejected&#x27;;
+      case &#x27;in_process&#x27;:
+        return &#x27;In Process&#x27;;
+      case &#x27;verified&#x27;:
+        return &#x27;verified&#x27;;
+      default:
+        return &#x27;in process&#x27;;
+    }
+  }
+
+  /**
+   * Retrieves all stores associated with the current user.
+   * 
+   * This function finds all store documents in the database where the user field
+   * matches the current user&#x27;s ID. It also populates the &#x27;remote_services&#x27; field
+   * with the &#x27;alias&#x27; and &#x27;name&#x27; properties of the associated remote services.
+   *
+   * @param user - The current user object, decorated with @CurrentUser().
+   * @returns A Promise that resolves to an array of Store documents associated with the user,
+   *          with populated &#x27;remote_services&#x27; field containing &#x27;alias&#x27; and &#x27;name&#x27; properties.
+   */
+  async findAllForUser(@CurrentUser() user: ICurrentUser) {
+    return await this.storeSchema.find({ user: user._id }).populate(&#x27;remote_services&#x27;, { alias: 1, name: 1 });
+  }
+
+  /**
+   * This function finds all records for a user based on a specified region and status.
+   * @param {SearchRegionStatusDto} searchRegionStatusDto - SearchRegionStatusDto is a data transfer
+   * object (DTO) that contains information about the region and status to be used for searching in the
+   * database. It likely has the following structure:
+   * @returns This function is returning a promise that will resolve to an array of documents from the
+   * &#x60;storeSchema&#x60; collection that match the provided &#x60;status&#x60; and &#x60;region&#x60; criteria specified in the
+   * &#x60;searchRegionStatusDto&#x60; object.
+   */
+  async findAllForUserByRegionAndStatus(searchRegionStatusDto: SearchRegionStatusDto) {
+    return await this.storeSchema.find({ status: searchRegionStatusDto.status, &#x27;address.state&#x27;: searchRegionStatusDto.region }).select({ name: 1, alias: 1 }).lean();
+  }
+
+  /**
+   * Retrieves a paginated list of stores with selected fields for dropdown or selection purposes.
+   * 
+   * @param page - The page number for pagination. Defaults to 0.
+   * @param limit - The maximum number of stores to return per page. Defaults to 10.
+   * @returns A Promise that resolves to an array of store documents, each containing only the name, _id, and alias fields.
+   *          The stores are sorted by creation date in descending order.
+   */
+  async findAllForSelect(page: number &#x3D; 0, limit: number &#x3D; 10) {
+    return await this.storeSchema.find().sort({ createdAt: -1 }).select({ &#x27;name&#x27;: 1, &#x27;_id&#x27;: 1, &#x27;alias&#x27;: 1 }).limit(limit).skip(page * limit).exec();
+  }
+
+  /**
+   * The &#x60;findAllForAdmin&#x60; method retrieves all store records for an admin user, based on the provided
+   * status and pagination parameters. It handles different scenarios for super admins and regular
+   * admins.
+   * 
+   * this function provides a flexible way for administrators to retrieve stores based on their role,
+   * desired status, and pagination parameters. It ensures that super admins have access to all stores,
+   * while admins can only access stores associated with their assigned region or other criteria.
+   * 
+   * @param status - The status of the stores to retrieve.
+   * @param user - The user object representing the admin user.
+   * @param page - The page number for pagination.
+   * @param limit - The number of records to retrieve per page.
+   * @returns An object containing the retrieved store records and the total count of store records.
+   * @throws No error.
+   */
+  async findAllForAdmin(status: any, user: ICurrentUser, page: number &#x3D; 0, limit: number &#x3D; 10) {
+    const storeStatus &#x3D; Object.values(StoreStatus);
+    status &#x3D; status &amp;&amp; storeStatus.includes(status) ? { status } : {};
+    if (user.role &#x3D;&#x3D;&#x3D; UserRole.SuperAdmin) {
+      const count &#x3D; await this.storeSchema.countDocuments();
+      const store &#x3D; await this.storeSchema.find(status)
+        .populate(&#x27;user&#x27;, { username: 1, email: 1, phone: 1, _id: 0 })
+        .populate(&#x27;timeline.user&#x27;, { username: 1, _id: 0 })
+        .populate(&#x27;remote_services&#x27;, { name: 1, _id: 0 })
+        .limit(limit).skip(page * limit).exec();
+      return { store, count };
+    }
+    const stores &#x3D; await this.userService.findAllStoreForAdmin(user._id, page, limit);
+    const storeIDs &#x3D; stores.store;
+    const count &#x3D; await this.storeSchema.countDocuments({ _id: { $in: storeIDs } });
+
+    if (Object.keys(status).length &#x3D;&#x3D;&#x3D; 0) {
+      const store &#x3D; await this.storeSchema.find({ _id: { $in: storeIDs } })
+        .populate(&#x27;user&#x27;, { username: 1, email: 1, phone: 1, _id: 0 })
+        .populate(&#x27;timeline.user&#x27;, { username: 1, _id: 0 })
+        .populate(&#x27;remote_services&#x27;, { name: 1, _id: 0 }).exec();
+      return { store, count };
+    } else {
+      const store &#x3D; await this.storeSchema.find({ _id: { $in: storeIDs }, ...status })
+        .populate(&#x27;user&#x27;, { username: 1, email: 1, phone: 1, _id: 0 })
+        .populate(&#x27;timeline.user&#x27;, { username: 1, _id: 0 })
+        .populate(&#x27;remote_services&#x27;, { name: 1, _id: 0 }).exec();
+      return { store, count };
+    }
+  }
+
+  /**
+ * This function retrieves all stores associated with a specific dealer.
+ * It filters the store documents based on the dealer&#x27;s ID and the roles in the timeline.
+ * It then populates the &#x27;user&#x27;, &#x27;timeline.user&#x27;, and &#x27;remote_services&#x27; fields of the store documents.
+ * Finally, it filters the timeline to only include entries with roles &#x27;dealer&#x27; or &#x27;agent&#x27;.
+ * @param id - The ID of the dealer for which to retrieve the stores.
+ * @returns A Promise that resolves to an array of Store documents, each with filtered timeline entries.
+ */
+  async findAllForDealer(id: Types.ObjectId) {
+    const stores &#x3D; await this.storeSchema.find({ user: id, &#x27;timeline.role&#x27;: { $in: [TimelineRole.dealer, TimelineRole.agent] } })
+      .populate(&#x27;user&#x27;, { username: 1, email: 1, phone: 1, _id: 0 })
+      .populate(&#x27;timeline.user&#x27;, { username: 1, _id: 0 })
+      .populate(&#x27;remote_services&#x27;, { name: 1, _id: 0 }).exec();
+    return stores.map((store: Store) &#x3D;&gt; {
+      store.timeline &#x3D; store.timeline.filter((timeline: Timeline) &#x3D;&gt; timeline.role &#x3D;&#x3D;&#x3D; TimelineRole.dealer || timeline.role &#x3D;&#x3D;&#x3D; TimelineRole.agent);
+      return store;
+    });
+  }
+
+  /**
+   * Retrieves a single store document from the database by its ID.
+   *
+   * @param id - The unique identifier of the store to retrieve.
+   * @returns A Promise that resolves to the Store document if found, or null if not found.
+   */
+  async findOne(id: Types.ObjectId) {
+    return await this.storeSchema.findById(id);
+  }
+
+  /**
+   * Retrieves a single store document from the database by its alias.
+   * This function also populates the &#x27;remote_services&#x27; and &#x27;award&#x27; fields of the store document.
+   *
+   * @param alias - The unique alias of the store to retrieve.
+   * @returns A Promise that resolves to the populated Store document if found, or null if not found.
+   */
+  async findOneByAlias(alias: string) {
+    return await this.storeSchema.findOne({ alias }).populate(&#x27;remote_services&#x27;).populate(&#x27;award&#x27;);
+  }
+
+  /**
+   * The function &#x60;getStoreStatusWithCount&#x60; uses the aggregate method to group store documents by
+   * status and count the occurrences of each status.
+   * @returns The &#x60;getStoreStatusWithCount()&#x60; function is returning the aggregated result of the
+   * storeSchema collection grouped by the &#x27;status&#x27; field. It returns an array of objects where each
+   * object represents a unique &#x27;status&#x27; value along with the count of occurrences of that status in
+   * the collection.
+   */
+  getStoreStatusWithCount() {
+    return this.storeSchema.aggregate([
+      {
+        $group: {
+          _id: &#x27;$status&#x27;,
+          count: { $sum: 1 }
+        }
+      }
+    ])
+  }
+
+  /**
+   * Updates a store&#x27;s information in the database.
+   * If a new logo is provided, it will delete the old logo from AWS S3 storage.
+   *
+   * @param id - The unique identifier of the store to be updated.
+   * @param updateStoreDto - Data transfer object containing the updated store information.
+   * @returns A Promise that resolves to the updated store document.
+   */
+  async update(id: Types.ObjectId, updateStoreDto: UpdateStoreDto) {
+    // check user has logo before
+    if (updateStoreDto.logo) {
+      // find user and store object to verify logo is changed or not
+      const store &#x3D; await this.storeSchema.findById(id);
+      if (store.logo.name !&#x3D;&#x3D; updateStoreDto.logo.name) {
+        await this.awsS3Service.delete(store.logo.path + store.logo.name);
+      }
+    }
+    // update object
+    return await this.storeSchema.findByIdAndUpdate(id, { $set: updateStoreDto });
+  }
+
+  /**
+   * Updates the status of a store in the database.
+   * 
+   * @param id - The unique identifier of the store to be updated.
+   * @param status - The new status to be assigned to the store.
+   * @returns A Promise that resolves to the updated store document, or null if no document was found and updated.
+   */
+  async updateStoreStatus(id: Types.ObjectId, status: StoreStatus) {
+    return await this.storeSchema.findByIdAndUpdate(id, { status });
+  }
+
+  /**
+   * The function &#x60;addStoreTimeline&#x60; asynchronously adds a timeline data to a store document in a
+   * MongoDB collection.
+   * @param id - The &#x60;id&#x60; parameter is of type &#x60;Types.ObjectId&#x60;, which is typically used to represent a
+   * unique identifier for a document in a MongoDB database.
+   * @param {Timeline} data - The &#x60;data&#x60; parameter in the &#x60;addStoreTimeline&#x60; function represents the
+   * timeline data that you want to add to a store document in the database. This data typically
+   * includes information such as events, activities, or updates related to the store.
+   * @returns The &#x60;addStoreTimeline&#x60; function is returning the result of the &#x60;findOneAndUpdate&#x60;
+   * operation on the &#x60;storeSchema&#x60; collection. It is updating the document with the specified &#x60;_id&#x60; by
+   * pushing the &#x60;data&#x60; object into the &#x60;timeline&#x60; array field.
+   */
+  async addStoreTimeline(id: Types.ObjectId, data: Timeline) {
+    // add store timeline
+    return await this.storeSchema.findOneAndUpdate({ _id: id }, { $push: { timeline: data } });
+  }
+
+  /**
+   * Updates the awards for a store by either adding or removing an award.
+   * 
+   * @param manageUserAwardDto - Data transfer object containing store and award information.
+   * @param manageUserAwardDto.store - The ID of the store to update.
+   * @param manageUserAwardDto.award - The award to add or remove.
+   * @param mode - Determines whether to add (&#x27;push&#x27;) or remove the award. Defaults to &#x27;push&#x27;.
+   * @returns A Promise that resolves when the operation is complete.
+   */
+  async updateAddAndRemoveAward(manageUserAwardDto: ManageUserAwardDto, mode: string &#x3D; &#x27;push&#x27;) {
+    if (mode &#x3D;&#x3D;&#x3D; &#x27;push&#x27;) {
+      await this.storeSchema.findByIdAndUpdate({ _id: manageUserAwardDto.store }, { $addToSet: { award: manageUserAwardDto.award } });
+    } else {
+      await this.storeSchema.findByIdAndUpdate({ _id: manageUserAwardDto.store }, { $pull: { award: manageUserAwardDto.award } });
+    }
+  }
+  
+  /**
+   * Removes a store from the database.
+   * 
+   * This function deletes a store document from the database based on its unique identifier.
+   * 
+   * @param id - The unique identifier (ObjectId) of the store to be removed.
+   * @returns A Promise that resolves to the deleted store document, or null if no document was found and deleted.
+   */
+  async remove(id: Types.ObjectId) {
+    return this.storeSchema.findByIdAndDelete(id);
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'StoreService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
